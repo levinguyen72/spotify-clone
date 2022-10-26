@@ -7,17 +7,14 @@ interface IMainProps {
 
 const Main: React.FunctionComponent<IMainProps> = (props) => {
   const dispatch = useDispatch();
+  //kiểm tra xem có access tokem chưa
   const token = useSelector((state) => state.auth.access_token);
-console.log(1111111111111,auth_url)
+
   React.useEffect(() => {
-    // if (!token) {
-      // const _token = authService.getToken();
       if (window.location.href.includes('access_token')) {
-        // dispatch(authService.setToken(_token));
-        // authService.setToken(_token.access_token);\
-        
-        console.log(token)
+        // nếu có access token thì lưu lại vào session
       } else {
+        // không thì redirect về trang login
         window.location.href = auth_url
       }
     // }
