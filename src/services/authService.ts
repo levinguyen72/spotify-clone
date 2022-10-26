@@ -3,6 +3,7 @@ import {
   AUTH_URL,
   CLIENT_SECRET,
   CLIENT_ID,
+  REFRESH_URL,
   URI,
 } from "../configs";
 
@@ -40,6 +41,7 @@ import {
     }
 
     // export const setToken = (access_token: string) => {
-    //     this.access_token = access_token;
+    //     const access_token = access_token;
+       
     // }
-
+    
