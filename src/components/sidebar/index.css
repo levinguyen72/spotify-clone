@@ -1,0 +1,49 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    height: 718px;
+    flex: 0.2;
+    background-color: #040404;
+    color: white;
+    min-width: 230px;
+    padding: 0 10px;
+    top: 0;
+   
+}
+.sidebar__logo{
+    height: 70px;
+    padding: 10px;
+    margin-right: auto;
+    
+}
+.sidebar-list{
+    color: white;
+    text-decoration: none !important;
+
+    
+}
+.sidebar-list__logo{
+    color: white
+}
+.sidebar-list:hover{
+    color: #dbdbdb;
+}
+.sidebar-list__logo:hover{
+    color: #dbdbdb;
+}
+.sidebar-list__download{
+    color: white;
+    bottom: 0 !important;
+    margin-top: 110px;
+}
+.sidebar_divider{
+    height: 1px;
+    background-color: #ddd;
+    width: 100%;
+    z-index: 2 !important;
+    margin: 20px 0 !important;
+}
+.sidebar-container{
+    display: flex;
+    background-color: red !important;
+}
