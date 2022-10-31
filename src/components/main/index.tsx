@@ -1,13 +1,20 @@
+//@ts-nocheck
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { JsxAttribute } from "typescript";
 import { auth_url, getToken, getUriRefresh } from "../../services/authService";
-
+import Sidebar from "../sidebar";
+import Footer from "../footer";
 //
 import { getCurrentPlaying } from "../../services/currentPlayed";
 //
-interface IMainProps {}
+interface IMainProps {
+  children?: JsxAttribute | undefined;
+}
 
-const Main: React.FunctionComponent<IMainProps> = (props) => {
+const Main: React.FunctionComponent<IMainProps> = ({
+  children,
+}: IMainProps) => {
   const dispatch = useDispatch();
   //kiểm tra xem có access token chưa
   const token = useSelector((state) => state.auth.access_token);
@@ -20,6 +27,7 @@ const Main: React.FunctionComponent<IMainProps> = (props) => {
       // nếu có access token thì lưu lại vào session
       window.sessionStorage.setItem("token", _token.token);
     } else {
+      console.log(auth_url);
       // không thì redirect về trang login
       window.location.href = auth_url;
     }
@@ -33,7 +41,9 @@ const Main: React.FunctionComponent<IMainProps> = (props) => {
 
   return (
     <div>
-      <h1>Main</h1>
+      <Sidebar />
+      <h1>{children}</h1>
+      <Footer />
     </div>
   );
 };
