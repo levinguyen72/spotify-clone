@@ -14,6 +14,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import CurrentPlayed from "../RecentlyPlayed";
+import RecentlyPlayed from "../RecentlyPlayed";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -44,9 +46,9 @@ function ResponsiveAppBar() {
   return (
     <AppBar position="static" className="body">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
+        <Toolbar disableGutters className="header">
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+          {/* <Typography
             variant="h6"
             noWrap
             component="a"
@@ -62,7 +64,7 @@ function ResponsiveAppBar() {
             }}
           >
             LOGO
-          </Typography>
+          </Typography> */}
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -131,6 +133,7 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
+          {/* account logo */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -161,6 +164,10 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
         </Toolbar>
+
+        {/* current played */}
+        <RecentlyPlayed />
+        {/*current played  */}
       </Container>
     </AppBar>
   );

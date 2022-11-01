@@ -4,7 +4,8 @@
     right: 0 !important;
     width: 85% !important;
     margin-left: 15%;
-    height: 100vh;
+    /* height: 100vh; */
+    height: calc(100% - 4rem);
     overflow-y: overlay;
     flex: 0.8;
     
@@ -80,3 +81,7 @@
     font-size: 14px;
   }
   
+  .header{
+    padding-top: 30px;
+    margin-bottom: 40px;
+  }

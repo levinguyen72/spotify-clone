@@ -1,0 +1,23 @@
+.song{
+    background-color: #181818 !important;
+    border-radius: 2px;
+    flex: 1;
+    padding: 16px;
+    position: relative;
+    width: 100%;
+}
+.song_info{
+    min-height: 62px;
+    
+}
+.song-author{
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #a7a7a7;
+    text-decoration: none;
+}
+.song-title{
+    font-size: 1rem;
+    font-weight: 700;
+
+}

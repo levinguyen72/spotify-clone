@@ -6,10 +6,11 @@ import { auth_url, getToken, getUriRefresh } from "../../services/authService";
 import Sidebar from "../sidebar";
 import Footer from "../footer";
 //
-import { getCurrentPlaying } from "../../services/currentPlayed";
+import { getCurrentPlaying } from "../../services/getRecentlyPlayed";
 //
 interface IMainProps {
   children?: JsxAttribute | undefined;
+  // children?: any;
 }
 
 const Main: React.FunctionComponent<IMainProps> = ({
@@ -21,13 +22,14 @@ const Main: React.FunctionComponent<IMainProps> = ({
 
   React.useEffect(() => {
     if (window.location.href.includes("access_token")) {
-      console.log("111111111================" + token);
-      const _token = dispatch(getToken());
-      console.log(_token);
+      //console.log("token================" + token);
+      const _token = dispatch(getToken()).token;
+      //const _token = getToken();
+      //console.log("dispatch_xxxxxxxxxxxx_token================" + _token);
       // nếu có access token thì lưu lại vào session
-      window.sessionStorage.setItem("token", _token.token);
+      window.sessionStorage.setItem("token", _token);
     } else {
-      console.log(auth_url);
+      //console.log("auth_url================" + auth_url);
       // không thì redirect về trang login
       window.location.href = auth_url;
     }
@@ -40,11 +42,13 @@ const Main: React.FunctionComponent<IMainProps> = ({
   }, []);
 
   return (
-    <div>
-      <Sidebar />
-      <h1>{children}</h1>
-      <Footer />
-    </div>
+    <>
+      <div>
+        <Sidebar />
+        <h1>{children}</h1>
+        <Footer />
+      </div>
+    </>
   );
 };
 
