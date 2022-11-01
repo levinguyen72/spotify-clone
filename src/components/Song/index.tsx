@@ -29,7 +29,7 @@ function Song({ item, itemIndex }: Props) {
         <img
           className="w-auto h-auto inset-0 object-cover mb-4"
           // src="https://i.scdn.co/image/ab67616d00001e02e9c9fc7a8155861f8db6b28f"
-          src={item?.track.album.images[itemIndex].url || ""}
+          src={item?.track.album.images[0].url || ""}
           //
           alt="track cover"
           height="40px"
@@ -52,14 +52,14 @@ function Song({ item, itemIndex }: Props) {
       </div>
       <span className="font-semibold text-white text-[16px] whitespace-nowrap">
         {/* MIX CHILL -artist name */}
-        {item?.track.album.artists[itemIndex].name}
+        {item?.track.album.artists[0].name}
         {/*  */}
         {/* {data */}
       </span>{" "}
       <br />
       <span className="mt-1 text-[14px] text-link">
         {/*  */}
-        {item?.track.album.artists[itemIndex].name}
+        {item?.track.album.artists[0].name}
         Dalab
       </span>
     </a>
