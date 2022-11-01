@@ -6,11 +6,19 @@ import { isTemplateExpression } from "typescript";
 import "./index.css";
 
 type Props = {
-  item: {};
+  // key: string,
+  item: any;
   itemIndex: string;
 };
-
-function Song({}: Props) {
+function Song({ item, itemIndex }: Props) {
+  console.log("item====================");
+  console.log(item);
+  console.log("item.track.album.artists====================");
+  console.log(item.track.album.artists);
+  console.log("itemINDEX====================");
+  console.log(itemIndex);
+  console.log("item.track.album.images");
+  console.log(item.track.album.images);
   return (
     <a
       aria-current="page"
@@ -20,7 +28,12 @@ function Song({}: Props) {
       <div className="relative ">
         <img
           className="w-auto h-auto inset-0 object-cover mb-4"
-          src="https://i.scdn.co/image/ab67616d00001e02e9c9fc7a8155861f8db6b28f"
+          // src="https://i.scdn.co/image/ab67616d00001e02e9c9fc7a8155861f8db6b28f"
+          src={item?.track.album.images[itemIndex].url || ""}
+          //
+          alt="track cover"
+          height="40px"
+          width="40px"
         />
         <button className="w-12 h-12 bg-primary absolute right-2 bottom-2 transition-opacity rounded-full flex items-center shadow-2xl justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100">
           <svg
@@ -38,12 +51,17 @@ function Song({}: Props) {
         </button>
       </div>
       <span className="font-semibold text-white text-[16px] whitespace-nowrap">
-        MIX CHILL
-        {/* {item.track?.album.artist.name} */}
+        {/* MIX CHILL -artist name */}
+        {item?.track.album.artists[itemIndex].name}
+        {/*  */}
         {/* {data */}
       </span>{" "}
       <br />
-      <span className="mt-1 text-[14px] text-link">Da lab</span>
+      <span className="mt-1 text-[14px] text-link">
+        {/*  */}
+        {item?.track.album.artists[itemIndex].name}
+        Dalab
+      </span>
     </a>
   );
 }

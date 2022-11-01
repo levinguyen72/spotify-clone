@@ -10,7 +10,6 @@ const RecentlyPlayed = () => {
   const [songs, setSongs] = useState<any>({});
 
   console.log("@@@@@@@@@@@XX");
-
   console.log(songs);
 
   // get api is promise => use useEffect
@@ -35,7 +34,6 @@ const RecentlyPlayed = () => {
       {songs.items?.map((item: any, index: string) => (
         <Song key={item.track?.id} item={item} itemIndex={index} />
       ))}
-
       {/* <Song />
       <Song />
       <Song />

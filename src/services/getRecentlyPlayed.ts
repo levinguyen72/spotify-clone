@@ -19,7 +19,7 @@ export const getRecentlyPlayed = async () => {
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 //Authorization: `Bearer ${_token}`,
-                Authorization: `Bearer BQATWbCR64X7l6msyBJow_ba_hoTCnsStfaKC9voggyyMS-kMH_NLXqD7sAkN0cgSVXld0wQdHy8keNumO3Gn8RKm-QiXn94GttseFosdDUcceVfpyhAbyPumpAotvyya-u9TQSja5VAHrpIsykJTQkK4S2PD_HFCEzCfBt9Yq-VaAohmgliXmAq-b_vHeCWj-o1EMty`
+                Authorization: `Bearer BQDPumSP7NPde1DJBKAtsHU-6KGSHJi6gIgc_fmkz-7bx9mZmbc_ZJWp7homlPjuD4qwYWnbAKFtMMro_7DkOqfsj1vMCVyrl3mIGRYV-iHMPQdacR3itt3AdanTZ8Yn4ROkSyAbzdVrMPq3boZEVtjUTrBoesejc8Y43gkYXTT3c8Gu0O_NMUxabYiuHa22szZACNFB`
             },
             params: {
                 limit: 10,
