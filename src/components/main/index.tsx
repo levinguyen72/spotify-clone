@@ -5,6 +5,7 @@ import { JsxAttribute } from "typescript";
 import { auth_url, getToken, getUriRefresh } from "../../services/authService";
 import Sidebar from "../sidebar";
 import Footer from "../footer";
+import "./index.css";
 //
 import { getCurrentPlaying } from "../../services/getRecentlyPlayed";
 //
@@ -45,7 +46,9 @@ const Main: React.FunctionComponent<IMainProps> = ({
     <>
       <div>
         <Sidebar />
+
         <h1>{children}</h1>
+
         <Footer />
       </div>
     </>

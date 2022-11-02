@@ -21,13 +21,14 @@
 
 }
 .footer__center{
-    flex: 0.4;
+    flex: 0.4 1;
     padding: 0 100px;
+    margin-left: 130px;
     color: white;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 300px;
+    justify-content: space-around;
+    max-width: 500px;
     font-size: 40px;
 }
 .footer__right{

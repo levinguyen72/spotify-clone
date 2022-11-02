@@ -19,7 +19,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
         <div className="footer__button">
           <BsFillSkipStartFill />
         </div>
-        <div className="footer__button">
+        <div className="footer__button" onClick={() => alert(1234)}>
           <AiFillPlayCircle />
         </div>
         <div className="footer__button">

@@ -21,18 +21,6 @@ function MyApp({ Component, pageProps }: any) {
   console.log(12345);
   return (
     <Provider store={store}>
-      {/* <SideBar /> */}
-      {/* <Body></Body> */}
-      {/* <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Body />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-        </Route>
-      </Routes> */}
-
-      {/*  */}
-
       <Routes>
         <Route
           path="/"

@@ -40,8 +40,5 @@ import {
         return { token, type, expire_in };
     }
     
-    // export const setToken = (access_token: string) => {
-    //     const access_token = access_token;
-       
-    // }
+
     

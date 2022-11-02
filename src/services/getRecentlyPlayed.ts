@@ -1,7 +1,5 @@
 import axios  from 'axios';
-//import scopes from '../configs/scopes'
 
-// const [currentPlaying, setCurrentPlaying] = useState()
 import { getToken } from './authService';
 
 const RECENTLY_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played`
@@ -9,9 +7,9 @@ const RECENTLY_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-
 
 export const getRecentlyPlayed = async () => {
     
-    const _token =  getToken().token
-    console.log("XXXXXXXXXXXXXXX_token========"+_token)
-    // e.preventDefault()
+     const _token =  getToken().token
+    // console.log("XXXXXXXXXXXXXXX_token========"+_token)
+ 
     const { data } = await axios.get(
         RECENTLY_PLAYED_ENDPOINT, {
             
@@ -19,10 +17,10 @@ export const getRecentlyPlayed = async () => {
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 //Authorization: `Bearer ${_token}`,
-                Authorization: `Bearer BQDwz1UtQPqY6b8JPAe5zy8fTI9fKkrpP8ddxTqkaMqfZu8vez8NoUU2AyLUHtzJGJGc-8AiOpznbnzSyNVQH3UHSb0oV5qBYsuVm9hn6m5AUlkwHdqLQrH75EJeBBE2SVS2j8Ri5wbAfKl3Vk8tnYjBT9g9GIu19PImN6VH5nJBP2A0g1pWOaxb0mxuSxyyhCfqTSNZ`
+                Authorization: `Bearer BQDkdXqMmdnFM3JA3U_0wQTN2u37KYNW5vcDYNNqKuU26JTEqDYScECUN6PDYN2HVi3Leo4oAQ7MvlOxn9U4lDBP3VqowPZkCb1M_dyhBsXm1aB6YwL86842zJuQqt8PfRwQXoOM-KWb434fN_pcW397eyOJmRbhpovSUQwU1XAypxvNwVgyqbB4zfqgavp-_kRkYNQ8`
             },
             params: {
-                limit: 10,
+                limit: 30,
                 // additional_types: "track",
                 after: 1484811043508
             }
@@ -33,16 +31,3 @@ export const getRecentlyPlayed = async () => {
 }
 
 
-// const CURRENT_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
-
-// const getCurrentPlaying = async () => {
-//   const access_token = getToken()
-
-//   return fetch(CURRENT_PLAYING_ENDPOINT, {
-//     headers: {
-//       Authorization: `Bearer ${access_token}`,
-//     },
-//   })
-// }
-
-// export { getCurrentPlaying }

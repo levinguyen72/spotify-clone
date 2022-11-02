@@ -1,3 +1,4 @@
+import { getStepLabelUtilityClass } from "@mui/material";
 import Icon from "@mui/material/Icon";
 import { iteratorSymbol } from "immer/dist/internal";
 import React from "react";
@@ -5,20 +6,26 @@ import { NavLink } from "react-router-dom";
 import { isTemplateExpression } from "typescript";
 import "./index.css";
 
+import { startResumePlayback } from "../../services/startResumePlayback";
+
 type Props = {
   // key: string,
   item: any;
   itemIndex: string;
 };
 function Song({ item, itemIndex }: Props) {
-  console.log("item====================");
-  console.log(item);
-  console.log("item.track.album.artists====================");
-  console.log(item.track.album.artists);
-  console.log("itemINDEX====================");
-  console.log(itemIndex);
-  console.log("item.track.album.images");
-  console.log(item.track.album.images);
+  // console.log("item?.track.album.artists===================", itemIndex);
+  // console.log(item.track.album.images[0].url);
+  // function to set play music
+  const setPlay = () => {
+    console.log("running set play");
+    // startResumePlayback();
+  };
+
+  React.useEffect(() => {
+    console.log("running");
+  }, []);
+
   return (
     <a
       aria-current="page"
@@ -35,7 +42,10 @@ function Song({ item, itemIndex }: Props) {
           height="40px"
           width="40px"
         />
-        <button className="w-12 h-12 bg-primary absolute right-2 bottom-2 transition-opacity rounded-full flex items-center shadow-2xl justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100">
+        <button
+          onClick={setPlay}
+          className="w-12 h-12 bg-primary absolute right-2 bottom-2 transition-opacity rounded-full flex items-center shadow-2xl justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100"
+        >
           <svg
             role="img"
             height="24"
@@ -59,8 +69,7 @@ function Song({ item, itemIndex }: Props) {
       <br />
       <span className="mt-1 text-[14px] text-link">
         {/*  */}
-        {item?.track.album.artists[0].name}
-        Dalab
+        {item?.track.album.name}
       </span>
     </a>
   );
