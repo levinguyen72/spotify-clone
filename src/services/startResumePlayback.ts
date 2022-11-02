@@ -24,7 +24,7 @@ export const startResumePlayback = async () => {
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 //Authorization: `Bearer ${_token}`,
-                Authorization: `Bearer BQDkdXqMmdnFM3JA3U_0wQTN2u37KYNW5vcDYNNqKuU26JTEqDYScECUN6PDYN2HVi3Leo4oAQ7MvlOxn9U4lDBP3VqowPZkCb1M_dyhBsXm1aB6YwL86842zJuQqt8PfRwQXoOM-KWb434fN_pcW397eyOJmRbhpovSUQwU1XAypxvNwVgyqbB4zfqgavp-_kRkYNQ8`
+                Authorization: `Bearer BQDf9LzENV6iMsPoDlTaEEv925VngRHfsiVAGa5d_-9O2ggmO4zgTG8dBKhj9zIbl7dODH5fG5IK2WGceHQ5ajpPdV2t8VW9w6fwVTTMMPbiFDzKy5v4oPE5rMdswkHfj1Co4nLiSH2PXHEiiUv-mMjReDyCaw2CEtlLrBV92OJ-yKBabJEnyjJdJNN557T7os4kzKmK`
             },
             params: {
                 // device_id: "0d1841b0976bae2a3a310dd74c0f3df354899bc8",

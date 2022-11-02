@@ -49,7 +49,7 @@ const Main: React.FunctionComponent<IMainProps> = ({
 
         <h1>{children}</h1>
 
-        <Footer />
+        <Footer children={children} />
       </div>
     </>
   );

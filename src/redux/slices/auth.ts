@@ -12,6 +12,12 @@ const initialState = {
   access_token: "",
   refresh_token: "",
   expires_in: 0,
+  //  infor
+  // user: null,
+  // playlists: [],
+  playing: false,
+   item: null,
+
 };
 
 interface ObjResponse {
@@ -40,6 +46,12 @@ const authSlice = createSlice({
       state.access_token = action.payload.access_token;
       state.expires_in = +action.payload.expire_in;
     },
+    setPlaying: (state, action) => {
+      state.playing = action.payload.playing
+    },
+    setItem: (state, action) => {
+      state.item = action.payload.item
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchRefreshToken.fulfilled, (state, action) => {

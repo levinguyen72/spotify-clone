@@ -69,7 +69,7 @@ function Song({ item, itemIndex }: Props) {
       <br />
       <span className="mt-1 text-[14px] text-link">
         {/*  */}
-        {item?.track.album.name}
+        {item?.track.name}
       </span>
     </a>
   );

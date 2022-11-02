@@ -187,6 +187,7 @@ export default function ResponsiveDrawer(props: Props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              height: drawerHeight,
             },
           }}
         >
@@ -199,6 +200,7 @@ export default function ResponsiveDrawer(props: Props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              height: drawerHeight,
             },
           }}
           open
