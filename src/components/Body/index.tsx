@@ -16,9 +16,18 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import CurrentPlayed from "../RecentlyPlayed";
 import RecentlyPlayed from "../RecentlyPlayed";
+import Header from "../Header";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["<<", ">>"];
+const settings = [
+  "Account",
+  "Profile",
+  "Update to Premium",
+  "Support",
+  "Download",
+  "Setting",
+  "Log out",
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -67,6 +76,10 @@ function ResponsiveAppBar() {
           </Typography> */}
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            {/* <div className="header-left">
+              <button>Back</button>
+              <button>Forward</button>
+            </div> */}
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -74,6 +87,7 @@ function ResponsiveAppBar() {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              className="header-btn"
             >
               <MenuIcon />
             </IconButton>
@@ -97,12 +111,14 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" fontSize={30} color="red">
+                    <div className="header-btn">{page}</div>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -120,7 +136,7 @@ function ResponsiveAppBar() {
             }}
           >
             LOGO
-          </Typography>
+          </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
@@ -133,7 +149,6 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          {/* account logo */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -164,6 +179,7 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
         </Toolbar>
+        {/* <Header /> */}
 
         {/* current played */}
         <RecentlyPlayed />

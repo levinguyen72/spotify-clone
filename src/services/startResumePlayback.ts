@@ -10,8 +10,8 @@ const DEVICE_ID =  "0d1841b0976bae2a3a310dd74c0f3df354899bc8"
 
 export const startResumePlayback = async () => {
     
-    const _token = getToken().token
-    console.log("++++++++=")
+    //const _token = getToken().token
+
     
     // const { data } =
     try {
@@ -24,7 +24,7 @@ export const startResumePlayback = async () => {
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 //Authorization: `Bearer ${_token}`,
-                Authorization: `Bearer BQDf9LzENV6iMsPoDlTaEEv925VngRHfsiVAGa5d_-9O2ggmO4zgTG8dBKhj9zIbl7dODH5fG5IK2WGceHQ5ajpPdV2t8VW9w6fwVTTMMPbiFDzKy5v4oPE5rMdswkHfj1Co4nLiSH2PXHEiiUv-mMjReDyCaw2CEtlLrBV92OJ-yKBabJEnyjJdJNN557T7os4kzKmK`
+                Authorization: `Bearer BQCBImlmeZ2xFoxy8toonWZrx8gTKlC8aAzqpUtT_BjqqeTwm8zmWK1itRRIsFyVe8bf74cEcj0gsOZwMja-QNLjl5Bw6iDPu6M8mSdvkomxaaEfP-Kk7FbmqiNb6L23TChqlCVfYBrztYdlTYnKLk0cwf5tiCUnt7tukI5aTmc4tdPJu0RQwMGkPYlb_N-yKYFnGxIB`
             },
             params: {
                 // device_id: "0d1841b0976bae2a3a310dd74c0f3df354899bc8",

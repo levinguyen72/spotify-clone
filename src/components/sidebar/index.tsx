@@ -172,7 +172,6 @@ export default function ResponsiveDrawer(props: Props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* Sidebar */}
         <Drawer
           className="drawer-h"
           container={container}

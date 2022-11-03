@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getRecentlyPlayed } from "../../services/getRecentlyPlayed";
+import Footer from "../footer";
 import Song from "../Song";
 
 type songs = { items?: any };
@@ -20,6 +21,8 @@ const RecentlyPlayed = () => {
 
   // Songs
   if (!songs) return null;
+  // console.log("songs.items[0]===============================");
+  // console.log(songs.items[0].track.album.images[2]);
 
   return (
     <div className="grid grid-cols-5 gap-x-6 mt-10">
@@ -29,7 +32,13 @@ const RecentlyPlayed = () => {
         <Song key={item.track?.id} item={item} itemIndex={index} />
       ))}
 
-      {}
+      {/* {
+        <Footer
+          key={songs.items[0].track?.id}
+          item={songs.items[0]}
+          itemIndex={""}
+        />
+      } */}
     </div>
   );
 };

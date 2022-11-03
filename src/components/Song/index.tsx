@@ -1,12 +1,19 @@
 import { getStepLabelUtilityClass } from "@mui/material";
 import Icon from "@mui/material/Icon";
 import { iteratorSymbol } from "immer/dist/internal";
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink, useActionData } from "react-router-dom";
 import { isTemplateExpression } from "typescript";
 import "./index.css";
 
 import { startResumePlayback } from "../../services/startResumePlayback";
+import { BsSpotify } from "react-icons/bs";
+import { propTypesChildren } from "@material-tailwind/react/types/components/typography";
+import { useDispatch } from "react-redux";
+// import from redux
+import { setItem, setPlaying } from "../../redux/slices/auth";
+
+// import playMusic function api
 
 type Props = {
   // key: string,
@@ -14,18 +21,21 @@ type Props = {
   itemIndex: string;
 };
 function Song({ item, itemIndex }: Props) {
-  // console.log("item?.track.album.artists===================", itemIndex);
-  // console.log(item.track.album.images[0].url);
-  // function to set play music
-  const setPlay = () => {
-    console.log("running set play");
-    // startResumePlayback();
+  const dispatch = useDispatch();
+  const PlaySong = () => {
+    //ERROR
+    // setItem & setPlaying when click on play button
+    // useEffect(() => {
+    dispatch(setItem({ item: item }));
+
+    dispatch(setPlaying({ playing: true }));
+    //ERROR
+
+    alert(" startResumePlayback()");
+    // }, []);
+
+    startResumePlayback();
   };
-
-  React.useEffect(() => {
-    console.log("running");
-  }, []);
-
   return (
     <a
       aria-current="page"
@@ -43,7 +53,7 @@ function Song({ item, itemIndex }: Props) {
           width="40px"
         />
         <button
-          onClick={setPlay}
+          onClick={PlaySong}
           className="w-12 h-12 bg-primary absolute right-2 bottom-2 transition-opacity rounded-full flex items-center shadow-2xl justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100"
         >
           <svg

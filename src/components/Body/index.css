@@ -84,4 +84,20 @@
   .header{
     padding-top: 30px;
     margin-bottom: 40px;
+    position: fixed;
+    top: 0;
+  }
+  #menu-appbar{
+    
+  }
+  
+  .header__left {
+    flex: 0.7;
+    display: flex;
+    background-color: gray;
+    padding: 10px;
+    border-radius: 30px;
+    color: gray;
+    align-items: center !important;
+
   }

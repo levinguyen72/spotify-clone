@@ -16,7 +16,7 @@ const initialState = {
   // user: null,
   // playlists: [],
   playing: false,
-   item: null,
+  item: null,
 
 };
 
@@ -27,6 +27,24 @@ interface ObjResponse {
   expires_in: number;
   refresh_token: string;
 }
+interface RecentlyPlayedParameterObject {
+  limit?: number;
+  after?: number;
+  before?: number;
+}
+
+interface PlayParameterObject {
+  device_id?: string;
+  context_uri?: string;
+  uris?: string[];
+  offset?: {
+    position?: number;
+    uri?: string;
+  };
+  position_ms?: number;
+}
+
+
 
 export const fetchRefreshToken = createAsyncThunk(
   "auth/fetchRefreshToken",
@@ -42,7 +60,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setToken: (state, action) => {
+    setToken: (state, action?) => {
       state.access_token = action.payload.access_token;
       state.expires_in = +action.payload.expire_in;
     },
@@ -60,6 +78,9 @@ const authSlice = createSlice({
   },
 });
 
-export const { setToken } = authSlice.actions;
+export const { setToken, setPlaying, setItem } = authSlice.actions;
 
 export default authSlice.reducer;
+
+console.log("++++++++++++++++++++++")
+console.log(authSlice.reducer)

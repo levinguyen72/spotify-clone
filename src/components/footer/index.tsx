@@ -12,31 +12,31 @@ import { BsFillSkipStartFill, BsFillSkipEndFill } from "react-icons/bs";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { Progress } from "@material-tailwind/react";
 import { useSelector, useDispatch } from "react-redux";
+import { setPlaying } from "../../redux/slices/auth";
 
-interface IFooter {
-  children: any;
-}
-console.log("AAAAAAAAAAAAAAAAAAAA");
+interface IFooter {}
 
-const Footer: React.FunctionComponent<IFooter> = ({ children }) => {
+const Footer: React.FunctionComponent<IFooter> = ({}) => {
+  const itemIsPlaying: any = useSelector((state: any) => state.auth);
+  console.log("itemIsPlaying");
+  console.log(itemIsPlaying);
   const dispatch = useDispatch();
-  // const handlePlayPause = () => {
-  //   if (playing) {
-  //     children.pause();
-  //     dispatch(setPlaying(false));
-
-  //   } else {
-  //     children.play();
-  //     dispatch(setPlaying(true));
-  //   }
-  // };
+  const handlePlayPause = () => {
+    if (itemIsPlaying.playing) {
+      // children.pause();
+      dispatch(setPlaying(false));
+    } else {
+      // children.play();
+      dispatch(setPlaying(true));
+    }
+  };
 
   return (
     <div className="footer">
       <div className="footer__left">
         {/* <img
           className="footer__left-logo"
-          src={item?.track.album.images[0].url}
+          src={item?.track.album.images[2].url}
           alt={item?.name}
         /> */}
         {/* {item ? (
