@@ -9,15 +9,18 @@ import {
   MdVolumeDown,
 } from "react-icons/md";
 import { BsFillSkipStartFill, BsFillSkipEndFill } from "react-icons/bs";
-import { AiFillPlayCircle } from "react-icons/ai";
+import { AiFillPauseCircle, AiFillPlayCircle } from "react-icons/ai";
 import { Progress } from "@material-tailwind/react";
 import { useSelector, useDispatch } from "react-redux";
 import { setPlaying } from "../../redux/slices/auth";
+import { RootState } from "../../redux/store";
+import { pausePlayback } from "../../services/pausePlayback";
+import { skipToNext } from "../../services/skipToNext";
 
 interface IFooter {}
 
 const Footer: React.FunctionComponent<IFooter> = ({}) => {
-  const itemIsPlaying: any = useSelector((state: any) => state.auth);
+  const itemIsPlaying = useSelector((state: RootState) => state.auth);
   console.log("itemIsPlaying");
   console.log(itemIsPlaying);
   const dispatch = useDispatch();
@@ -30,7 +33,12 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
       dispatch(setPlaying(true));
     }
   };
-
+  const setPause = () => {
+    pausePlayback();
+  };
+  const setSkipNext = () => {
+    skipToNext();
+  };
   return (
     <div className="footer">
       <div className="footer__left">
@@ -59,13 +67,10 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
           <div className="footer__button">
             <BsFillSkipStartFill />
           </div>
-          <div
-            className="footer__button button-play"
-            onClick={() => alert(1234)}
-          >
-            <AiFillPlayCircle />
+          <div className="footer__button button-play" onClick={setPause}>
+            <AiFillPauseCircle />
           </div>
-          <div className="footer__button">
+          <div className="footer__button" onClick={setSkipNext}>
             <BsFillSkipEndFill />
           </div>
           <div className="footer__button">

@@ -55,31 +55,9 @@ function ResponsiveAppBar() {
   return (
     <AppBar position="static" className="body">
       <Container maxWidth="xl">
-        <Toolbar disableGutters className="header">
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography> */}
-
+        {/* <Header /> */}
+        {/* <Toolbar disableGutters className="header">
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            {/* <div className="header-left">
-              <button>Back</button>
-              <button>Forward</button>
-            </div> */}
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -118,25 +96,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography> */}
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
@@ -178,12 +138,9 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-        </Toolbar>
-        {/* <Header /> */}
+        </Toolbar> */}
 
-        {/* current played */}
-        <RecentlyPlayed />
-        {/*current played  */}
+        {/* <RecentlyPlayed /> */}
       </Container>
     </AppBar>
   );

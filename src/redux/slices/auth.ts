@@ -12,9 +12,6 @@ const initialState = {
   access_token: "",
   refresh_token: "",
   expires_in: 0,
-  //  infor
-  // user: null,
-  // playlists: [],
   playing: false,
   item: null,
 
@@ -82,5 +79,3 @@ export const { setToken, setPlaying, setItem } = authSlice.actions;
 
 export default authSlice.reducer;
 
-console.log("++++++++++++++++++++++")
-console.log(authSlice.reducer)

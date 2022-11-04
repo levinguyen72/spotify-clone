@@ -21,8 +21,6 @@ const RecentlyPlayed = () => {
 
   // Songs
   if (!songs) return null;
-  // console.log("songs.items[0]===============================");
-  // console.log(songs.items[0].track.album.images[2]);
 
   return (
     <div className="grid grid-cols-5 gap-x-6 mt-10">

@@ -3,10 +3,11 @@ import Icon from "@mui/material/Icon";
 import { iteratorSymbol } from "immer/dist/internal";
 import React, { useEffect } from "react";
 import { NavLink, useActionData } from "react-router-dom";
-import { isTemplateExpression } from "typescript";
+import { isConstructorDeclaration, isTemplateExpression } from "typescript";
 import "./index.css";
 
 import { startResumePlayback } from "../../services/startResumePlayback";
+
 import { BsSpotify } from "react-icons/bs";
 import { propTypesChildren } from "@material-tailwind/react/types/components/typography";
 import { useDispatch } from "react-redux";
@@ -23,24 +24,20 @@ type Props = {
 function Song({ item, itemIndex }: Props) {
   const dispatch = useDispatch();
   const PlaySong = () => {
-    //ERROR
-    // setItem & setPlaying when click on play button
     // useEffect(() => {
-    dispatch(setItem({ item: item }));
-
-    dispatch(setPlaying({ playing: true }));
-    //ERROR
-
-    alert(" startResumePlayback()");
-    // }, []);
-
     startResumePlayback();
+    item.play({
+      uri: [`spotify:track:${itemIndex}`],
+    });
+
+    dispatch(setItem({ item: item }));
+    dispatch(setPlaying({ playing: true }));
   };
+
   return (
     <a
       aria-current="page"
       className="bg-footer rounded p-4 transition-all hover:bg-menubg group active mb-4"
-      href="/"
     >
       <div className="relative ">
         <img

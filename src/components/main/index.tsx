@@ -5,13 +5,14 @@ import { JsxAttribute } from "typescript";
 import { auth_url, getToken, getUriRefresh } from "../../services/authService";
 import Sidebar from "../sidebar";
 import Footer from "../footer";
+import Login from "../Login";
+import Root from "../root";
 import "./index.css";
 //
 import { getCurrentPlaying } from "../../services/getRecentlyPlayed";
 //
 interface IMainProps {
-  children?: JsxAttribute | undefined;
-  // children?: any;
+  children?: JSX.Element | JSX.Element[];
 }
 
 const Main: React.FunctionComponent<IMainProps> = ({
@@ -21,36 +22,38 @@ const Main: React.FunctionComponent<IMainProps> = ({
   //kiểm tra xem có access token chưa
   const token = useSelector((state) => state.auth.access_token);
 
+  // React.useEffect(() => {
+  //   if (window.location.href.includes("access_token")) {
+  //     const _token = dispatch(getToken()).token;
+
+  //     window.sessionStorage.setItem("token", _token);
+  //   } else {
+  //     window.location.href = auth_url;
+  //   }
+  // }, [token]);
+  const [isAuth, setIsAuth] = React.useState();
   React.useEffect(() => {
     if (window.location.href.includes("access_token")) {
-      //console.log("token================" + token);
+      setIsAuth(true);
       const _token = dispatch(getToken()).token;
-      //const _token = getToken();
-      //console.log("dispatch_xxxxxxxxxxxx_token================" + _token);
-      // nếu có access token thì lưu lại vào session
+
       window.sessionStorage.setItem("token", _token);
     } else {
-      //console.log("auth_url================" + auth_url);
-      // không thì redirect về trang login
-      window.location.href = auth_url;
+      setIsAuth(false);
     }
-    // }
-  }, [token]);
-
-  React.useEffect(() => {
-    // const _data = dispatch(getCurrentPlaying());
-    // console.log(_data);
-  }, []);
+  }, [isAuth]);
 
   return (
     <>
-      <div>
+      {/* <div>
         <Sidebar />
 
         <h1>{children}</h1>
 
         <Footer children={children} />
-      </div>
+      </div> */}
+
+      {isAuth ? <Root children={children} /> : <Login />}
     </>
   );
 };

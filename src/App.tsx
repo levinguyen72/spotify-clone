@@ -17,8 +17,7 @@ import { getToken } from "./services/authService";
 
 function MyApp({ Component, pageProps }: any) {
   const token = getToken().token;
-  console.log(token);
-  console.log(12345);
+
   return (
     <Provider store={store}>
       <Routes>
@@ -26,7 +25,7 @@ function MyApp({ Component, pageProps }: any) {
           path="/"
           element={
             <Main>
-              <Body />{" "}
+              <Body />
             </Main>
           }
         />
@@ -34,7 +33,7 @@ function MyApp({ Component, pageProps }: any) {
           path="/home"
           element={
             <Main>
-              <Home />{" "}
+              <Home />
             </Main>
           }
         />
@@ -47,12 +46,6 @@ function MyApp({ Component, pageProps }: any) {
           }
         />
       </Routes>
-
-      {/* <Main>
-           
-              <Component {...pageProps} />
-            </Main> */}
-      {/*  */}
     </Provider>
   );
 }
