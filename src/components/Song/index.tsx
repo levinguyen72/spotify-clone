@@ -1,7 +1,7 @@
 import { getStepLabelUtilityClass } from "@mui/material";
 import Icon from "@mui/material/Icon";
 import { iteratorSymbol } from "immer/dist/internal";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useActionData } from "react-router-dom";
 import { isConstructorDeclaration, isTemplateExpression } from "typescript";
 import "./index.css";
@@ -12,6 +12,7 @@ import { BsSpotify } from "react-icons/bs";
 import { propTypesChildren } from "@material-tailwind/react/types/components/typography";
 import { useDispatch } from "react-redux";
 import { setItem, setPlaying } from "../../redux/slices/auth";
+import { startTrack } from "../../services/startTrack";
 
 // import playMusic function api
 
@@ -21,17 +22,23 @@ type Props = {
   itemIndex: string;
 };
 function Song({ item, itemIndex }: Props) {
+  // const [isPlaying, setIsPlaying] = useState(false);
   const dispatch = useDispatch();
-  // const PlaySong = () => {
+  const PlaySongID = () => {
+    console.log("item");
+    console.log(item);
+    console.log("item.track.id");
+    console.log(item.track.id);
+    startTrack(item.track.id);
+    // setIsPlaying(true)
 
-  //   startResumePlayback();
-  //   item.play({
-  //     uri: [`spotify:track:${itemIndex}`],
-  //   });
+    // item.play({
+    //   uri: [`spotify:album:${itemIndex}`],
+    // });
 
-  //   dispatch(setItem({ item: item }));
-  //   dispatch(setPlaying({ playing: true }));
-  // };
+    // dispatch(setItem({ item: item }));
+    // dispatch(setPlaying({ playing: true }));
+  };
 
   return (
     <a
@@ -47,8 +54,9 @@ function Song({ item, itemIndex }: Props) {
           height="40px"
           width="40px"
         />
+        {}
         <button
-          // onClick={PlaySong}
+          onClick={PlaySongID}
           className="w-12 h-12 bg-primary absolute right-2 bottom-2 transition-opacity rounded-full flex items-center shadow-2xl justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100"
         >
           <svg
