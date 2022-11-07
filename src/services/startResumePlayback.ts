@@ -1,3 +1,4 @@
+import { getDeviceID } from './getIdDevices';
 import axios  from 'axios';
 //import scopes from '../configs/scopes'
 
@@ -6,7 +7,10 @@ import { getToken } from './authService';
 import { _fakeToken } from '../configs';
 
 const START_RESUME_PLAYBACK_ENDPOINT = `https://api.spotify.com/v1/me/player/play`
-const DEVICE_ID =  `0d1841b0976bae2a3a310dd74c0f3df354899bc8`
+// const device_id =  `0d1841b0976bae2a3a310dd74c0f3df354899bc8`
+
+const device_id = getDeviceID
+
 
 
 export const startResumePlayback = async () => {
@@ -18,7 +22,7 @@ export const startResumePlayback = async () => {
     // try {
         const plMusic = await axios.put(
             START_RESUME_PLAYBACK_ENDPOINT,
-            DEVICE_ID,
+            device_id,
             // `https://api.spotify.com/v1/me/player/play?device_id=${DEVICE_ID}`,
             {
                 
@@ -28,6 +32,7 @@ export const startResumePlayback = async () => {
                     "Content-Type": "application/json",
                     //Authorization: `Bearer ${_token}`,
                     Authorization: `Bearer ${_fakeToken}`
+                    // Authorization: `Bear BQAn_Aw1bHR6_bfc2BTuTKsf_0RWiPp5UiGwqsdcaeLSGUop_9AoUGdRPxoV-zoTE8WMVRsQYH-e55YT7SI3H3rhX3DTQJw-cq0g7oiuZYBsboa3dsxQ-2FyLvWAlnN-qkcrXYv-0tfA817XjjCHFDVnBfUyGOK15ge0UiGXlzPfIoFXX5ecS6D5M2j8ouN9MOsIgxwf5LA`
                 },
                 params: {
                     // device_id: "0d1841b0976bae2a3a310dd74c0f3df354899bc8",
@@ -42,8 +47,7 @@ export const startResumePlayback = async () => {
                     },
             }
         )
-        console.log("startResumePlayback")
-        console.log(_token)
+       
     
 
   

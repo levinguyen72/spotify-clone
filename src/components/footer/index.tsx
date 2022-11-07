@@ -16,13 +16,17 @@ import { setPlaying } from "../../redux/slices/auth";
 import { RootState } from "../../redux/store";
 import { pausePlayback } from "../../services/pausePlayback";
 import { skipToNext } from "../../services/skipToNext";
+import { startResumePlayback } from "../../services/startResumePlayback";
+import { useState } from "react";
+import { skipToPrevious } from "../../services/skipToPrevious";
+import { setRepeatMode } from "../../services/setRepeatMode";
+import { getDeviceID } from "../../services/getIdDevices";
 
 interface IFooter {}
 
 const Footer: React.FunctionComponent<IFooter> = ({}) => {
   const itemIsPlaying = useSelector((state: RootState) => state.auth);
-  console.log("itemIsPlaying");
-  console.log(itemIsPlaying);
+
   const dispatch = useDispatch();
   const handlePlayPause = () => {
     if (itemIsPlaying.playing) {
@@ -33,12 +37,26 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
       dispatch(setPlaying(true));
     }
   };
+
   const setPause = () => {
     pausePlayback();
+    setIsPlaying(false);
   };
   const setSkipNext = () => {
     skipToNext();
   };
+  const setSkipPrevious = () => {
+    skipToPrevious();
+  };
+  const setPlay = () => {
+    startResumePlayback();
+    setIsPlaying(true);
+  };
+  const setRepeat = () => {
+    setRepeatMode();
+  };
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <div className="footer">
       <div className="footer__left">
@@ -64,16 +82,23 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
             {" "}
             <MdShuffle />{" "}
           </div>
-          <div className="footer__button">
+          <div className="footer__button" onClick={setSkipPrevious}>
             <BsFillSkipStartFill />
           </div>
-          <div className="footer__button button-play" onClick={setPause}>
-            <AiFillPauseCircle />
-          </div>
+          {isPlaying ? (
+            <div className="footer__button button-play" onClick={setPause}>
+              <AiFillPauseCircle />
+            </div>
+          ) : (
+            <div className="footer__button button-play" onClick={setPlay}>
+              <AiFillPlayCircle />
+            </div>
+          )}
+
           <div className="footer__button" onClick={setSkipNext}>
             <BsFillSkipEndFill />
           </div>
-          <div className="footer__button">
+          <div className="footer__button" onClick={setRepeat}>
             <MdRepeat />
           </div>
         </div>

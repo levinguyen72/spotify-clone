@@ -11,7 +11,6 @@ import { startResumePlayback } from "../../services/startResumePlayback";
 import { BsSpotify } from "react-icons/bs";
 import { propTypesChildren } from "@material-tailwind/react/types/components/typography";
 import { useDispatch } from "react-redux";
-// import from redux
 import { setItem, setPlaying } from "../../redux/slices/auth";
 
 // import playMusic function api
@@ -23,34 +22,33 @@ type Props = {
 };
 function Song({ item, itemIndex }: Props) {
   const dispatch = useDispatch();
-  const PlaySong = () => {
-    // useEffect(() => {
-    startResumePlayback();
-    item.play({
-      uri: [`spotify:track:${itemIndex}`],
-    });
+  // const PlaySong = () => {
 
-    dispatch(setItem({ item: item }));
-    dispatch(setPlaying({ playing: true }));
-  };
+  //   startResumePlayback();
+  //   item.play({
+  //     uri: [`spotify:track:${itemIndex}`],
+  //   });
+
+  //   dispatch(setItem({ item: item }));
+  //   dispatch(setPlaying({ playing: true }));
+  // };
 
   return (
     <a
       aria-current="page"
       className="bg-footer rounded p-4 transition-all hover:bg-menubg group active mb-4"
+      href="#"
     >
       <div className="relative ">
         <img
           className="w-auto h-auto inset-0 object-cover mb-4"
-          // src="https://i.scdn.co/image/ab67616d00001e02e9c9fc7a8155861f8db6b28f"
           src={item?.track.album.images[0].url || ""}
-          //
           alt="track cover"
           height="40px"
           width="40px"
         />
         <button
-          onClick={PlaySong}
+          // onClick={PlaySong}
           className="w-12 h-12 bg-primary absolute right-2 bottom-2 transition-opacity rounded-full flex items-center shadow-2xl justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100"
         >
           <svg
@@ -68,16 +66,10 @@ function Song({ item, itemIndex }: Props) {
         </button>
       </div>
       <span className="font-semibold text-white text-[16px] whitespace-nowrap">
-        {/* MIX CHILL -artist name */}
         {item?.track.album.artists[0].name}
-        {/*  */}
-        {/* {data */}
       </span>{" "}
       <br />
-      <span className="mt-1 text-[14px] text-link">
-        {/*  */}
-        {item?.track.name}
-      </span>
+      <span className="mt-1 text-[14px] text-link">{item?.track.name}</span>
     </a>
   );
 }
