@@ -44,6 +44,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
   };
   const setPlay = () => {
     startResumePlayback();
+
     setIsPlaying(true);
   };
   const setRepeat = () => {
