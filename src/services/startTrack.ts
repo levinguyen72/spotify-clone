@@ -1,5 +1,6 @@
 import { getDeviceID } from './getIdDevices';
-import axios  from 'axios';
+import axios from 'axios';
+import SpotifyApi from "spotify-web-api-js";
 //import scopes from '../configs/scopes'
 
 // const [currentPlaying, setCurrentPlaying] = useState()
@@ -37,7 +38,7 @@ export const startTrack = async (id: any) => {
                 params: {
                     // device_id: "0d1841b0976bae2a3a310dd74c0f3df354899bc8",
                     
-                        "context_uri": `spotify:track:${id}`,
+                        "context_uri": `spotify:album:${id}`,
                         "offset": {
                         "position": 5
                         },

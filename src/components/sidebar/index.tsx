@@ -26,7 +26,7 @@ import "./index.css";
 import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
-const drawerHeight = 716;
+const drawerHeight = 690;
 
 interface Props {
   /**

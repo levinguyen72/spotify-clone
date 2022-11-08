@@ -25,18 +25,12 @@ import { getDeviceID } from "../../services/getIdDevices";
 interface IFooter {}
 
 const Footer: React.FunctionComponent<IFooter> = ({}) => {
-  const itemIsPlaying = useSelector((state: RootState) => state.auth);
+  const itemIsPlaying = useSelector((state: RootState) => state.auth.item);
 
   const dispatch = useDispatch();
-  const handlePlayPause = () => {
-    if (itemIsPlaying.playing) {
-      // children.pause();
-      dispatch(setPlaying(false));
-    } else {
-      // children.play();
-      dispatch(setPlaying(true));
-    }
-  };
+
+  console.log("BBBBBBBBBB");
+  console.log(itemIsPlaying);
 
   const setPause = () => {
     pausePlayback();
@@ -60,19 +54,27 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
   return (
     <div className="footer">
       <div className="footer__left">
-        {/* <img
-          className="footer__left-logo"
-          src={item?.track.album.images[2].url}
-          alt={item?.name}
-        /> */}
-        {/* {item ? (
-          
-        ): (
+        {itemIsPlaying ? (
+          <>
+            <img
+              className="footer__left-logo"
+              src={itemIsPlaying?.track.album.images[2].url}
+              alt={itemIsPlaying?.track.name}
+            />
+            <div className="footer__songInfo">
+              <h5 className="footer_songArtist">
+                <a>{itemIsPlaying?.track.album.artists[0].name}</a>
+              </h5>
+              <h5 className="footer_songName">
+                <a>{itemIsPlaying?.track.name}</a>
+              </h5>
+            </div>
+          </>
+        ) : (
           <div className="footer__songInfo">
-          <h4>No song is playing</h4>
-          <p>...</p>
-        </div>
-        )} */}
+            <h4>No song is playing</h4>
+          </div>
+        )}
       </div>
 
       <div className="footer__center ">

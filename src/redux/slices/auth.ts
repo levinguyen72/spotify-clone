@@ -8,7 +8,15 @@ interface State {
   expires_in: number;
 }
 
-const initialState = {
+type TAuthState = {
+  access_token: string
+  refresh_token: string,
+  expires_in: number,
+  playing: boolean,
+  item: any,
+}
+
+const initialState: TAuthState = {
   access_token: "",
   refresh_token: "",
   expires_in: 0,
