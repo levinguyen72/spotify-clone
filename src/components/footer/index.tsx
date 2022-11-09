@@ -1,8 +1,6 @@
 import * as React from "react";
 import "./index.css";
 import {
-  MdReplay10,
-  MdForward10,
   MdShuffle,
   MdRepeat,
   MdPlaylistAddCheck,
@@ -20,11 +18,12 @@ import { startResumePlayback } from "../../services/startResumePlayback";
 import { useState } from "react";
 import { skipToPrevious } from "../../services/skipToPrevious";
 import { setRepeatMode } from "../../services/setRepeatMode";
-import { getDeviceID } from "../../services/getIdDevices";
 
+import SpotifyApi from "spotify-web-api-js";
 interface IFooter {}
 
 const Footer: React.FunctionComponent<IFooter> = ({}) => {
+  const spotify = new SpotifyApi();
   const itemIsPlaying = useSelector((state: RootState) => state.auth.item);
 
   const dispatch = useDispatch();
@@ -43,7 +42,10 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     skipToPrevious();
   };
   const setPlay = () => {
-    startResumePlayback();
+    // startResumePlayback(itemIsPlaying.track.id);
+    spotify.play({
+      context_uri: `spotify:playlist:37i9dQZEVXcJZyENOWUFo7`,
+    });
 
     setIsPlaying(true);
   };

@@ -17,12 +17,10 @@ import { startTrack } from "../../services/startTrack";
 // import playMusic function api
 
 type Props = {
-  // key: string,
   item: any;
   itemIndex: string;
 };
 function Song({ item, itemIndex }: Props) {
-  // const [isPlaying, setIsPlaying] = useState(false);
   const dispatch = useDispatch();
   const PlaySongID = () => {
     console.log("item");
@@ -30,15 +28,8 @@ function Song({ item, itemIndex }: Props) {
     console.log("item.track.id");
     console.log(item.track.id);
     startTrack(item.track.id);
-
-    // setIsPlaying(true)
-
-    // item.play({
-    //   uri: [`spotify:album:${itemIndex}`],
-    // });
     console.log("AAAAAAAA");
     dispatch(setItem({ item }));
-    // dispatch(setPlaying({ playing: true }));
   };
 
   return (

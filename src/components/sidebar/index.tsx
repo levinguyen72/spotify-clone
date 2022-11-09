@@ -37,6 +37,9 @@ interface Props {
 }
 
 export default function ResponsiveDrawer(props: Props) {
+  const setSearch = () => {
+    alert(124);
+  };
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -70,7 +73,7 @@ export default function ResponsiveDrawer(props: Props) {
         {/*  */}
         <NavLink to="/search">
           <ListItem disablePadding className="sidebar-list">
-            <ListItemButton>
+            <ListItemButton onClick={setSearch}>
               <ListItemIcon>
                 <SearchIcon className="sidebar-list__logo" />
               </ListItemIcon>
