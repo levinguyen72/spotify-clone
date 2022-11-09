@@ -6,7 +6,7 @@ import { _fakeToken } from '../configs';
 const SEARCH_ENDPOINT = `https://api.spotify.com/v1/search`
 
 
-export const searchForItem = async () => {
+export const searchForItem = async (searchValue: any) => {
     
      const _token =  getToken().token
     
@@ -21,7 +21,7 @@ export const searchForItem = async () => {
                 Authorization: `Bearer ${_fakeToken}`
             },
             params: {
-                q: "remaster%20track:Doxy%20artist:Miles%20Davis",
+                q: `${searchValue}`,
                 type: "track, artist",
                 limit: 10,
                 offset: 5

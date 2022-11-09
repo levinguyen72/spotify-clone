@@ -1,4 +1,5 @@
 import * as React from "react";
+import { searchForItem } from "../../services/searchForItem";
 import "./index.css";
 
 // import SearchIcon from "@mui/icons-material/Search";
@@ -7,6 +8,10 @@ interface ISearch {}
 const Search: React.FunctionComponent<ISearch> = ({}) => {
   const [searchValue, setSearchValue] = React.useState<any>();
   const inputValue = React.useRef<any>();
+  const setValue = () => {
+    setSearchValue(inputValue.current.value);
+    searchForItem(inputValue.current.value);
+  };
   console.log(searchValue);
   return (
     <section className="searchContainer">
@@ -23,7 +28,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         </svg>
         <input
           type="text"
-          onChange={() => setSearchValue(inputValue.current.value)}
+          onChange={setValue}
           className="searchInput"
           placeholder="What do you want to listen to?"
           ref={inputValue}
