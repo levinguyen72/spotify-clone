@@ -10,11 +10,13 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
   const inputValue = React.useRef<any>();
   const setValue = () => {
     setSearchValue(inputValue.current.value);
-    searchForItem(inputValue.current.value);
+    // searchForItem(inputValue.current.value);
+    searchForItem();
   };
   console.log(searchValue);
   return (
     <section className="searchContainer">
+      {/* input */}
       <div className="searchInputContainer">
         <svg
           role="img"
@@ -35,6 +37,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         />
       </div>
 
+      {/* result */}
       <div className="searchResult">
         <h1>{searchValue}</h1>
       </div>

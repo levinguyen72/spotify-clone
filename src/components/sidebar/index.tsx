@@ -26,7 +26,7 @@ import "./index.css";
 import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
-const drawerHeight = 690;
+const drawerHeight = 680;
 
 interface Props {
   /**
@@ -38,7 +38,7 @@ interface Props {
 
 export default function ResponsiveDrawer(props: Props) {
   const setSearch = () => {
-    alert(124);
+    // alert(124);
   };
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);

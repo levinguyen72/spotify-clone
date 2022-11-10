@@ -6,7 +6,7 @@ const CLIENT_ID = `8d5346bd5c3f4a95bbacaede3940227b`;
 const CLIENT_SECRET = `99a2d014a58a4df5878a9b84a1158f05`;
 const URI = `http://localhost:3000`;
 
-const _fakeToken = `BQDhTWZQGCpHk9kymDrrPvsg46gos_X4lT4Y1fGmfk58cQ3sbJym0_-9675ZgbUjz4dptKM6tfeDmcgmIu-adTBCytKqlZvxCbPW4M5-bzH8naw5bRkibFFYUSlMfVa_76RoYnG0FUCRF-IlD9nC35ZjkgxaYK_MINQs5xmpyGGtBdGXItUff66mcAk1--MI_Ws8nOl60rDP7n5WRcuoRCj8s0r4Cgg5-MHZ5B97u8RinA`
+const _fakeToken = `BQCJwbmC_nXoc3BnBNKjQS-qkby22E3DFkTKNy1WueWMnFuf4lmf0pobxA-NGE5SMVuphYQfmCMUZXc49sBdaoJrrOB-FKdNaF0zrSTojRSZygbLJH3ci4H-O_fQ9Wlck4r4DUWWAL2-R79ikuByQklp-Wx6w_aN9CB3tNrxl5bZOTOKywQJmUS_Sal7vhdu_EWJVCwgpa2mRPhYhbPZ2g`
 
 
 export { AUTH_URL, REFRESH_URL, CLIENT_SECRET, CLIENT_ID, URI, _fakeToken };

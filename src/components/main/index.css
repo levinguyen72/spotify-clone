@@ -3,3 +3,6 @@
     height: calc(100% - 4rem) !important;
     padding-bottom: -4rem;
 }
+*{
+    box-sizing: border-box;
+}
