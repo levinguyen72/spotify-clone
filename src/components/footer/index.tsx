@@ -42,10 +42,12 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     skipToPrevious();
   };
   const setPlay = () => {
-    // startResumePlayback(itemIsPlaying.track.id);
-    spotify.play({
-      context_uri: `spotify:playlist:37i9dQZEVXcJZyENOWUFo7`,
-    });
+    startResumePlayback();
+
+    //startResumePlayback(itemIsPlaying.track.id);
+    // spotify.play({
+    //   context_uri: `spotify:playlist:37i9dQZEVXcJZyENOWUFo7`,
+    // });
 
     setIsPlaying(true);
   };

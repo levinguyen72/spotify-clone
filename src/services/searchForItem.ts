@@ -7,7 +7,7 @@ const SEARCH_ENDPOINT = `https://api.spotify.com/v1/search`
 
 
 //export const searchForItem = async (searchValue: any) => {
-export const searchForItem = async () => {
+export const searchForItem = async (searchValue: string) => {
     
      const _token =  getToken().token
     
@@ -20,13 +20,16 @@ export const searchForItem = async () => {
                 "Content-Type": "application/json",
                 //Authorization: `Bearer ${_token}`,
                 Authorization: `Bearer ${_fakeToken}`
+                //Authorization: `Bearer BQCJwbmC_nXoc3BnBNKjQS-qkby22E3DFkTKNy1WueWMnFuf4lmf0pobxA-NGE5SMVuphYQfmCMUZXc49sBdaoJrrOB-FKdNaF0zrSTojRSZygbLJH3ci4H-O_fQ9Wlck4r4DUWWAL2-R79ikuByQklp-Wx6w_aN9CB3tNrxl5bZOTOKywQJmUS_Sal7vhdu_EWJVCwgpa2mRPhYhbPZ2g`
+
             },
             params: {
                 // q: `${searchValue}`,
-                q: `remaster%20track:Doxy%20artist:Miles%20Davis`,
-                type: "track, artist",
-                limit: 10,
-                offset: 5
+                q: `${searchValue}`,
+                type: "track,artist",
+                market: "ES",
+                limit: 1,
+                offset: 0
                 
             }
         }

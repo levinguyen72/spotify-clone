@@ -9,11 +9,12 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
   const [searchValue, setSearchValue] = React.useState<any>();
   const inputValue = React.useRef<any>();
   const setValue = () => {
-    setSearchValue(inputValue.current.value);
-    // searchForItem(inputValue.current.value);
-    searchForItem();
+    searchForItem(inputValue.current.value).then((res) => {
+      console.log(res);
+      setSearchValue(res);
+    });
   };
-  console.log(searchValue);
+
   return (
     <section className="searchContainer">
       {/* input */}
@@ -37,9 +38,57 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         />
       </div>
 
-      {/* result */}
+      {/*  */}
+      <h1 className="">Top Result</h1>
+
       <div className="searchResult">
-        <h1>{searchValue}</h1>
+        <a
+          aria-current="page"
+          className="bg-footer rounded p-4 transition-all group active mb-4"
+          href="#"
+        >
+          <div className="searchResultImg">
+            <img
+              className="w-auto h-auto inset-0 object-cover mb-4"
+              src={
+                searchValue &&
+                searchValue?.tracks &&
+                searchValue?.tracks?.items &&
+                searchValue?.tracks?.items.length &&
+                searchValue?.tracks?.items[0]?.album &&
+                searchValue?.tracks?.items[0]?.album?.images[0]?.url
+              }
+              alt="track cover"
+              height="40px"
+              width="40px"
+            />
+            {}
+            <button
+              // onClick={PlaySongID}
+              className="w-12 h-12 bg-primary right-2 bottom-2 transition-opacity flex items-center shadow-2xl justify-center opacity-0 opacity-100 "
+            >
+              <svg
+                role="img"
+                height="24"
+                width="24"
+                viewBox="0 0 24 24"
+                className="Svg-sc-1bi12j5-0 hDgDGI"
+              >
+                <path
+                  d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
+                  fill="black"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <span className="font-semibold text-white text-[16px] whitespace-nowrap">
+            {searchValue?.tracks.items[0].name}
+          </span>{" "}
+          <br />
+          {/* <span className="mt-1 text-[14px] text-link">
+            {searchValue?.tracks.items[0].name}
+          </span> */}
+        </a>
       </div>
     </section>
   );

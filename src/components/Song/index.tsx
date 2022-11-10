@@ -23,12 +23,12 @@ type Props = {
 function Song({ item, itemIndex }: Props) {
   const dispatch = useDispatch();
   const PlaySongID = () => {
-    console.log("item");
-    console.log(item);
-    console.log("item.track.id");
-    console.log(item.track.id);
+    // console.log("item");
+    // console.log(item);
+    // console.log("item.track.id");
+    // console.log(item.track.id);
     startTrack(item.track.id);
-    console.log("AAAAAAAA");
+    // console.log("AAAAAAAA");
     dispatch(setItem({ item }));
   };
 

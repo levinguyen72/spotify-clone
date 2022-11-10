@@ -34,5 +34,10 @@
     
 }
 .searchResult{
-    padding-left: 200px;
+    padding-left: 20px;
+}
+.searchResultImg > img{
+    width: 232px;
+    height: 232px;
+    object-fit: cover;
 }

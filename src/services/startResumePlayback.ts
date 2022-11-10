@@ -12,7 +12,8 @@ const device_id = getDeviceID
 
 
 
-export const startResumePlayback = async (id: string) => {
+//export const startResumePlayback = async (id: any) => {
+    export const startResumePlayback = async () => {
     
     const _token = getToken().token
 
@@ -32,8 +33,8 @@ export const startResumePlayback = async (id: string) => {
                 params: {
                    
                     
-                     //"context_uri": "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr",
-                    "context_uri":  `spotify:album:${id}`,
+                     "context_uri": "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr",
+                    //"context_uri":  `spotify:album:${id}`,
                         "offset": {
                         "position": 5
                         },
