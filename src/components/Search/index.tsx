@@ -1,8 +1,10 @@
 import * as React from "react";
+import { idText } from "typescript";
 import { searchForItem } from "../../services/searchForItem";
+import SearchSong from "../SearchSong";
+import TopResultResearch from "../TopResultSearch";
 import "./index.css";
 
-// import SearchIcon from "@mui/icons-material/Search";
 interface ISearch {}
 
 const Search: React.FunctionComponent<ISearch> = ({}) => {
@@ -10,7 +12,6 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
   const inputValue = React.useRef<any>();
   const setValue = () => {
     searchForItem(inputValue.current.value).then((res) => {
-      console.log(res);
       setSearchValue(res);
     });
   };
@@ -39,56 +40,22 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
       </div>
 
       {/*  */}
-      <h1 className="">Top Result</h1>
 
-      <div className="searchResult">
-        <a
-          aria-current="page"
-          className="bg-footer rounded p-4 transition-all group active mb-4"
-          href="#"
-        >
-          <div className="searchResultImg">
-            <img
-              className="w-auto h-auto inset-0 object-cover mb-4"
-              src={
-                searchValue &&
-                searchValue?.tracks &&
-                searchValue?.tracks?.items &&
-                searchValue?.tracks?.items.length &&
-                searchValue?.tracks?.items[0]?.album &&
-                searchValue?.tracks?.items[0]?.album?.images[0]?.url
-              }
-              alt="track cover"
-              height="40px"
-              width="40px"
-            />
-            {}
-            <button
-              // onClick={PlaySongID}
-              className="w-12 h-12 bg-primary right-2 bottom-2 transition-opacity flex items-center shadow-2xl justify-center opacity-0 opacity-100 "
-            >
-              <svg
-                role="img"
-                height="24"
-                width="24"
-                viewBox="0 0 24 24"
-                className="Svg-sc-1bi12j5-0 hDgDGI"
-              >
-                <path
-                  d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
-                  fill="black"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <span className="font-semibold text-white text-[16px] whitespace-nowrap">
-            {searchValue?.tracks.items[0].name}
-          </span>{" "}
-          <br />
-          {/* <span className="mt-1 text-[14px] text-link">
-            {searchValue?.tracks.items[0].name}
-          </span> */}
-        </a>
+      <div className="searchResult grid grid-cols-2 gap-4 mt-6">
+        {/* top result */}
+        <div className="my-4">
+          <h1 className="text-2xl font-bold my-4">Top result</h1>
+          <TopResultResearch item={searchValue} />
+        </div>
+        {/* song */}
+        <div className="grid grid-rows-4 gap-4">
+          <h1 className="text-2xl font-bold">Songs</h1>
+          {searchValue?.tracks?.items.map((item: any) => (
+            <>
+              <SearchSong item={item} />
+            </>
+          ))}
+        </div>
       </div>
     </section>
   );

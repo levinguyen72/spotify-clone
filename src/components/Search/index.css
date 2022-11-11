@@ -35,9 +35,11 @@
 }
 .searchResult{
     padding-left: 20px;
+    display:  flex;
+   
 }
-.searchResultImg > img{
-    width: 232px;
-    height: 232px;
-    object-fit: cover;
+
+.searchResultArtist{
+    flex: 1;
+    justify-content: center;
 }
