@@ -1,30 +1,29 @@
+import React from "react";
 import "./index.css";
 type Props = { item: any };
 
-const SearchSong = ({ item }: Props) => {
+const SearchAlbum = ({ item }: Props) => {
   return (
-    <div className="searchResultSong leftResultSong">
+    <div className="searchAlbumItem">
       <a
         aria-current="page"
-        className="rounded p-4 text-gray-400 group active flex hover:bg-footer"
+        className="rounded p-4 text-gray-400 group active block hover:bg-footer"
         href="#"
       >
-        <div className="searchResultImg flex-2 px-2">
+        {/* img */}
+        <div className=" block px-2">
           <img
-            className="w-10 h-10 inset-0 object-cover"
+            className="w-96 h-96 inset-0 object-cover"
             src={
               item &&
               item?.album &&
-              item?.album?.images &&
-              item?.album?.images[1] &&
-              item?.album?.images[1]?.url
+              item?.album?.images[0] &&
+              item?.album?.images[0]?.url
             }
             alt="track cover"
-            height="40px"
-            width="40px"
           />
           {}
-          <button className="w-12 h-12 bg-primary right-2 bottom-2 transition-opacity flex items-center shadow-2xl justify-center opacity-0 opacity-100 ">
+          {/* <button className="w-12 h-12 bg-primary right-2 bottom-2 transition-opacity flex items-center shadow-2xl justify-center opacity-0 opacity-100 ">
             <svg
               role="img"
               height="24"
@@ -37,11 +36,12 @@ const SearchSong = ({ item }: Props) => {
                 fill="black"
               ></path>
             </svg>
-          </button>
+          </button> */}
         </div>
-        <div className="flex-5 ">
+        {/* artist name */}
+        <div className="searchAlbumName">
           <span className=" font-semibold text-white text-[16px] whitespace-nowrap flex">
-            {item?.name}
+            {item?.album.name}
           </span>{" "}
           <span className=" text-[14px] whitespace-nowrap text-gray-400 flex">
             {item?.artists[0].name}
@@ -53,4 +53,4 @@ const SearchSong = ({ item }: Props) => {
   );
 };
 
-export default SearchSong;
+export default SearchAlbum;

@@ -1,15 +1,5 @@
-import { getStepLabelUtilityClass } from "@mui/material";
-import Icon from "@mui/material/Icon";
-import { iteratorSymbol } from "immer/dist/internal";
-import React, { useEffect, useState } from "react";
-import { NavLink, useActionData } from "react-router-dom";
-import { isConstructorDeclaration, isTemplateExpression } from "typescript";
 import "./index.css";
 
-import { startResumePlayback } from "../../services/startResumePlayback";
-
-import { BsSpotify } from "react-icons/bs";
-import { propTypesChildren } from "@material-tailwind/react/types/components/typography";
 import { useDispatch } from "react-redux";
 import { setItem, setPlaying } from "../../redux/slices/auth";
 import { startTrack } from "../../services/startTrack";
@@ -23,12 +13,7 @@ type Props = {
 function Song({ item, itemIndex }: Props) {
   const dispatch = useDispatch();
   const PlaySongID = () => {
-    // console.log("item");
-    // console.log(item);
-    // console.log("item.track.id");
-    // console.log(item.track.id);
     startTrack(item.track.id);
-    // console.log("AAAAAAAA");
     dispatch(setItem({ item }));
   };
 
@@ -38,7 +23,7 @@ function Song({ item, itemIndex }: Props) {
       className="bg-footer rounded p-4 transition-all hover:bg-menubg group active mb-4"
       href="#"
     >
-      <div className="relative ">
+      <div className="relative">
         <img
           className="w-auto h-auto inset-0 object-cover mb-4"
           src={item?.track.album.images[0].url || ""}

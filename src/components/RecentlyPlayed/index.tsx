@@ -29,14 +29,6 @@ const RecentlyPlayed = () => {
       {songs.items?.map((item: any, index: string) => (
         <Song key={item.track?.id} item={item} itemIndex={index} />
       ))}
-
-      {/* {
-        <Footer
-          key={songs.items[0].track?.id}
-          item={songs.items[0]}
-          itemIndex={""}
-        />
-      } */}
     </div>
   );
 };

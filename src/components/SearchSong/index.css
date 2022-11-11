@@ -1,0 +1,6 @@
+.leftResultSong:hover {
+    background-color: rgb(24 24 24 /1);
+}
+.leftResultSong{
+    height: 54px !important;
+}

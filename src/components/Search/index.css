@@ -35,11 +35,15 @@
 }
 .searchResult{
     padding-left: 20px;
-    display:  flex;
+    /* display:  flex; */
    
 }
 
 .searchResultArtist{
     flex: 1;
     justify-content: center;
+}
+.searchArtist{
+    display: flex;
+    grid-template-columns: auto auto auto auto;
 }
