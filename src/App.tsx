@@ -14,6 +14,7 @@ import Home from "./components/Home";
 import Search from "./components/Search";
 import Layout from "./layout";
 import { getToken } from "./services/authService";
+import { CreatePlaylist } from "./CreatePlaylist";
 
 function MyApp({ Component, pageProps }: any) {
   const token = getToken().token;
@@ -42,6 +43,15 @@ function MyApp({ Component, pageProps }: any) {
           element={
             <Main>
               <Search />
+            </Main>
+          }
+        />
+
+        <Route
+          path="/CreatePlaylist"
+          element={
+            <Main>
+              <CreatePlaylist />
             </Main>
           }
         />

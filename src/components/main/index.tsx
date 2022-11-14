@@ -43,19 +43,7 @@ const Main: React.FunctionComponent<IMainProps> = ({
     }
   }, [isAuth]);
 
-  return (
-    <>
-      {/* <div>
-        <Sidebar />
-
-        <h1>{children}</h1>
-
-        <Footer children={children} />
-      </div> */}
-
-      {isAuth ? <Root children={children} /> : <Login />}
-    </>
-  );
+  return <>{isAuth ? <Root children={children} /> : <Login />}</>;
 };
 
 export default Main;

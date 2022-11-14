@@ -28,9 +28,6 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
 
   const dispatch = useDispatch();
 
-  console.log("BBBBBBBBBB");
-  console.log(itemIsPlaying);
-
   const setPause = () => {
     pausePlayback();
     setIsPlaying(false);
@@ -43,11 +40,6 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
   };
   const setPlay = () => {
     startResumePlayback();
-
-    //startResumePlayback(itemIsPlaying.track.id);
-    // spotify.play({
-    //   context_uri: `spotify:playlist:37i9dQZEVXcJZyENOWUFo7`,
-    // });
 
     setIsPlaying(true);
   };
