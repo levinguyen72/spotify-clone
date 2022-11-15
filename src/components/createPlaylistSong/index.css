@@ -1,0 +1,29 @@
+.leftResultSong:hover {
+    background-color: rgb(24 24 24 /1);
+}
+.leftResultSong{
+    height: 54px !important;
+}
+.createResultSong{
+    width: 100%;
+}
+.createResultSong > a{
+    flex-grow: 6;
+}
+.createResultSong > button {
+    flex-grow: 1;
+    max-width: 60px;
+    border-radius: 20px;
+    height: 38px;
+    margin: 6px 0;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    border: 1px solid  #888585;;
+
+}
+.createResultSong > button:hover {
+    border: 1px solid white;
+
+}
+

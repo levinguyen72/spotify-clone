@@ -13,11 +13,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ClearIcon from "@mui/icons-material/Clear";
 import React from "react";
 import "./index.css";
-import SearchAlbum from "../components/SearchAlbum";
-import SearchArtist from "../components/SearchArtist";
-import SearchSong from "../components/SearchSong";
-import TopResultResearch from "../components/TopResultSearch";
+
 import { searchForItem } from "../services/searchForItem";
+import CreatePlaylistSong from "../components/createPlaylistSong";
+import SearchSong from "../components/SearchSong";
+import { createForItem } from "../services/createSongPlaylist";
 type Props = {};
 const pages = ["<<", ">>"];
 const settings = [
@@ -55,7 +55,7 @@ export const CreatePlaylist = (props: Props) => {
   const [searchValue, setSearchValue] = React.useState<any>();
   const inputValue = React.useRef<any>();
   const setValue = () => {
-    searchForItem(inputValue.current.value).then((res) => {
+    createForItem(inputValue.current.value).then((res) => {
       setSearchValue(res);
     });
   };
@@ -206,67 +206,18 @@ export const CreatePlaylist = (props: Props) => {
               <ClearIcon className="clearIcon" />
             </div>
           </div>
-
-          {/*  */}
-          <section className="searchResult mt-6">
-            {/* song */}
-            <div className=" grid grid-cols-2 gap-4">
-              {/* top result */}
-              <div className="my-4">
-                <h1 className="text-2xl font-bold my-4">Top result</h1>
-                <TopResultResearch item={searchValue} />
-              </div>
-              {/* song */}
-              <div className="grid grid-rows-4 gap-4">
-                <h1 className="text-2xl font-bold">Songs</h1>
-                {searchValue?.tracks?.items.map((item: any) => (
-                  <>
-                    <SearchSong item={item} />
-                  </>
-                ))}
-              </div>
-            </div>
-
-            {/* artist */}
-            <div className="mt-4">
-              <h1 className="text-2xl font-bold">Artists</h1>
-              <div className="grid grid-cols-4 gap-4 searchArtist">
-                {searchValue?.artists?.items.map((item: any) => (
-                  <SearchArtist item={item} />
-                ))}
-              </div>
-            </div>
-
-            {/* album */}
-            <div className="mt-4">
-              <h1 className="text-2xl font-bold">Albums</h1>
-              <div className="grid grid-cols-4 gap-4 searchArtist">
-                {searchValue?.tracks?.items.map((item: any) => (
-                  <SearchAlbum item={item} />
-                ))}
-              </div>
-            </div>
-            {/* artist */}
-            <div className="mt-4">
-              <h1 className="text-2xl font-bold">Artists</h1>
-              <div className="grid grid-cols-4 gap-4 searchArtist">
-                {searchValue?.artists?.items.map((item: any) => (
-                  <SearchArtist item={item} />
-                ))}
-              </div>
-            </div>
-            {/* album */}
-            <div className="mt-4">
-              <h1 className="text-2xl font-bold">Albums</h1>
-              <div className="grid grid-cols-4 gap-4 searchArtist">
-                {searchValue?.tracks?.items.map((item: any) => (
-                  <SearchAlbum item={item} />
-                ))}
-              </div>
-            </div>
-          </section>
-          {/*  */}
         </div>
+
+        {/*result  */}
+        <section className="createResult mt-6">
+          {/* song */}
+          <div className="grid grid-rows-10 gap-4">
+            {searchValue?.tracks?.items.map((item: any) => (
+              <CreatePlaylistSong item={item} />
+            ))}
+          </div>
+        </section>
+        {/*  */}
       </div>
     </div>
   );
