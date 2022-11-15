@@ -48,6 +48,7 @@ function MyApp({ Component, pageProps }: any) {
         />
 
         <Route
+          
           path="/CreatePlaylist"
           element={
             <Main>

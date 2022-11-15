@@ -1,11 +1,19 @@
 import React from "react";
+import { addItemToPL } from "../../services/addItemsToPlaylist";
+import { createPlaylist } from "../../services/createPlaylist";
 import { createForItem } from "../../services/createSongPlaylist";
+import { getUserID } from "../../services/getUserId";
 import "./index.css";
 type Props = { item: any };
 
+const addItem = () => {
+  console.log("AAAAAAAAAAA")
+  createPlaylist()
+};
 const CreatePlaylistSong = ({ item }: Props) => {
   return (
     <div className="createResultSong leftResultSong flex">
+      {/* item */}
       <a
         aria-current="page"
         className="rounded p-4 text-gray-400 group active flex hover:bg-footer "
@@ -51,7 +59,7 @@ const CreatePlaylistSong = ({ item }: Props) => {
         </div>
         <br />
       </a>
-      <button onClick={() => alert(12345)}>Add</button>
+      <button onClick={addItem}>Add</button>
     </div>
   );
 };

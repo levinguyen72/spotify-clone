@@ -41,6 +41,10 @@ export default function ResponsiveDrawer(props: Props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  // function create new playlist
+  const createNewPlayList = () => {
+    alert(1234444444)
+  }
   // side bar
   const drawer = (
     <div className="sidebar">
@@ -94,7 +98,8 @@ export default function ResponsiveDrawer(props: Props) {
         {/*  */}
         <NavLink to="/createPlaylist">
           <ListItem disablePadding className="sidebar-list">
-            <ListItemButton>
+            {/* function create playlist here */}
+            <ListItemButton  onClick={createNewPlayList}>
               <ListItemIcon>
                 <AddBoxIcon className="sidebar-list__logo" />
               </ListItemIcon>
