@@ -20,6 +20,9 @@ import DownloadForOfflineOutlinedIcon from "@mui/icons-material/DownloadForOffli
 import "./index.css";
 import { NavLink } from "react-router-dom";
 
+import { createPlaylist } from "../../services/createPlaylist";
+import { getUserID } from "../../services/getUserId";
+
 const drawerWidth = 240;
 const drawerHeight = 680;
 
@@ -43,7 +46,9 @@ export default function ResponsiveDrawer(props: Props) {
   };
   // function create new playlist
   const createNewPlayList = () => {
-    alert(1234444444)
+    alert("create new playlist")
+    createPlaylist()
+  
   }
   // side bar
   const drawer = (

@@ -19,6 +19,6 @@ export const getUserID = async () => {
         }
     )
     
-    console.log(data.id)
+    console.log("get user id =====================================" + data.id)
     return data.id
 }

@@ -7,7 +7,7 @@ import "./index.css";
 type Props = { item: any };
 
 const addItem = () => {
-  console.log("AAAAAAAAAAA")
+  console.log("Add Item")
   createPlaylist()
 };
 const CreatePlaylistSong = ({ item }: Props) => {
