@@ -18,14 +18,18 @@
 }
 .sidebar-list{
     color: white;
-    text-decoration: none !important;
-
-    
+    text-decoration: none !important; 
+   
+}
+.sidebar-list-than5{
+    color: white;
+    text-decoration: none !important; 
+    max-height: 28px !important;
 }
 .sidebar-list__logo{
     color: white
 }
-.sidebar-list:hover{
+.sidebar-list:hover, .sidebar-list-than5:hover{
     color: #dbdbdb;
 }
 .sidebar-list__logo:hover{

@@ -1,14 +1,12 @@
 import React from "react";
 import { addItemToPL } from "../../services/addItemsToPlaylist";
-import { createPlaylist } from "../../services/createPlaylist";
-import { createForItem } from "../../services/createSongPlaylist";
-import { getUserID } from "../../services/getUserId";
+
 import "./index.css";
 type Props = { item: any };
 
-const addItem = () => {
-  console.log("Add Item")
-  createPlaylist()
+const addSongToPl = () => {
+  console.log("++++++++++++++++++++++++=Add Item")
+  addItemToPL();
 };
 const CreatePlaylistSong = ({ item }: Props) => {
   return (
@@ -59,7 +57,7 @@ const CreatePlaylistSong = ({ item }: Props) => {
         </div>
         <br />
       </a>
-      <button onClick={addItem}>Add</button>
+      <button onClick={addSongToPl}>Add</button>
     </div>
   );
 };

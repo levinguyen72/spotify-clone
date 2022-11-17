@@ -21,7 +21,6 @@ import "./index.css";
 import { NavLink } from "react-router-dom";
 
 import { createPlaylist } from "../../services/createPlaylist";
-import { getUserID } from "../../services/getUserId";
 
 const drawerWidth = 240;
 const drawerHeight = 680;
@@ -45,11 +44,20 @@ export default function ResponsiveDrawer(props: Props) {
     setMobileOpen(!mobileOpen);
   };
   // function create new playlist
-  const createNewPlayList = () => {
-    alert("create new playlist")
-    createPlaylist()
+  const [countPl, setCountPl] = React.useState<number>(4);
   
-  }
+  const [listArr, setListArr] = React.useState()
+  const [plListArr, setPlListArr] = React.useState<number[]>([1, 2, 3])
+  const createNewPlayList = () => {
+    
+    setCountPl(countPl + 1);
+    plListArr.push(countPl);
+    createPlaylist(countPl);
+
+    console.log("COUNT PLAYLIST====================" + countPl);
+    console.log("XXXXXXXXXXXXXXXXXXXXXXX");
+    console.log(plListArr);
+  };
   // side bar
   const drawer = (
     <div className="sidebar">
@@ -104,7 +112,7 @@ export default function ResponsiveDrawer(props: Props) {
         <NavLink to="/createPlaylist">
           <ListItem disablePadding className="sidebar-list">
             {/* function create playlist here */}
-            <ListItemButton  onClick={createNewPlayList}>
+            <ListItemButton onClick={createNewPlayList}>
               <ListItemIcon>
                 <AddBoxIcon className="sidebar-list__logo" />
               </ListItemIcon>
@@ -129,23 +137,24 @@ export default function ResponsiveDrawer(props: Props) {
       </List>
       <Divider className="sidebarDivider" />
       <List>
-        <ListItem disablePadding className="sidebar-list">
-          <ListItemButton>
-            <ListItemText primary="My playlist #3" />
-          </ListItemButton>
-        </ListItem>
+        {plListArr.length < 5 ?
+          (plListArr?.map((item: number) => (
+          <ListItem disablePadding className="sidebar-list">
+            <ListItemButton>
+              <ListItemText primary={`My Playlist #${item}`} />
+            </ListItemButton>
+          </ListItem>
+        ))) : ((plListArr?.map((item:number) => (
+          <ListItem disablePadding className="sidebar-list-than5">
+            <ListItemButton>
+              <ListItemText primary={`My Playlist #${item}`} />
+            </ListItemButton>
+          </ListItem>
+        ))  ))}
         {/*  */}
-        <ListItem disablePadding className="sidebar-list">
-          <ListItemButton>
-            <ListItemText primary="My playlist #2" />
-          </ListItemButton>
-        </ListItem>
+
         {/*  */}
-        <ListItem disablePadding className="sidebar-list">
-          <ListItemButton>
-            <ListItemText primary="My playlist #1" />
-          </ListItemButton>
-        </ListItem>
+
         {/*  */}
         <ListItem disablePadding className="sidebar-list__download">
           <ListItemButton>
