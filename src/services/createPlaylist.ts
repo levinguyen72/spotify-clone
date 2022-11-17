@@ -12,7 +12,7 @@ export const createPlaylist = async (countPl: any) => {
  
     const _token = getToken().token
 
-    await axios
+    const { data } = await axios
         .post(
             CREATE_PLAYLIST_ENDPOINT,
             {
@@ -28,7 +28,9 @@ export const createPlaylist = async (countPl: any) => {
                 }
             }
     )
-  
+    // return playlist id
+    console.log(data.id)
+    return data
     
     
 }

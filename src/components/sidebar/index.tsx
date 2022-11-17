@@ -20,7 +20,7 @@ import DownloadForOfflineOutlinedIcon from "@mui/icons-material/DownloadForOffli
 import "./index.css";
 import { NavLink } from "react-router-dom";
 
-import { createPlaylist } from "../../services/createPlaylist";
+import {createPlaylist } from "../../services/createPlaylist";
 
 const drawerWidth = 240;
 const drawerHeight = 680;
