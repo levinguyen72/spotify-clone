@@ -14,7 +14,8 @@ type TAuthState = {
   expires_in: number,
   playing: boolean,
   item: any,
-  playlist_id: string
+  playlist_id: string,
+ 
 }
 
 const initialState: TAuthState = {
@@ -23,7 +24,8 @@ const initialState: TAuthState = {
   expires_in: 0,
   playing: false,
   item: null,
-  playlist_id:""
+  playlist_id: "",
+
 
 };
 
@@ -80,6 +82,7 @@ const authSlice = createSlice({
     setPlayListId: (state, action) => {
       state.playlist_id = action.payload.playlist_id
     }
+    
   },
   extraReducers: (builder) => {
     builder.addCase(fetchRefreshToken.fulfilled, (state, action) => {

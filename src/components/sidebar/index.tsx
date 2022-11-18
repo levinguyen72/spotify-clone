@@ -45,6 +45,7 @@ export default function ResponsiveDrawer(props: Props) {
     setMobileOpen(!mobileOpen);
   };
   // function create new playlist
+  
   const [countPl, setCountPl] = React.useState<number>(4);
 
   const [listArr, setListArr] = React.useState();
@@ -56,6 +57,7 @@ export default function ResponsiveDrawer(props: Props) {
     createPlaylist(countPl);
     console.log("123456789@@@@@@@@@@@@@@");
     createPlaylist().then((res) => dispatch({ res }));
+    
     
   };
   // side bar

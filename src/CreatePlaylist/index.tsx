@@ -18,6 +18,8 @@ import { searchForItem } from "../services/searchForItem";
 import CreatePlaylistSong from "../components/createPlaylistSong";
 import SearchSong from "../components/SearchSong";
 import { createForItem } from "../services/createSongPlaylist";
+import { useDispatch } from "react-redux";
+
 type Props = {};
 const pages = ["<<", ">>"];
 const settings = [
@@ -52,12 +54,15 @@ export const CreatePlaylist = (props: Props) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const dispatch = useDispatch();
   const [searchValue, setSearchValue] = React.useState<any>();
+  const [isAddItem, setIsAddItem] = React.useState<boolean>(false);
   const inputValue = React.useRef<any>();
   const setValue = () => {
     createForItem(inputValue.current.value).then((res) => {
       setSearchValue(res);
     });
+    setIsAddItem(false);
   };
 
   return (
@@ -169,18 +174,15 @@ export const CreatePlaylist = (props: Props) => {
         </div>
       </div>
       {/* option */}
-      <div className="createPlOption">
-        <button className="createPlOption-btn">
-          <svg
-            role="img"
-            height="32"
-            width="32"
-            viewBox="0 0 24 24"
-            className="Svg-ytk21e-0 eqtHWV optionIcon"
-          >
-            <path d="M4.5 13.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm15 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm-7.5 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-          </svg>
-        </button>
+      <div className="createPlOptio bg-red-800 mt-6 mb-6 grid grid-cols-4 gap-4">
+        {/*<=============== added song */}
+        <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+
+        {/* added song ================> */}
       </div>
       {/* Body */}
       <div className="createPlBody">
