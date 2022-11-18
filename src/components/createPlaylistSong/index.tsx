@@ -1,12 +1,12 @@
 import React from "react";
-import { addItemToPL } from "../../services/addItemsToPlaylist";
+import { AddItemToPL } from "../../services/addItemsToPlaylist";
 
 import "./index.css";
 type Props = { item: any };
 
 const addSongToPl = () => {
   console.log("++++++++++++++++++++++++=Add Item")
-  addItemToPL();
+  AddItemToPL();
 };
 const CreatePlaylistSong = ({ item }: Props) => {
   return (

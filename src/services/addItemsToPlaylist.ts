@@ -7,7 +7,7 @@ const URIS = `spotify:track:4iV5W9uYEdYUVa79Axb7Rh`
 const ADD_ITEM_TO_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks`
 
 
-export const addItemToPL = async () => {
+export const AddItemToPL = async () => {
     const _token = getToken().token
 
     await axios

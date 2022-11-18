@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const CREATE_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/users/${USER_ID}/playlists`
 
-export const createPlaylist = async (countPl: any) => {
+export const createPlaylist = async (countPl?: any) => {
  
     const _token = getToken().token
 
@@ -29,8 +29,8 @@ export const createPlaylist = async (countPl: any) => {
             }
     )
     // return playlist id
-    console.log(data.id)
-    return data
+    
+    return data.id
     
     
 }

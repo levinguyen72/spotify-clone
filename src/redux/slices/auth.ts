@@ -14,6 +14,7 @@ type TAuthState = {
   expires_in: number,
   playing: boolean,
   item: any,
+  playlist_id: string
 }
 
 const initialState: TAuthState = {
@@ -22,6 +23,7 @@ const initialState: TAuthState = {
   expires_in: 0,
   playing: false,
   item: null,
+  playlist_id:""
 
 };
 
@@ -74,6 +76,9 @@ const authSlice = createSlice({
     },
     setItem: (state, action) => {
       state.item = action.payload.item
+    },
+    setPlayListId: (state, action) => {
+      state.playlist_id = action.payload.playlist_id
     }
   },
   extraReducers: (builder) => {
@@ -83,7 +88,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { setToken, setPlaying, setItem } = authSlice.actions;
+export const { setToken, setPlaying, setItem, setPlayListId } = authSlice.actions;
 
 export default authSlice.reducer;
 

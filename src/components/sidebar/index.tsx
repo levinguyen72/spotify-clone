@@ -20,7 +20,8 @@ import DownloadForOfflineOutlinedIcon from "@mui/icons-material/DownloadForOffli
 import "./index.css";
 import { NavLink } from "react-router-dom";
 
-import {createPlaylist } from "../../services/createPlaylist";
+import { createPlaylist } from "../../services/createPlaylist";
+import { useDispatch } from "react-redux";
 
 const drawerWidth = 240;
 const drawerHeight = 680;
@@ -45,18 +46,17 @@ export default function ResponsiveDrawer(props: Props) {
   };
   // function create new playlist
   const [countPl, setCountPl] = React.useState<number>(4);
-  
-  const [listArr, setListArr] = React.useState()
-  const [plListArr, setPlListArr] = React.useState<number[]>([1, 2, 3])
+
+  const [listArr, setListArr] = React.useState();
+  const [plListArr, setPlListArr] = React.useState<number[]>([1, 2, 3]);
+  const dispatch = useDispatch();
   const createNewPlayList = () => {
-    
     setCountPl(countPl + 1);
     plListArr.push(countPl);
     createPlaylist(countPl);
-
-    console.log("COUNT PLAYLIST====================" + countPl);
-    console.log("XXXXXXXXXXXXXXXXXXXXXXX");
-    console.log(plListArr);
+    console.log("123456789@@@@@@@@@@@@@@");
+    createPlaylist().then((res) => dispatch({ res }));
+    
   };
   // side bar
   const drawer = (
@@ -137,20 +137,21 @@ export default function ResponsiveDrawer(props: Props) {
       </List>
       <Divider className="sidebarDivider" />
       <List>
-        {plListArr.length < 5 ?
-          (plListArr?.map((item: number) => (
-          <ListItem disablePadding className="sidebar-list">
-            <ListItemButton>
-              <ListItemText primary={`My Playlist #${item}`} />
-            </ListItemButton>
-          </ListItem>
-        ))) : ((plListArr?.map((item:number) => (
-          <ListItem disablePadding className="sidebar-list-than5">
-            <ListItemButton>
-              <ListItemText primary={`My Playlist #${item}`} />
-            </ListItemButton>
-          </ListItem>
-        ))  ))}
+        {plListArr.length < 5
+          ? plListArr?.map((item: number) => (
+              <ListItem disablePadding className="sidebar-list">
+                <ListItemButton>
+                  <ListItemText primary={`My Playlist #${item}`} />
+                </ListItemButton>
+              </ListItem>
+            ))
+          : plListArr?.map((item: number) => (
+              <ListItem disablePadding className="sidebar-list-than5">
+                <ListItemButton>
+                  <ListItemText primary={`My Playlist #${item}`} />
+                </ListItemButton>
+              </ListItem>
+            ))}
         {/*  */}
 
         {/*  */}
