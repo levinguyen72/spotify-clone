@@ -16,8 +16,8 @@ export const createPlaylist = async (countPl: any) => {
         .post(
             CREATE_PLAYLIST_ENDPOINT,
             {
-                "name": `Louis NG #${countPl}`,
-                "description": "",
+                "name": `Louis NG- 18/11/2022 #${countPl}`,
+                "description": "test",
                 "public": false
            },
             {
