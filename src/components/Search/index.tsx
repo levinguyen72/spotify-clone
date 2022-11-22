@@ -18,7 +18,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
       setSearchValue(res);
     });
   };
-  console.log("AAAAAAAAAAAAAAAAAAAA");
+
   console.log(searchValue);
 
   return (

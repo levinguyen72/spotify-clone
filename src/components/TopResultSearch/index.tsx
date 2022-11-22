@@ -17,7 +17,7 @@ const TopResultResearch = ({ item }: Props) => {
             src={item?.tracks?.items[0]?.album?.images[1]?.url}
             alt="track cover"
           />
-          {}
+     
           {/* <button
             
               className="w-12 h-12 bg-primary right-2 bottom-2 transition-opacity flex items-center shadow-2xl justify-center opacity-0 opacity-100 "

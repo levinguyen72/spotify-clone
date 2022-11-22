@@ -18,6 +18,7 @@ function Song({ item, itemIndex }: Props) {
   };
 
   return (
+  
     <a
       aria-current="page"
       className="bg-footer rounded p-4 transition-all hover:bg-menubg group active mb-4"
@@ -55,7 +56,8 @@ function Song({ item, itemIndex }: Props) {
       </span>{" "}
       <br />
       <span className="mt-1 text-[14px] text-link">{item?.track.name}</span>
-    </a>
+      </a>
+     
   );
 }
 

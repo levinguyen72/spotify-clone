@@ -27,16 +27,12 @@ const drawerWidth = 240;
 const drawerHeight = 680;
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
+
   window?: () => Window;
 }
 
 export default function ResponsiveDrawer(props: Props) {
   const setSearch = () => {
-    // alert(124);
   };
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -47,7 +43,6 @@ export default function ResponsiveDrawer(props: Props) {
   // function create new playlist
   
   const [countPl, setCountPl] = React.useState<number>(4);
-
   const [listArr, setListArr] = React.useState();
   const [plListArr, setPlListArr] = React.useState<number[]>([1, 2, 3]);
   const dispatch = useDispatch();
@@ -55,7 +50,6 @@ export default function ResponsiveDrawer(props: Props) {
     setCountPl(countPl + 1);
     plListArr.push(countPl);
     createPlaylist(countPl);
-    console.log("123456789@@@@@@@@@@@@@@");
     createPlaylist().then((res) => dispatch({ res }));
     
     
@@ -74,7 +68,7 @@ export default function ResponsiveDrawer(props: Props) {
       <List>
         {/*  */}
         <NavLink to="/home">
-          <ListItem disablePadding className="sidebar-list">
+          <ListItem key="home" disablePadding className="sidebar-list">
             <ListItemButton>
               <ListItemIcon>
                 <HomeIcon className="sidebar-list__logo" />
@@ -86,10 +80,10 @@ export default function ResponsiveDrawer(props: Props) {
 
         {/*  */}
         <NavLink to="/search">
-          <ListItem disablePadding className="sidebar-list">
+          <ListItem key="search" disablePadding className="sidebar-list">
             <ListItemButton onClick={setSearch}>
               <ListItemIcon>
-                <SearchIcon className="sidebar-list__logo" />
+                <SearchIcon  className="sidebar-list__logo" />
               </ListItemIcon>
               <ListItemText primary="Search" />
             </ListItemButton>
@@ -98,12 +92,12 @@ export default function ResponsiveDrawer(props: Props) {
 
         {/*  */}
         <NavLink to="/library">
-          <ListItem disablePadding className="sidebar-list">
+          <ListItem key="library" disablePadding className="sidebar-list">
             <ListItemButton>
               <ListItemIcon>
                 <LibraryMusicIcon className="sidebar-list__logo" />
               </ListItemIcon>
-              <ListItemText primary="Your library" />
+              <ListItemText   primary="Your library" />
             </ListItemButton>
           </ListItem>
         </NavLink>
@@ -112,26 +106,25 @@ export default function ResponsiveDrawer(props: Props) {
         <br />
         {/*  */}
         <NavLink to="/createPlaylist">
-          <ListItem disablePadding className="sidebar-list">
+          <ListItem key="createPlaylist" disablePadding className="sidebar-list">
             {/* function create playlist here */}
             <ListItemButton onClick={createNewPlayList}>
               <ListItemIcon>
                 <AddBoxIcon className="sidebar-list__logo" />
               </ListItemIcon>
-              <ListItemText primary="Create Playlist" />
+              <ListItemText   primary="Create Playlist" />
             </ListItemButton>
           </ListItem>
         </NavLink>
 
         {/*  */}
-        {/*  */}
         <NavLink to="/likedSong">
-          <ListItem disablePadding className="sidebar-list">
+          <ListItem key="likedSong" disablePadding className="sidebar-list">
             <ListItemButton>
               <ListItemIcon>
                 <FavoriteIcon className="sidebar-list__logo" />
               </ListItemIcon>
-              <ListItemText primary="Liked Songs" />
+              <ListItemText  primary="Liked Songs" />
             </ListItemButton>
           </ListItem>
         </NavLink>
@@ -141,24 +134,20 @@ export default function ResponsiveDrawer(props: Props) {
       <List>
         {plListArr.length < 5
           ? plListArr?.map((item: number) => (
-              <ListItem disablePadding className="sidebar-list">
+              <ListItem key={item.toString()} disablePadding className="sidebar-list">
                 <ListItemButton>
-                  <ListItemText primary={`My Playlist #${item}`} />
+                  <ListItemText  primary={`My Playlist #${item}`} />
                 </ListItemButton>
               </ListItem>
             ))
           : plListArr?.map((item: number) => (
-              <ListItem disablePadding className="sidebar-list-than5">
+              <ListItem key={item.toString()} disablePadding className="sidebar-list-than5">
                 <ListItemButton>
-                  <ListItemText primary={`My Playlist #${item}`} />
+                  <ListItemText  primary={`My Playlist #${item}`} />
                 </ListItemButton>
               </ListItem>
             ))}
-        {/*  */}
 
-        {/*  */}
-
-        {/*  */}
         <ListItem disablePadding className="sidebar-list__download">
           <ListItemButton>
             <ListItemIcon>
