@@ -663,9 +663,14 @@ html, body, #root {
 .w-14 {
   width: 3.5rem;
 }
-
+.w-16{
+  width: 3.375rem;
+}
 .w-8 {
   width: 2rem;
+}
+.w-4{
+  width: 1rem;
 }
 
 .w-\[40\%\] {
@@ -741,7 +746,9 @@ html, body, #root {
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }

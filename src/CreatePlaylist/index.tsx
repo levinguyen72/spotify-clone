@@ -174,13 +174,14 @@ export const CreatePlaylist = (props: Props) => {
         </div>
       </div>
       {/* option */}
-      <div className="createPlOptio bg-red-800 mt-6 mb-6 grid grid-cols-4 gap-4">
+      <div className="createPlOptio mt-6 mb-6 flex ">
         {/*<=============== added song */}
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
+        
+        <div className=" w-4">#</div>
+        <div className="w-[22.75rem]">Title</div>
+        <div className="w-16">Album</div>
+        <div>Date added</div>
+        <div>Duration</div>
 
         {/* added song ================> */}
       </div>
