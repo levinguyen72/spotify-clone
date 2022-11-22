@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { getRecentlyPlayed } from "../../services/getRecentlyPlayed";
-import Footer from "../footer";
+
 import Song from "../Song";
 
 type songs = { items?: any };
@@ -21,13 +21,12 @@ const RecentlyPlayed = () => {
 
   // Songs
   if (!songs) return null;
-  console.log(22/11/22)
-  console.log(Date().toLocaleString())
+  
   return (
     <div className="grid grid-cols-5 gap-x-6 mt-10">
       {/* render playlist here */}
       {songs.items?.map((item: any, index: string) => (
-        <Song key={"RecentlyPlayed "+ item?.track?.id.toString()} item={item} itemIndex={index} />
+        <Song key={"RecentlyPlayed "+  Math.random().toString() + item?.track?.id.toString()} item={item} itemIndex={index} />
        
       ))}      
        

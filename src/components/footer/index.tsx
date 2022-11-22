@@ -52,7 +52,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     <div className="footer">
       <div className="footer__left">
         {itemIsPlaying ? (
-          <>
+          <div>
             <img
               className="footer__left-logo"
               src={itemIsPlaying?.track.album.images[2].url}
@@ -66,7 +66,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
                 <a>{itemIsPlaying?.track.name}</a>
               </h5>
             </div>
-          </>
+          </div>
         ) : (
           <div className="footer__songInfo">
             <h4>No song is playing</h4>

@@ -48,8 +48,7 @@ function Home() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  // }
-  // const Home: React.FunctionComponent<IHome> = ({}) => {
+
   return (
     <AppBar position="static" className="body">
       <Container maxWidth="xl">
@@ -84,7 +83,7 @@ function Home() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={"pages" + Math.random().toString()} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" fontSize={30} color="red">
                     <div className="header-btn">{page}</div>
                   </Typography>
@@ -96,7 +95,7 @@ function Home() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={"pages" + Math.random().toString()}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
@@ -128,7 +127,7 @@ function Home() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={"setting" + Math.random().toString()} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

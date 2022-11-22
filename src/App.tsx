@@ -22,24 +22,30 @@ function MyApp({ Component, pageProps }: any) {
   return (
     <Provider store={store}>
       <Routes>
+
         <Route
           path="/"
+          key={"/" + Math.random().toString()}
           element={
             <Main>
               <Body />
             </Main>
           }
         />
+
         <Route
           path="/home"
+          key={"/home" + Math.random().toString()}
           element={
             <Main>
               <Home />
             </Main>
           }
         />
+        
         <Route
           path="/search"
+          key={"/search" + Math.random().toString()}
           element={
             <Main>
               <Search />
@@ -50,6 +56,7 @@ function MyApp({ Component, pageProps }: any) {
         <Route
           
           path="/CreatePlaylist"
+          key={"/CreatePlaylist" + Math.random().toString()}
           element={
             <Main>
               <CreatePlaylist />

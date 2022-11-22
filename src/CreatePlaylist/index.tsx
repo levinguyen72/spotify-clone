@@ -101,11 +101,13 @@ export const CreatePlaylist = (props: Props) => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <>
+                <MenuItem key={"page" + Math.random().toString()} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" fontSize={30} color="red">
                     <div className="header-btn">{page}</div>
                   </Typography>
                 </MenuItem>
+                </>
               ))}
             </Menu>
           </Box>
@@ -113,7 +115,7 @@ export const CreatePlaylist = (props: Props) => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+              key={"page" + Math.random().toString()}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
@@ -145,7 +147,7 @@ export const CreatePlaylist = (props: Props) => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={"setting" + Math.random().toString()}  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

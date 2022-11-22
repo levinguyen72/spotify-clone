@@ -134,14 +134,14 @@ export default function ResponsiveDrawer(props: Props) {
       <List>
         {plListArr.length < 5
           ? plListArr?.map((item: number) => (
-              <ListItem key={item.toString()} disablePadding className="sidebar-list">
+              <ListItem key={item.toString() + Math.random().toString()} disablePadding className="sidebar-list">
                 <ListItemButton>
                   <ListItemText  primary={`My Playlist #${item}`} />
                 </ListItemButton>
               </ListItem>
             ))
           : plListArr?.map((item: number) => (
-              <ListItem key={item.toString()} disablePadding className="sidebar-list-than5">
+              <ListItem key={item.toString() +  Math.random().toString()} disablePadding className="sidebar-list-than5">
                 <ListItemButton>
                   <ListItemText  primary={`My Playlist #${item}`} />
                 </ListItemButton>

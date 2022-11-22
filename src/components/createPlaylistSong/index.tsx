@@ -19,10 +19,10 @@ const CreatePlaylistSong = ({ item }: Props) => {
         {/* added songs */}
 
         {/* item */}
-        <a
+        <div
           aria-current="page"
           className="rounded p-4 text-gray-400 group active flex hover:bg-footer "
-          href="#"
+          // href="#"
         >
           <div className="searchResultImg w-12 h-12 flex-2 px-2">
             <img
@@ -63,7 +63,7 @@ const CreatePlaylistSong = ({ item }: Props) => {
             </span>
           </div>
           <br />
-        </a>
+        </div>
         {/* button */}
         <button onClick={addSongToPl}>Add</button>
       </div>

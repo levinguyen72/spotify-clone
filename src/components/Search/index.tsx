@@ -18,7 +18,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
       setSearchValue(res);
     });
   };
-
+  console.log(Math.random());
   console.log(searchValue);
 
   return (
@@ -45,20 +45,23 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
       </div>
 
       {/*  */}
-      <section className="searchResult mt-6">
+      <div className="searchResult mt-6">
         {/* song */}
         <div className=" grid grid-cols-2 gap-4">
           {/* top result */}
           <div className="my-4">
             <h1 className="text-2xl font-bold my-4">Top result</h1>
-            <TopResultResearch item={searchValue} />
+            <TopResultResearch key={Math.random()} item={searchValue} />
           </div>
           {/* song */}
           <div className="grid grid-rows-4 gap-4">
             <h1 className="text-2xl font-bold">Songs</h1>
             {searchValue?.tracks?.items.map((item: any) => (
               <>
-                <SearchSong item={item} />
+                <SearchSong
+                  key={Math.random().toString() + item.id.toString()}
+                  item={item}
+                />
               </>
             ))}
           </div>
@@ -69,7 +72,10 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
           <h1 className="text-2xl font-bold">Artists</h1>
           <div className="grid grid-cols-4 gap-4 searchArtist">
             {searchValue?.artists?.items.map((item: any) => (
-              <SearchArtist item={item} />
+              <SearchArtist
+                key={Math.random().toString() + item.id.toString()}
+                item={item}
+              />
             ))}
           </div>
         </div>
@@ -79,7 +85,10 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
           <h1 className="text-2xl font-bold">Albums</h1>
           <div className="grid grid-cols-4 gap-4 searchArtist">
             {searchValue?.tracks?.items.map((item: any) => (
-              <SearchAlbum item={item} />
+              <SearchAlbum
+                key={Math.random().toString() + item.id.toString()}
+                item={item}
+              />
             ))}
           </div>
         </div>
@@ -88,7 +97,10 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
           <h1 className="text-2xl font-bold">Artists</h1>
           <div className="grid grid-cols-4 gap-4 searchArtist">
             {searchValue?.artists?.items.map((item: any) => (
-              <SearchArtist item={item} />
+              <SearchArtist
+                key={Math.random().toString() + item.id.toString()}
+                item={item}
+              />
             ))}
           </div>
         </div>
@@ -97,11 +109,14 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
           <h1 className="text-2xl font-bold">Albums</h1>
           <div className="grid grid-cols-4 gap-4 searchArtist">
             {searchValue?.tracks?.items.map((item: any) => (
-              <SearchAlbum item={item} />
+              <SearchAlbum
+                key={Math.random().toString() + item.id.toString()}
+                item={item}
+              />
             ))}
           </div>
         </div>
-      </section>
+      </div>
     </section>
   );
 };
