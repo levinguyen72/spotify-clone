@@ -69,8 +69,8 @@ export const CreatePlaylist = (props: Props) => {
   };
 
   // console.log("10000000000000000000000000000000000000");
-  getPlaylist().then((res: any) => console.log(res));
-  //getPlaylist().then((res: any) => setCurrentList(res))
+  //getPlaylist().then((res: any) => console.log(res));
+  getPlaylist().then((res: any) => setCurrentList(res))
   
   return (
     <div className="createPlaylistContainer">
