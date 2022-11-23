@@ -67,9 +67,11 @@ export const CreatePlaylist = (props: Props) => {
     });
     setIsAddItem(false);
   };
+
   // console.log("10000000000000000000000000000000000000");
-  // getPlaylist().then((res: any) => console.log(res));
-  getPlaylist().then((res:any) => setCurrentList(res))
+  getPlaylist().then((res: any) => console.log(res));
+  //getPlaylist().then((res: any) => setCurrentList(res))
+  
   return (
     <div className="createPlaylistContainer">
       {/* header */}
@@ -192,17 +194,24 @@ export const CreatePlaylist = (props: Props) => {
         <div className="createPlOption__title">Title</div>
         <div className="createPlOption__album">Album</div>
         <div className="createPlOption__date-add">Date add</div>
-        <div className="createPlOption__duration">Duration</div>
+        <div className="createPlOption__duration">
+          <svg
+            role="img"
+            height="16"
+            width="16"
+            viewBox="0 0 16 16"
+            className="Svg-ytk21e-0 eqtHWV"
+          >
+            <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z"></path>
+            <path d="M8 3.25a.75.75 0 01.75.75v3.25H11a.75.75 0 010 1.5H7.25V4A.75.75 0 018 3.25z"></path>
+          </svg>
+        </div>
       </div>
 
       <div className="">
- 
-
-        {currentList?.tracks?.items?.map((item:any) => (
-          
+        {currentList?.tracks?.items?.map((item: any) => (
           <ItemAdded item={item} key={item.id} />
-        )) }
-
+        ))}
 
         {/* added song ================> */}
       </div>

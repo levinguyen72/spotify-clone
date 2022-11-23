@@ -5,6 +5,7 @@
     color: white;
     background: linear-gradient(transparent, rgba(0, 0, 0, 1));
     margin-top: -40px;
+
 }
 .createPlHeader{
     width: 100%;
@@ -218,8 +219,12 @@
  grid-column: 11 / 13;
 }
 .createPlOption__duration{
-
+  color: white;
 }
+.createPlOption__duration > svg {
+  background-color: white !important;
+}
+
 .createPlOption__img{
   display: flex;
   flex-grow: 1;
