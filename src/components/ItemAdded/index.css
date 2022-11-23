@@ -1,0 +1,38 @@
+.createPlOption{
+
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 10px;
+
+    padding: 10px;
+    justify-items: center;
+  }
+.createPlOption__number{
+    right: 0;
+  }
+  .createPlOption__title{
+    grid-column: 2 / 6;
+    display: flex;
+  }
+  .createPlOption__album{
+    grid-column: 7/ 11;
+  }
+  .createPlOption__date-add{
+   grid-column: 11 / 13;
+  }
+  .createPlOption__duration{
+  
+  }
+  .createPlOption__img{
+    display: flex;
+    flex-grow: 1;
+  
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin: 4px;
+  }
+  .createPlOption__name{
+    display: flex;
+    flex-grow: 3;
+  }

@@ -14,9 +14,7 @@ const CreatePlaylistSong = ({ item }: Props) => {
     //
 
     <div className="createResultSong leftResultSong flex">
-      {/* added songs */}
-
-      {/* added songs */}
+    
 
       {/* item */}
       <div

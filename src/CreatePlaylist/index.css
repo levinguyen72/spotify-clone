@@ -144,7 +144,7 @@
     display: grid;
     grid-template-columns: repeat(13, 1fr);
     gap: 10px;
-    background-color: #2196F3;
+ 
     padding: 10px;
     justify-items: center;
   }
@@ -209,6 +209,7 @@
 }
 .createPlOption__title{
   grid-column: 2 / 6;
+  margin-left: -20px;
 }
 .createPlOption__album{
   grid-column: 7/ 11;
@@ -223,8 +224,20 @@
   display: flex;
   flex-grow: 1;
   background-color: red;
+  margin: 0 8px;
 }
 .createPlOption__name{
   display: flex;
   flex-grow: 3;
+  overflow: hidden;
+}
+
+.createPlOption__name > h2{
+  flex: 1;
+  font-weight: 400;
+  color: white;
+}
+.createPlOption__name  > h4{
+  display: block;
+  flex: 1;
 }

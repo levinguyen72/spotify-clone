@@ -20,6 +20,7 @@ import SearchSong from "../components/SearchSong";
 import { createForItem } from "../services/createSongPlaylist";
 import { useDispatch } from "react-redux";
 import { getPlaylist } from "../services/getPlaylist";
+import ItemAdded from "../components/ItemAdded";
 
 type Props = {};
 const pages = ["<<", ">>"];
@@ -67,8 +68,8 @@ export const CreatePlaylist = (props: Props) => {
     setIsAddItem(false);
   };
   // console.log("10000000000000000000000000000000000000");
-  // getPlaylist().then((res: any) => console.log(res))
-  // getPlaylist().then((res:any) => setCurrentList(res))
+  // getPlaylist().then((res: any) => console.log(res));
+  getPlaylist().then((res:any) => setCurrentList(res))
   return (
     <div className="createPlaylistContainer">
       {/* header */}
@@ -105,7 +106,7 @@ export const CreatePlaylist = (props: Props) => {
               }}
             >
               {pages.map((page) => (
-                <>
+                <div>
                   <MenuItem
                     key={"page" + Math.random().toString()}
                     onClick={handleCloseNavMenu}
@@ -114,7 +115,7 @@ export const CreatePlaylist = (props: Props) => {
                       <div className="header-btn">{page}</div>
                     </Typography>
                   </MenuItem>
-                </>
+                </div>
               ))}
             </Menu>
           </Box>
@@ -186,32 +187,30 @@ export const CreatePlaylist = (props: Props) => {
         </div>
       </div>
       {/* option */}
-      <div className="createPlOption">
-        {/*<=============== added song */}
-
-
-        
+      <div className="createPlOption mt-6">
         <div className="createPlOption__number">#</div>
         <div className="createPlOption__title">Title</div>
         <div className="createPlOption__album">Album</div>
         <div className="createPlOption__date-add">Date add</div>
-        <div className="createPlOption__duration">Duration</div> 
+        <div className="createPlOption__duration">Duration</div>
+      </div>
 
-        {/* <div className="createPlOption__number">#</div>
-        <div className="createPlOption__title">
-          <img className="createPlOption__img">img</img>
-          <p className="createPlOption__name">ABCDEFU</p>
-        </div>
-        <div className="createPlOption__album">Album</div>
-        <div className="createPlOption__date-add">Date add</div>
-        <div className="createPlOption__duration">Duration</div>  */}
-      
+      <div className="">
+ 
+
+        {currentList?.tracks?.items?.map((item:any) => (
+          
+          <ItemAdded item={item} key={item.id} />
+        )) }
+
+
         {/* added song ================> */}
       </div>
+
       {/* Body */}
       <div className="createPlBody">
         {/* body title */}
-        <div className="createPlBodyTitle ">
+        <div className="createPlBodyTitle">
           <h1>Let's find something for your playlist</h1>
         </div>
         {/* body search */}
