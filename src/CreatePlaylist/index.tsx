@@ -19,6 +19,7 @@ import CreatePlaylistSong from "../components/createPlaylistSong";
 import SearchSong from "../components/SearchSong";
 import { createForItem } from "../services/createSongPlaylist";
 import { useDispatch } from "react-redux";
+import { getPlaylist } from "../services/getPlaylist";
 
 type Props = {};
 const pages = ["<<", ">>"];
@@ -57,6 +58,7 @@ export const CreatePlaylist = (props: Props) => {
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = React.useState<any>();
   const [isAddItem, setIsAddItem] = React.useState<boolean>(false);
+  const [currentList, setCurrentList] = React.useState<any>();
   const inputValue = React.useRef<any>();
   const setValue = () => {
     createForItem(inputValue.current.value).then((res) => {
@@ -64,7 +66,9 @@ export const CreatePlaylist = (props: Props) => {
     });
     setIsAddItem(false);
   };
-
+  // console.log("10000000000000000000000000000000000000");
+  // getPlaylist().then((res: any) => console.log(res))
+  // getPlaylist().then((res:any) => setCurrentList(res))
   return (
     <div className="createPlaylistContainer">
       {/* header */}
@@ -102,11 +106,14 @@ export const CreatePlaylist = (props: Props) => {
             >
               {pages.map((page) => (
                 <>
-                <MenuItem key={"page" + Math.random().toString()} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" fontSize={30} color="red">
-                    <div className="header-btn">{page}</div>
-                  </Typography>
-                </MenuItem>
+                  <MenuItem
+                    key={"page" + Math.random().toString()}
+                    onClick={handleCloseNavMenu}
+                  >
+                    <Typography textAlign="center" fontSize={30} color="red">
+                      <div className="header-btn">{page}</div>
+                    </Typography>
+                  </MenuItem>
                 </>
               ))}
             </Menu>
@@ -115,7 +122,7 @@ export const CreatePlaylist = (props: Props) => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-              key={"page" + Math.random().toString()}
+                key={"page" + Math.random().toString()}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
@@ -147,7 +154,10 @@ export const CreatePlaylist = (props: Props) => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={"setting" + Math.random().toString()}  onClick={handleCloseUserMenu}>
+                <MenuItem
+                  key={"setting" + Math.random().toString()}
+                  onClick={handleCloseUserMenu}
+                >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
@@ -176,15 +186,26 @@ export const CreatePlaylist = (props: Props) => {
         </div>
       </div>
       {/* option */}
-      <div className="createPlOptio mt-6 mb-6 flex ">
+      <div className="createPlOption">
         {/*<=============== added song */}
-        
-        <div className=" w-4">#</div>
-        <div className="w-[22.75rem]">Title</div>
-        <div className="w-16">Album</div>
-        <div>Date added</div>
-        <div>Duration</div>
 
+
+        
+        <div className="createPlOption__number">#</div>
+        <div className="createPlOption__title">Title</div>
+        <div className="createPlOption__album">Album</div>
+        <div className="createPlOption__date-add">Date add</div>
+        <div className="createPlOption__duration">Duration</div> 
+
+        {/* <div className="createPlOption__number">#</div>
+        <div className="createPlOption__title">
+          <img className="createPlOption__img">img</img>
+          <p className="createPlOption__name">ABCDEFU</p>
+        </div>
+        <div className="createPlOption__album">Album</div>
+        <div className="createPlOption__date-add">Date add</div>
+        <div className="createPlOption__duration">Duration</div>  */}
+      
         {/* added song ================> */}
       </div>
       {/* Body */}

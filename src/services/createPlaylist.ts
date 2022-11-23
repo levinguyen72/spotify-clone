@@ -16,7 +16,7 @@ export const createPlaylist = async (countPl?: any) => {
         .post(
             CREATE_PLAYLIST_ENDPOINT,
             {
-                "name": `3h41- 18/11/2022 #${countPl}`,
+                "name": `9h07:::23/11/2022 #${countPl}`,
                 "description": "test",
                 "public": false
            },

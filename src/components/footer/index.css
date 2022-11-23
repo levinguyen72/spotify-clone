@@ -67,9 +67,9 @@
 .footer__left-logo{
     height: 60px;
   width: 60px;
-  margin-right: 20px;
+    margin: 14px;
   object-fit: contain;
-  margin-left: 20px;
+ 
 }
 .footer_songArtist{
     font-size: 14px;
@@ -80,4 +80,7 @@
     font-size: 12px;
     color: gray;
     overflow: hidden;
+}
+.footer__songInfo{
+    margin-top: 26px;
 }

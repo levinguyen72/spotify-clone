@@ -52,9 +52,9 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     <div className="footer">
       <div className="footer__left">
         {itemIsPlaying ? (
-          <div>
+          <div className="flex">
             <img
-              className="footer__left-logo"
+              className="footer__left-logo "
               src={itemIsPlaying?.track.album.images[2].url}
               alt={itemIsPlaying?.track.name}
             />

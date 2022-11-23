@@ -33,8 +33,8 @@ const device_id = getDeviceID
                 params: {
                    
                     
-                     "context_uri": "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr",
-                    //"context_uri":  `spotify:album:${id}`,
+                      "context_uri": "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr",
+                   
                         "offset": {
                         "position": 5
                         },

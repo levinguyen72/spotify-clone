@@ -137,11 +137,16 @@
  
   }
   .createPlOption{
-    /* background-color: red; */
-    padding: 24px 32px;
+    /* padding: 24px 32px;
     height: 80px;
     width: 100%;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid white; */
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+    justify-items: center;
   }
   .createPlOption-btn{
    /* margin: 24px 32px; */
@@ -199,3 +204,27 @@
  .createArtist{
   
  }
+.createPlOption__number{
+  right: 0;
+}
+.createPlOption__title{
+  grid-column: 2 / 6;
+}
+.createPlOption__album{
+  grid-column: 7/ 11;
+}
+.createPlOption__date-add{
+ grid-column: 11 / 13;
+}
+.createPlOption__duration{
+
+}
+.createPlOption__img{
+  display: flex;
+  flex-grow: 1;
+  background-color: red;
+}
+.createPlOption__name{
+  display: flex;
+  flex-grow: 3;
+}

@@ -6,6 +6,7 @@
 }
 .createResultSong{
     width: 100%;
+    justify-content: space-between;
 }
 .createResultSong > a{
     flex-grow: 6;
