@@ -69,9 +69,15 @@ export const CreatePlaylist = (props: Props) => {
   };
 
   // console.log("10000000000000000000000000000000000000");
-  // getPlaylist().then((res: any) => console.log(res));
-  getPlaylist().then((res: any) => setCurrentList(res))
+   //getPlaylist().then((res: any) => console.log(res));
+    getPlaylist().then((res: any) => setCurrentList(res))
+
   
+
+  // URI
+  // console.log("AAAAAAAAAAAAAAAAAAAAAAAA")
+  // console.log(searchValue?.tracks?.items[0].uri)
+  // 
   return (
     <div className="createPlaylistContainer">
       {/* header */}
@@ -208,7 +214,7 @@ export const CreatePlaylist = (props: Props) => {
         </div>
       </div>
 
-      <div className="">
+      <div >
         {currentList?.tracks?.items?.map((item: any, index: number) => (
           <ItemAdded index={currentList?.tracks?.items?.indexOf(item) + 1} item={item} key={item.id} />
         ))}

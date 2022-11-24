@@ -5,17 +5,19 @@ import { AddItemToPL } from "../../services/addItemsToPlaylist";
 import "./index.css";
 type Props = { item: any };
 
-const addSongToPl = () => {
 
-  AddItemToPL();
-};
+// const addSongToPl = () => {
+
+//   AddItemToPL();
+//   console.log("AAAAAAAAAAAAAAA + " + itemURI)
+// };
+
 const CreatePlaylistSong = ({ item }: Props) => {
+  // const [itemURI, setItemURI] = React.useState<string>("")
+  // setItemURI(item.uri)
   return (
     //
-
     <div className="createResultSong leftResultSong flex">
-    
-
       {/* item */}
       <div
         aria-current="page"
@@ -63,9 +65,11 @@ const CreatePlaylistSong = ({ item }: Props) => {
         <br />
       </div>
       {/* button */}
-      <button onClick={addSongToPl}>Add</button>
+      <button onClick={() => AddItemToPL(item.uri)}>Add</button>
     </div>
   );
 };
+
+
 
 export default CreatePlaylistSong;

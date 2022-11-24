@@ -19,6 +19,7 @@
   .createPlOption__title{
     grid-column: 2 / 6;
     display: flex;
+    justify-self: flex-start !important;
   }
   .createPlOption__album{
     width: 320px !important;

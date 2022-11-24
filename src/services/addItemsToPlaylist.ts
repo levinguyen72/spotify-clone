@@ -3,15 +3,12 @@ import axios from 'axios'
 import { getToken } from './authService';
 
 import { PLAYLIST_ID, _fakeToken } from '../configs'
-// import GetCurrentPlayListId from '../components/getCurrentPlaylistId';
 
-//  const PLAYLIST_ID = `4ooGTcshbw1b2fLY8QCgvL`
-
-const URIS = `spotify:track:4iV5W9uYEdYUVa79Axb7Rh`
+//const URIS = `spotify:track:4iV5W9uYEdYUVa79Axb7Rh`
 const ADD_ITEM_TO_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks`
 
 
-export const AddItemToPL = async () => {
+export const AddItemToPL = async (itemURI:string) => {
     const _token = getToken().token
     
 
@@ -27,7 +24,8 @@ export const AddItemToPL = async () => {
                     Authorization: `Bearer ${_fakeToken}`
                 },
                 params: {
-                    uris: URIS
+                    // uris: URIS
+                    uris: itemURI
                 }
             },
          
