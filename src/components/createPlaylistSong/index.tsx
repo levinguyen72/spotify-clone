@@ -6,7 +6,7 @@ import "./index.css";
 type Props = { item: any };
 
 const addSongToPl = () => {
-  alert("Add to playlist");
+
   AddItemToPL();
 };
 const CreatePlaylistSong = ({ item }: Props) => {

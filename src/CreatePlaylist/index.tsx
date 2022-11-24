@@ -69,7 +69,7 @@ export const CreatePlaylist = (props: Props) => {
   };
 
   // console.log("10000000000000000000000000000000000000");
-  //getPlaylist().then((res: any) => console.log(res));
+  // getPlaylist().then((res: any) => console.log(res));
   getPlaylist().then((res: any) => setCurrentList(res))
   
   return (
@@ -200,7 +200,7 @@ export const CreatePlaylist = (props: Props) => {
             height="16"
             width="16"
             viewBox="0 0 16 16"
-            className="Svg-ytk21e-0 eqtHWV"
+            // className="Svg-ytk21e-0 eqtHWV"
           >
             <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z"></path>
             <path d="M8 3.25a.75.75 0 01.75.75v3.25H11a.75.75 0 010 1.5H7.25V4A.75.75 0 018 3.25z"></path>
@@ -209,8 +209,8 @@ export const CreatePlaylist = (props: Props) => {
       </div>
 
       <div className="">
-        {currentList?.tracks?.items?.map((item: any) => (
-          <ItemAdded item={item} key={item.id} />
+        {currentList?.tracks?.items?.map((item: any, index: number) => (
+          <ItemAdded index={currentList?.tracks?.items?.indexOf(item) + 1} item={item} key={item.id} />
         ))}
 
         {/* added song ================> */}

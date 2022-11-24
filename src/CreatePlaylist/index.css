@@ -161,7 +161,7 @@
 }
 .createPlBodyTitle > h1{
   font-size: 1.5rem;
-    font-weight: 750;
+  font-weight: 750;
 }
 
 .searchInputContainer input{
@@ -188,9 +188,8 @@
 .createPlBody{
   height: 144px;
   padding: 24px 32px;
- 
   margin-top: 24px;
- 
+ margin-bottom: 100px;
  }
  .createPlBodyTitle > h1{
   display: block;
@@ -219,16 +218,15 @@
  grid-column: 11 / 13;
 }
 .createPlOption__duration{
-  color: white;
+  color: #b3b3b3;
 }
 .createPlOption__duration > svg {
-  background-color: white !important;
+  background-color: #b3b3b3 !important;
 }
 
 .createPlOption__img{
   display: flex;
   flex-grow: 1;
-  background-color: red;
   margin: 0 8px;
 }
 .createPlOption__name{
