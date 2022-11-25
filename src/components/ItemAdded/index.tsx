@@ -1,4 +1,4 @@
-import { IconButton } from "@mui/material";
+
 import DeleteIcon from "@mui/icons-material/Delete";
 import React from "react";
 import "./index.css";
@@ -6,6 +6,8 @@ import { DelItemPL } from "../../services/deleteItemsFromPlaylists";
 import { getPlaylist } from "../../services/getPlaylist";
 import { useDispatch } from "react-redux";
 import { setRenderState } from "../../redux/slices/auth";
+import { getDeviceID } from "../../services/getIdDevices";
+import { startResumePlayback } from "../../services/startResumePlayback";
 
 type Props = { item: any; index: number };
 
@@ -24,6 +26,7 @@ const ItemAdded = ({ item, index }: Props) => {
     dispatch(setRenderState());
     DelItemPL(itemURI);
     getPlaylist();
+    startResumePlayback();
   };
 
   return (

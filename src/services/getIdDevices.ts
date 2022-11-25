@@ -22,7 +22,7 @@ export const getDeviceID = async () => {
             },
         }
     )
-    
+   
     console.log(data.devices[0].id)
     return data.devices[0].id
 
