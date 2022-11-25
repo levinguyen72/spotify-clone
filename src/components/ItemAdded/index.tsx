@@ -1,11 +1,32 @@
+import { IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import React from "react";
 import "./index.css";
-type Props = { item: any, index: number };
+import { DelItemPL } from "../../services/deleteItemsFromPlaylists";
+import { getPlaylist } from "../../services/getPlaylist";
 
-const index = ({ item, index }: Props) => {
+type Props = { item: any; index: number };
+
+const ItemAdded = ({ item, index }: Props) => {
+  const [isHovering, setIsHovering] = React.useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+  const handleDeleteItem = (itemURI:any) => {
+    alert(1234)
+    DelItemPL(itemURI)
+    getPlaylist()
+  }
+  // console.log(12345657)
+  // console.log(item.track.uri)
   return (
     <div className="createPlOption">
-      <div className="createPlOption__number-child">{index }</div>
+      <div className="createPlOption__number-child">{index}</div>
       <div className="createPlOption__title">
         <img
           className="createPlOption__img"
@@ -25,13 +46,24 @@ const index = ({ item, index }: Props) => {
       <div className="createPlOption__date-add">
         {item.added_at.slice(0, 10)}
       </div>
-      <div className="createPlOption__duration">
-        {(item?.track?.duration_ms / (1000 * 60))
-          .toFixed(2)
-          .replace(".", ":")}
+
+      <div className="createPlOption__duration" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        {isHovering ? (
+          // <IconButton aria-label="delete" className="createPlOption__duration-delBtn" size="small">
+          //   <DeleteIcon />
+          // </IconButton>
+          <div className="" onClick={() => handleDeleteItem(item.track.uri)}>
+
+            {/* <h1>Delete</h1> */}
+          <DeleteIcon />
+          </div>
+          
+        ) : (
+          (item?.track?.duration_ms / (1000 * 60)).toFixed(2).replace(".", ":")
+        )}
       </div>
     </div>
   );
 };
 
-export default index;
+export default ItemAdded;

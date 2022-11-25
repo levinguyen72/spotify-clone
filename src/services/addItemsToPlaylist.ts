@@ -11,7 +11,6 @@ const ADD_ITEM_TO_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${PL
 export const AddItemToPL = async (itemURI:string) => {
     const _token = getToken().token
     
-
     await axios
         .post(
             ADD_ITEM_TO_PLAYLIST_ENDPOINT,
@@ -23,14 +22,14 @@ export const AddItemToPL = async (itemURI:string) => {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${_fakeToken}`
                 },
-                params: {
-                    // uris: URIS
+                params: {      
                     uris: itemURI
                 }
             },
          
         
     )
+
   
     
    

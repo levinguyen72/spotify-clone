@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ClearIcon from "@mui/icons-material/Clear";
-import React from "react";
+import React, { useEffect } from "react";
 import "./index.css";
 
 import { searchForItem } from "../services/searchForItem";
@@ -68,16 +68,23 @@ export const CreatePlaylist = (props: Props) => {
     setIsAddItem(false);
   };
 
-  // console.log("10000000000000000000000000000000000000");
-   //getPlaylist().then((res: any) => console.log(res));
-    getPlaylist().then((res: any) => setCurrentList(res))
-
+  React.useEffect(() => {
+    getPlaylist().then((res: any) => setCurrentList(res));
+  }, []);
   
+  const renderCurrentListTrack = React.useMemo(() => {
+    return currentList?.tracks?.items?.map((item: any, index: number) => (
+      <ItemAdded
+        index={currentList?.tracks?.items?.indexOf(item) + 1}
+        item={item}
+        key={item.id}
+      />
+    ));
+  }, [currentList?.tracks?.items]);
 
   // URI
-  // console.log("AAAAAAAAAAAAAAAAAAAAAAAA")
   // console.log(searchValue?.tracks?.items[0].uri)
-  // 
+  //
   return (
     <div className="createPlaylistContainer">
       {/* header */}
@@ -214,10 +221,8 @@ export const CreatePlaylist = (props: Props) => {
         </div>
       </div>
 
-      <div >
-        {currentList?.tracks?.items?.map((item: any, index: number) => (
-          <ItemAdded index={currentList?.tracks?.items?.indexOf(item) + 1} item={item} key={item.id} />
-        ))}
+      <div>
+        {renderCurrentListTrack}
 
         {/* added song ================> */}
       </div>

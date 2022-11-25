@@ -5,16 +5,10 @@ import { AddItemToPL } from "../../services/addItemsToPlaylist";
 import "./index.css";
 type Props = { item: any };
 
-
-// const addSongToPl = () => {
-
-//   AddItemToPL();
-//   console.log("AAAAAAAAAAAAAAA + " + itemURI)
-// };
-
 const CreatePlaylistSong = ({ item }: Props) => {
-  // const [itemURI, setItemURI] = React.useState<string>("")
-  // setItemURI(item.uri)
+
+  
+ 
   return (
     //
     <div className="createResultSong leftResultSong flex">
