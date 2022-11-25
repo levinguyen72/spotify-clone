@@ -22,8 +22,8 @@ const ItemAdded = ({ item, index }: Props) => {
   };
   const handleDeleteItem = (itemURI: any) => {
     dispatch(setRenderState());
-    alert("AT DEL")
     DelItemPL(itemURI);
+    getPlaylist();
   };
 
   return (

@@ -58,6 +58,7 @@ export const CreatePlaylist = (props: Props) => {
     setAnchorElUser(null);
   };
   const dispatch = useDispatch();
+
   const [searchValue, setSearchValue] = React.useState<any>();
   const [isAddItem, setIsAddItem] = React.useState<boolean>(false);
   const [currentList, setCurrentList] = React.useState<any>();
@@ -70,11 +71,12 @@ export const CreatePlaylist = (props: Props) => {
   };
 
   const renderState = useSelector((state: RootState) => state.auth.render_state)
+  
   React.useEffect(() => {
     getPlaylist().then((res: any) => setCurrentList(res));
-    console.log("At create playlist" + renderState)
+    console.log("At create playlist ========== " + ((new Date()).getTime()).toString())
   }, [renderState]);
-
+ 
   const renderCurrentListTrack = React.useMemo(() => {
     return currentList?.tracks?.items?.map((item: any, index: number) => (
       <ItemAdded
@@ -83,7 +85,7 @@ export const CreatePlaylist = (props: Props) => {
         key={item.id}
       />
     ));
-  }, [currentList?.tracks?.items]);
+  }, [currentList?.tracks?.items, renderState]);
   return (
     <div className="createPlaylistContainer">
       {/* header */}
@@ -215,7 +217,17 @@ export const CreatePlaylist = (props: Props) => {
       </div>
 
       {/*<===================== added songs =================> */}
-      <div>{renderCurrentListTrack}</div>
+      <div>
+        {renderCurrentListTrack}
+
+        {/* {currentList?.tracks?.items?.map((item: any, index: number) => (
+          <ItemAdded
+            index={currentList?.tracks?.items?.indexOf(item) + 1}
+            item={item}
+            key={item.id}
+          />
+        ))}; */}
+      </div>
       {/*<==================== added song ================> */}
 
       {/* Body */}
@@ -226,8 +238,6 @@ export const CreatePlaylist = (props: Props) => {
         </div>
         {/* body search */}
         <div className="createPlBodySearch">
-          {/*  */}
-
           {/* input */}
           <div className="searchInputContainer">
             <input
@@ -237,7 +247,6 @@ export const CreatePlaylist = (props: Props) => {
               placeholder="Search for songs or episodes"
               ref={inputValue}
             />
-
             <div className="clearArea">
               <ClearIcon className="clearIcon" />
             </div>

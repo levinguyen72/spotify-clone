@@ -83,7 +83,7 @@ const authSlice = createSlice({
       state.playlist_id = action.payload.playlist_id
     },
     setRenderState: (state) => {
-      state.render_state++;
+      state.render_state = state.render_state + 1;
     }
   },
   extraReducers: (builder) => {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setRenderState } from "../../redux/slices/auth";
 import { AddItemToPL } from "../../services/addItemsToPlaylist";
+import { getPlaylist } from "../../services/getPlaylist";
 import "./index.css";
 type Props = { item: any };
 
@@ -9,8 +10,8 @@ const CreatePlaylistSong = ({ item }: Props) => {
   const dispatch = useDispatch();
   const addItemToPlayList = (itemURI: string) => {
     dispatch(setRenderState());
-    console.log("AT ADD")
     AddItemToPL(itemURI);
+    getPlaylist()
   };
   return (
     //
