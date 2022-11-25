@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { setRenderState } from "../../redux/slices/auth";
 import { AddItemToPL } from "../../services/addItemsToPlaylist";
-
 import "./index.css";
 type Props = { item: any };
 
 const CreatePlaylistSong = ({ item }: Props) => {
-
-  
- 
+  const dispatch = useDispatch();
+  const addItemToPlayList = (itemURI: string) => {
+    dispatch(setRenderState());
+    console.log("AT ADD")
+    AddItemToPL(itemURI);
+  };
   return (
     //
     <div className="createResultSong leftResultSong flex">
@@ -59,11 +62,9 @@ const CreatePlaylistSong = ({ item }: Props) => {
         <br />
       </div>
       {/* button */}
-      <button onClick={() => AddItemToPL(item.uri)}>Add</button>
+      <button onClick={() => addItemToPlayList(item.uri)}>Add</button>
     </div>
   );
 };
-
-
 
 export default CreatePlaylistSong;

@@ -18,9 +18,10 @@ import { searchForItem } from "../services/searchForItem";
 import CreatePlaylistSong from "../components/createPlaylistSong";
 import SearchSong from "../components/SearchSong";
 import { createForItem } from "../services/createSongPlaylist";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getPlaylist } from "../services/getPlaylist";
 import ItemAdded from "../components/ItemAdded";
+import { RootState } from "../redux/store";
 
 type Props = {};
 const pages = ["<<", ">>"];
@@ -68,10 +69,12 @@ export const CreatePlaylist = (props: Props) => {
     setIsAddItem(false);
   };
 
+  const renderState = useSelector((state: RootState) => state.auth.render_state)
   React.useEffect(() => {
     getPlaylist().then((res: any) => setCurrentList(res));
-  }, []);
-  
+    console.log("At create playlist" + renderState)
+  }, [renderState]);
+
   const renderCurrentListTrack = React.useMemo(() => {
     return currentList?.tracks?.items?.map((item: any, index: number) => (
       <ItemAdded
@@ -81,10 +84,6 @@ export const CreatePlaylist = (props: Props) => {
       />
     ));
   }, [currentList?.tracks?.items]);
-
-  // URI
-  // console.log(searchValue?.tracks?.items[0].uri)
-  //
   return (
     <div className="createPlaylistContainer">
       {/* header */}
@@ -208,24 +207,16 @@ export const CreatePlaylist = (props: Props) => {
         <div className="createPlOption__album">Album</div>
         <div className="createPlOption__date-add">Date add</div>
         <div className="createPlOption__duration">
-          <svg
-            role="img"
-            height="16"
-            width="16"
-            viewBox="0 0 16 16"
-            // className="Svg-ytk21e-0 eqtHWV"
-          >
+          <svg role="img" height="16" width="16" viewBox="0 0 16 16">
             <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z"></path>
             <path d="M8 3.25a.75.75 0 01.75.75v3.25H11a.75.75 0 010 1.5H7.25V4A.75.75 0 018 3.25z"></path>
           </svg>
         </div>
       </div>
 
-      <div>
-        {renderCurrentListTrack}
-
-        {/* added song ================> */}
-      </div>
+      {/*<===================== added songs =================> */}
+      <div>{renderCurrentListTrack}</div>
+      {/*<==================== added song ================> */}
 
       {/* Body */}
       <div className="createPlBody">

@@ -4,10 +4,13 @@ import React from "react";
 import "./index.css";
 import { DelItemPL } from "../../services/deleteItemsFromPlaylists";
 import { getPlaylist } from "../../services/getPlaylist";
+import { useDispatch } from "react-redux";
+import { setRenderState } from "../../redux/slices/auth";
 
 type Props = { item: any; index: number };
 
 const ItemAdded = ({ item, index }: Props) => {
+  const dispatch = useDispatch();
   const [isHovering, setIsHovering] = React.useState(false);
 
   const handleMouseOver = () => {
@@ -17,13 +20,12 @@ const ItemAdded = ({ item, index }: Props) => {
   const handleMouseOut = () => {
     setIsHovering(false);
   };
-  const handleDeleteItem = (itemURI:any) => {
-    alert(1234)
-    DelItemPL(itemURI)
-    getPlaylist()
-  }
-  // console.log(12345657)
-  // console.log(item.track.uri)
+  const handleDeleteItem = (itemURI: any) => {
+    dispatch(setRenderState());
+    alert("AT DEL")
+    DelItemPL(itemURI);
+  };
+
   return (
     <div className="createPlOption">
       <div className="createPlOption__number-child">{index}</div>
@@ -47,17 +49,15 @@ const ItemAdded = ({ item, index }: Props) => {
         {item.added_at.slice(0, 10)}
       </div>
 
-      <div className="createPlOption__duration" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      <div
+        className="createPlOption__duration"
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
         {isHovering ? (
-          // <IconButton aria-label="delete" className="createPlOption__duration-delBtn" size="small">
-          //   <DeleteIcon />
-          // </IconButton>
           <div className="" onClick={() => handleDeleteItem(item.track.uri)}>
-
-            {/* <h1>Delete</h1> */}
-          <DeleteIcon />
+            <DeleteIcon />
           </div>
-          
         ) : (
           (item?.track?.duration_ms / (1000 * 60)).toFixed(2).replace(".", ":")
         )}
