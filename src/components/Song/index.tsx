@@ -10,10 +10,15 @@ type Props = {
   item: any;
   itemIndex: string;
 };
+
 function Song({ item, itemIndex }: Props) {
+ 
+  
+
   const dispatch = useDispatch();
   const PlaySongID = () => {
-    startTrack(item.track.id);
+    
+    startTrack(item.track.uri);
     dispatch(setItem({ item }));
   };
 

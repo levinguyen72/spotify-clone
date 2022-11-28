@@ -20,6 +20,7 @@ import { skipToPrevious } from "../../services/skipToPrevious";
 import { setRepeatMode } from "../../services/setRepeatMode";
 
 import SpotifyApi from "spotify-web-api-js";
+import { startTrack } from "../../services/startTrack";
 interface IFooter {}
 
 const Footer: React.FunctionComponent<IFooter> = ({}) => {
@@ -39,8 +40,8 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     skipToPrevious();
   };
   const setPlay = () => {
+    startTrack(itemIsPlaying.track.uri);
     startResumePlayback();
-
     setIsPlaying(true);
   };
   const setRepeat = () => {

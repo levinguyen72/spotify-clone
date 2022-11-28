@@ -14,7 +14,7 @@ const device_id = getDeviceID
 // 
 const spotify = new SpotifyApi()
 
-export const startTrack = async (id: any) => {
+export const startTrack = async (itemUri: string) => {
 
     const _token = getToken().token
     const plMusic = await axios.put(
@@ -28,14 +28,14 @@ export const startTrack = async (id: any) => {
                 Authorization: `Bearer ${_fakeToken}`
             },
             params: {              
-                "uris": `spotify:album:${id}`,
+                "uris": `${itemUri}`,
          
             },
             
         }
     )
     spotify.play({
-        uris: [`spotify:track:${id}`],
+        uris: [`${itemUri}`],
     })
 }
 
