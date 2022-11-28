@@ -40,8 +40,11 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     skipToPrevious();
   };
   const setPlay = () => {
-    startTrack(itemIsPlaying.track.uri);
-    startResumePlayback();
+    console.log(123456)
+    //startTrack(itemIsPlaying.track.uri);
+    startResumePlayback(itemIsPlaying.track.album.uri);
+    console.log("YYYYYYYYYYYYYY")
+    console.log(itemIsPlaying)
     setIsPlaying(true);
   };
   const setRepeat = () => {

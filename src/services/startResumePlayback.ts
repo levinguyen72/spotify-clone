@@ -6,17 +6,16 @@ import { DEVICE_ID, DEVICE_ID3, _fakeToken } from '../configs';
 
 const START_RESUME_PLAYBACK_ENDPOINT = `https://api.spotify.com/v1/me/player/play`
 
-// const DEVICE_ID2 = getDeviceID().then(res => res)
-console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA")
-console.log(DEVICE_ID3)
-    export const startResumePlayback = async () => {
 
+export const startResumePlayback = async (itemUri: string) => {
+  
         await axios
             .put(
             START_RESUME_PLAYBACK_ENDPOINT,
             {
-                    "context_uri": "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr",
-                    "offset": { "position": 5 },
+                    // "context_uri":  "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr",
+                    "context_uri":  `${itemUri}`,
+                    "offset": { "position": 1 },
                      "position_ms": 0
             },
             {

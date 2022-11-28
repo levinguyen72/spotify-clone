@@ -3,6 +3,7 @@ import "./index.css";
 import { useDispatch } from "react-redux";
 import { setItem, setPlaying } from "../../redux/slices/auth";
 import { startTrack } from "../../services/startTrack";
+import { startResumePlayback } from "../../services/startResumePlayback";
 
 // import playMusic function api
 
@@ -17,8 +18,11 @@ function Song({ item, itemIndex }: Props) {
 
   const dispatch = useDispatch();
   const PlaySongID = () => {
-    
-    startTrack(item.track.uri);
+    console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+    console.log(item.track.album.uri)
+
+    // startTrack(item.track.uri);
+    startResumePlayback(item.track.album.uri)
     dispatch(setItem({ item }));
   };
 
