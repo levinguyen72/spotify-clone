@@ -17,12 +17,12 @@ export const getRecentlyPlayed = async () => {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                //Authorization: `Bearer ${_token}`,
+               
                 Authorization: `Bearer ${_fakeToken}`
             },
             params: {
                 limit: 50,
-                // additional_types: "track",
+
                 after: 1484811043508
             }
         }

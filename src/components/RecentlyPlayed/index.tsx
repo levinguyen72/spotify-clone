@@ -4,7 +4,6 @@ import { getRecentlyPlayed } from "../../services/getRecentlyPlayed";
 import Song from "../Song";
 
 type songs = { items?: any };
-// const recentlyPlayed: Promise<any>
 
 const RecentlyPlayed = () => {
   // use state to set song

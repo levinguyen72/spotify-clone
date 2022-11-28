@@ -74,7 +74,6 @@ export const CreatePlaylist = (props: Props) => {
   
   React.useEffect(() => {
     getPlaylist().then((res: any) => setCurrentList(res));
-    console.log("At create playlist ========== " + ((new Date()).getTime()).toString())
   }, [renderState]);
  
   const renderCurrentListTrack = React.useMemo(() => {
@@ -219,14 +218,6 @@ export const CreatePlaylist = (props: Props) => {
       {/*<===================== added songs =================> */}
       <div>
         {renderCurrentListTrack}
-
-        {/* {currentList?.tracks?.items?.map((item: any, index: number) => (
-          <ItemAdded
-            index={currentList?.tracks?.items?.indexOf(item) + 1}
-            item={item}
-            key={item.id}
-          />
-        ))}; */}
       </div>
       {/*<==================== added song ================> */}
 

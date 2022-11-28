@@ -20,7 +20,6 @@ export const skipToNext = async() => {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                //Authorization: `Bearer ${_token}`,
                 Authorization: `Bearer ${_fakeToken}`
             },
        

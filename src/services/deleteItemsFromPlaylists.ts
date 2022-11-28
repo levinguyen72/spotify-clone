@@ -18,7 +18,7 @@ export const DelItemPL = async (itemURI:string) => {
                 Authorization: `Bearer ${_fakeToken}`
             },
             data: {
-                // "tracks":[{"uri":"spotify:track:1D4PL9B8gOg78jiHg3FvBb"}]
+              
                 "tracks":[{"uri":`${itemURI}`}]
 
             },
@@ -28,7 +28,5 @@ export const DelItemPL = async (itemURI:string) => {
         }, 
             
     )
-
-    console.log("itemURI ---------------------------" + itemURI)
     
 }

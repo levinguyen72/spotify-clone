@@ -6,7 +6,6 @@ import { _fakeToken } from '../configs';
 const SEARCH_ENDPOINT = `https://api.spotify.com/v1/search`
 
 
-//export const searchForItem = async (searchValue: any) => {
 export const searchForItem = async (searchValue: string) => {
     
      const _token =  getToken().token
@@ -18,7 +17,6 @@ export const searchForItem = async (searchValue: string) => {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                //Authorization: `Bearer ${_token}`,
                 Authorization: `Bearer ${_fakeToken}`
       
             },

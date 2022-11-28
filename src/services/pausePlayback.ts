@@ -1,7 +1,4 @@
 import axios  from 'axios';
-//import scopes from '../configs/scopes'
-
-// const [currentPlaying, setCurrentPlaying] = useState()
 import { getToken } from './authService';
 import { _fakeToken } from '../configs';
 
@@ -23,7 +20,6 @@ export const pausePlayback = async () => {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
-                    //Authorization: `Bearer ${_token}`,
                     Authorization: `Bearer ${_fakeToken}`
                 },
            

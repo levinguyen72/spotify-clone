@@ -18,8 +18,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
       setSearchValue(res);
     });
   };
-  console.log(Math.random());
-  console.log(searchValue);
+
 
   return (
     <section className="searchContainer">

@@ -18,10 +18,7 @@ function Song({ item, itemIndex }: Props) {
 
   const dispatch = useDispatch();
   const PlaySongID = () => {
-    console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-    console.log(item.track.album.uri)
 
-    // startTrack(item.track.uri);
     startResumePlayback(item.track.album.uri)
     dispatch(setItem({ item }));
   };

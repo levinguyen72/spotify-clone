@@ -5,7 +5,6 @@ import { _fakeToken } from '../configs';
 
 const ID_DEVICES_ENDPOINT = `https://api.spotify.com/v1/me/player/devices`
 
-console.log("GET DEVICE ID .........................")
 export const getDeviceID = async () => {
     
      const _token =  getToken().token
@@ -21,8 +20,6 @@ export const getDeviceID = async () => {
             },
         }
     )
-   
-    console.log(data.devices[0].id)
     return data.devices[0].id
 
 }

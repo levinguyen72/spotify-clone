@@ -22,15 +22,6 @@ const Main: React.FunctionComponent<IMainProps> = ({
   //kiểm tra xem có access token chưa
   const token = useSelector((state) => state.auth.access_token);
 
-  // React.useEffect(() => {
-  //   if (window.location.href.includes("access_token")) {
-  //     const _token = dispatch(getToken()).token;
-
-  //     window.sessionStorage.setItem("token", _token);
-  //   } else {
-  //     window.location.href = auth_url;
-  //   }
-  // }, [token]);
   const [isAuth, setIsAuth] = React.useState();
   React.useEffect(() => {
     if (window.location.href.includes("access_token")) {
