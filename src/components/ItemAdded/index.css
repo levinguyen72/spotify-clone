@@ -7,7 +7,6 @@
     justify-items: center;
   }
   .createPlOption:hover{
-    /* background-color: rgb(217, 212, 212); */
     opacity: 0.85;
   }
 .createPlOption__number-child{

@@ -4,7 +4,6 @@ import { getToken } from './authService';
 
 import { PLAYLIST_ID, _fakeToken } from '../configs'
 
-//const URIS = `spotify:track:4iV5W9uYEdYUVa79Axb7Rh`
 const ADD_ITEM_TO_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks`
 
 

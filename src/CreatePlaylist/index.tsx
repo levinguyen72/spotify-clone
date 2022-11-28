@@ -244,12 +244,13 @@ export const CreatePlaylist = (props: Props) => {
           </div>
         </div>
 
+       
         {/*result  */}
         <section className="createResult mt-6">
           {/* song */}
           <div className="grid grid-rows-10 gap-4">
             {searchValue?.tracks?.items.map((item: any) => (
-              <CreatePlaylistSong item={item} />
+              <CreatePlaylistSong item={item} key={Math.random()} />
             ))}
           </div>
         </section>

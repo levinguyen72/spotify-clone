@@ -76,7 +76,6 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
       </div>
 
       <div className="footer__center ">
-        {/*button control  */}
         <div className="footer__button-control">
           <div className="footer__button">
             {" "}

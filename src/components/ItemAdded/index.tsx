@@ -26,7 +26,6 @@ const ItemAdded = ({ item, index }: Props) => {
     dispatch(setRenderState());
     DelItemPL(itemURI);
     getPlaylist();
-    //startResumePlayback();
   };
 
   return (
