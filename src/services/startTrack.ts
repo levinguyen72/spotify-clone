@@ -1,17 +1,12 @@
-import { useDispatch } from 'react-redux';
+import axios from 'axios';
 import SpotifyApi from "spotify-web-api-js";
 import { getDeviceID } from './getIdDevices';
-import axios from 'axios';
-
 import { getToken } from './authService';
 import { _fakeToken } from '../configs';
-import { setItem, setPlaying } from "../redux/slices/auth";
-
-const START_TRACK_ENDPOINT = `https://api.spotify.com/v1/me/player/play`
+import { START_TRACK_ENDPOINT } from './Endpoint/endPoint';
 
 const device_id = getDeviceID
 
-// 
 const spotify = new SpotifyApi()
 
 export const startTrack = async (itemUri: string) => {

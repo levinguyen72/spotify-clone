@@ -1,4 +1,5 @@
 import * as React from "react";
+import uuid from "react-uuid";
 
 import { searchForItem } from "../../services/searchForItem";
 import SearchAlbum from "../SearchAlbum";
@@ -50,7 +51,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
           {/* top result */}
           <div className="my-4">
             <h1 className="text-2xl font-bold my-4">Top result</h1>
-            <TopResultResearch key={Math.random()} item={searchValue} />
+            <TopResultResearch key={uuid()} item={searchValue} />
           </div>
           {/* song */}
           <div className="grid grid-rows-4 gap-4">
@@ -58,7 +59,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
             {searchValue?.tracks?.items.map((item: any) => (
               <>
                 <SearchSong
-                  key={Math.random().toString() + item.id.toString()}
+                  key={uuid() + item.id.toString()}
                   item={item}
                 />
               </>
@@ -72,7 +73,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
           <div className="grid grid-cols-4 gap-4 searchArtist">
             {searchValue?.artists?.items.map((item: any) => (
               <SearchArtist
-                key={Math.random().toString() + item.id.toString()}
+                key={uuid() + item.id.toString()}
                 item={item}
               />
             ))}
@@ -85,7 +86,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
           <div className="grid grid-cols-4 gap-4 searchArtist">
             {searchValue?.tracks?.items.map((item: any) => (
               <SearchAlbum
-                key={Math.random().toString() + item.id.toString()}
+                key={uuid() + item.id.toString()}
                 item={item}
               />
             ))}
@@ -97,7 +98,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
           <div className="grid grid-cols-4 gap-4 searchArtist">
             {searchValue?.artists?.items.map((item: any) => (
               <SearchArtist
-                key={Math.random().toString() + item.id.toString()}
+                key={uuid() + item.id.toString()}
                 item={item}
               />
             ))}
@@ -109,7 +110,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
           <div className="grid grid-cols-4 gap-4 searchArtist">
             {searchValue?.tracks?.items.map((item: any) => (
               <SearchAlbum
-                key={Math.random().toString() + item.id.toString()}
+                key={uuid() + item.id.toString()}
                 item={item}
               />
             ))}

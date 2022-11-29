@@ -1,10 +1,7 @@
 import axios  from 'axios';
 import { getToken } from './authService';
-import { _fakeToken } from '../configs';
-
-const PAUSE_PLAYBACK_ENDPOINT = `https://api.spotify.com/v1/me/player/pause`
-const DEVICE_ID =  `0d1841b0976bae2a3a310dd74c0f3df354899bc8`
-
+import { DEVICE_ID, _fakeToken } from '../configs';
+import { PAUSE_PLAYBACK_ENDPOINT } from './Endpoint/endPoint';
 
 export const pausePlayback = async () => {
     
@@ -15,8 +12,7 @@ export const pausePlayback = async () => {
             DEVICE_ID,
           
             {
-                
-           
+   
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",

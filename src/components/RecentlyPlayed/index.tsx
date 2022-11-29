@@ -1,4 +1,5 @@
 import  { useEffect, useState } from "react";
+import uuid from "react-uuid";
 import { getRecentlyPlayed } from "../../services/getRecentlyPlayed";
 
 import Song from "../Song";
@@ -25,7 +26,7 @@ const RecentlyPlayed = () => {
     <div className="grid grid-cols-5 gap-x-6 mt-10">
       {/* render playlist here */}
       {songs.items?.map((item: any, index: string) => (
-        <Song key={"RecentlyPlayed "+  Math.random().toString() + item?.track?.id.toString()} item={item} itemIndex={index} />
+        <Song key={"RecentlyPlayed "+  uuid() + item?.track?.id.toString()} item={item} itemIndex={index} />
        
       ))}      
        

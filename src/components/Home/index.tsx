@@ -1,20 +1,17 @@
-import { AppBar, Container, Toolbar } from "@mui/material";
 import * as React from "react";
+import { AppBar, Container, Toolbar } from "@mui/material";
 import RecentlyPlayed from "../RecentlyPlayed";
-import "./index.css";
-
 import Box from "@mui/material/Box";
-
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-
+import "./index.css";
+import uuid from 'react-uuid';
 const pages = ["<<", ">>"];
 const settings = [
   "Account",
@@ -82,8 +79,8 @@ function Home() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={"pages" + Math.random().toString()} onClick={handleCloseNavMenu}>
+              {pages?.map((page) => (
+                <MenuItem key={"pages" + uuid()} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" fontSize={30} color="red">
                     <div className="header-btn">{page}</div>
                   </Typography>
@@ -93,9 +90,9 @@ function Home() {
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {pages?.map((page) => (
               <Button
-                key={"pages" + Math.random().toString()}
+                key={"pages" + uuid()}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
@@ -126,8 +123,8 @@ function Home() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={"setting" + Math.random().toString()} onClick={handleCloseUserMenu}>
+              {settings?.map((setting) => (
+                <MenuItem key={"setting" + uuid()} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

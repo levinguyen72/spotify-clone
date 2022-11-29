@@ -1,20 +1,13 @@
 import Main from "./components/main";
-import SideBar from "./components/sidebar";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Body from "./components/Body";
-import Footer from "./components/footer";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Search from "./components/Search";
-import Layout from "./layout";
 import { getToken } from "./services/authService";
 import { CreatePlaylist } from "./CreatePlaylist";
+import uuid from 'react-uuid';
 
 function MyApp({ Component, pageProps }: any) {
   const token = getToken().token;
@@ -22,10 +15,9 @@ function MyApp({ Component, pageProps }: any) {
   return (
     <Provider store={store}>
       <Routes>
-
         <Route
           path="/"
-          key={"/" + Math.random().toString()}
+          key={"/" + uuid()}
           element={
             <Main>
               <Body />
@@ -35,17 +27,17 @@ function MyApp({ Component, pageProps }: any) {
 
         <Route
           path="/home"
-          key={"/home" + Math.random().toString()}
+          key={"/home" + uuid()}
           element={
             <Main>
               <Home />
             </Main>
           }
         />
-        
+
         <Route
           path="/search"
-          key={"/search" + Math.random().toString()}
+          key={"/search" + uuid()}
           element={
             <Main>
               <Search />
@@ -54,9 +46,8 @@ function MyApp({ Component, pageProps }: any) {
         />
 
         <Route
-          
           path="/CreatePlaylist"
-          key={"/CreatePlaylist" + Math.random().toString()}
+          key={"/CreatePlaylist" + uuid()}
           element={
             <Main>
               <CreatePlaylist />

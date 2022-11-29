@@ -1,10 +1,7 @@
 import axios from "axios";
 
-import { getToken } from "./authService";
-
 import { PLAYLIST_ID, _fakeToken } from "../configs";
-
-const DEL_ITEM_FROM_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks`
+import { DEL_ITEM_FROM_PLAYLIST_ENDPOINT } from "./Endpoint/endPoint";
 
 export const DelItemPL = async (itemURI:string) => {
     

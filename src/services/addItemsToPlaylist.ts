@@ -1,10 +1,10 @@
-import { useState } from 'react';
+
 import axios from 'axios'
 import { getToken } from './authService';
+import {  _fakeToken } from '../configs'
+import { ADD_ITEM_TO_PLAYLIST_ENDPOINT } from './Endpoint/endPoint';
 
-import { PLAYLIST_ID, _fakeToken } from '../configs'
 
-const ADD_ITEM_TO_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks`
 
 
 export const AddItemToPL = async (itemURI:string) => {

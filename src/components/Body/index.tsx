@@ -1,11 +1,11 @@
-import "./index.css";
 
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-
 import Container from "@mui/material/Container";
+import "./index.css";
 
 const pages = ["<<", ">>"];
+
 const settings = [
   "Account",
   "Profile",

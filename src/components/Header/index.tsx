@@ -14,9 +14,7 @@ const Header = (props: Props) => {
         />
       </div>
       <div className="header__right">
-        {/* <img alt={user?.display_name} src={user?.images[0].url} /> */}
         <img alt="avatar" />
-        {/* <h4>{user?.display_name}</h4> */}
         <h4>Louis Ng</h4>
       </div>
     </div>

@@ -1,10 +1,7 @@
 import axios  from 'axios';
-
 import { getToken } from './authService';
 import { _fakeToken } from '../configs';
-
-const RECENTLY_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played`
-
+import { RECENTLY_PLAYED_ENDPOINT } from './Endpoint/endPoint';
 
 export const getRecentlyPlayed = async () => {
     
@@ -22,7 +19,6 @@ export const getRecentlyPlayed = async () => {
             },
             params: {
                 limit: 50,
-
                 after: 1484811043508
             }
         }

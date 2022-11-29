@@ -1,4 +1,3 @@
-import React from "react";
 import "./index.css";
 
 type Props = { item: any };
@@ -17,8 +16,6 @@ const TopResultResearch = ({ item }: Props) => {
             src={item?.tracks?.items[0]?.album?.images[1]?.url}
             alt="track cover"
           />
-     
-        
         </div>
         <div className="flex-1">
           <span className="text-3xl font-bold text-white text-[16px] whitespace-nowrap flex mb-2">

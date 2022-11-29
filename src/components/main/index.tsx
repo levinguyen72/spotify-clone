@@ -1,16 +1,12 @@
 //@ts-nocheck
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { JsxAttribute } from "typescript";
-import { auth_url, getToken, getUriRefresh } from "../../services/authService";
-import Sidebar from "../sidebar";
-import Footer from "../footer";
+import {  getToken} from "../../services/authService";
+
 import Login from "../Login";
 import Root from "../root";
 import "./index.css";
-//
-import { getCurrentPlaying } from "../../services/getRecentlyPlayed";
-//
+
 interface IMainProps {
   children?: JSX.Element | JSX.Element[];
 }

@@ -1,11 +1,6 @@
-import { getDeviceID } from './getIdDevices';
 import axios  from 'axios';
-
-import { getToken } from './authService';
-import { DEVICE_ID, DEVICE_ID3, _fakeToken } from '../configs';
-
-const START_RESUME_PLAYBACK_ENDPOINT = `https://api.spotify.com/v1/me/player/play`
-
+import {  DEVICE_ID3, _fakeToken } from '../configs';
+import { START_RESUME_PLAYBACK_ENDPOINT } from './Endpoint/endPoint';
 
 export const startResumePlayback = async (itemUri: string) => {
   

@@ -1,9 +1,7 @@
 import axios from 'axios';
-
 import { getToken } from './authService';
 import { _fakeToken } from '../configs';
-
-const USER_ID_ENDPOINT = `https://api.spotify.com/v1/me`
+import { USER_ID_ENDPOINT } from './Endpoint/endPoint';
 
 export const getUserID = async () => {
 

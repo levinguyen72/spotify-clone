@@ -4,13 +4,11 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
-
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
@@ -19,15 +17,14 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import DownloadForOfflineOutlinedIcon from "@mui/icons-material/DownloadForOfflineOutlined";
 import "./index.css";
 import { NavLink } from "react-router-dom";
-
 import { createPlaylist } from "../../services/createPlaylist";
 import { useDispatch } from "react-redux";
+import uuid from "react-uuid";
 
 const drawerWidth = 240;
 const drawerHeight = 680;
 
 interface Props {
-
   window?: () => Window;
 }
 
@@ -40,7 +37,6 @@ export default function ResponsiveDrawer(props: Props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  // function create new playlist
   
   const [countPl, setCountPl] = React.useState<number>(4);
   const [listArr, setListArr] = React.useState();
@@ -51,13 +47,11 @@ export default function ResponsiveDrawer(props: Props) {
     plListArr.push(countPl);
     createPlaylist(countPl);
     createPlaylist().then((res) => dispatch({ res }));
-    
-    
+
   };
   // side bar
   const drawer = (
     <div className="sidebar">
-      {/* <Toolbar /> */}
       {/* side bar logo */}
       <img
         className="sidebar__logo"
@@ -77,7 +71,6 @@ export default function ResponsiveDrawer(props: Props) {
             </ListItemButton>
           </ListItem>
         </NavLink>
-
         {/*  */}
         <NavLink to="/search">
           <ListItem key="search" disablePadding className="sidebar-list">
@@ -89,7 +82,6 @@ export default function ResponsiveDrawer(props: Props) {
             </ListItemButton>
           </ListItem>
         </NavLink>
-
         {/*  */}
         <NavLink to="/library">
           <ListItem key="library" disablePadding className="sidebar-list">
@@ -134,14 +126,14 @@ export default function ResponsiveDrawer(props: Props) {
       <List>
         {plListArr.length < 5
           ? plListArr?.map((item: number) => (
-              <ListItem key={item.toString() + Math.random().toString()} disablePadding className="sidebar-list">
+              <ListItem key={item.toString() + uuid()} disablePadding className="sidebar-list">
                 <ListItemButton>
                   <ListItemText  primary={`My Playlist #${item}`} />
                 </ListItemButton>
               </ListItem>
             ))
           : plListArr?.map((item: number) => (
-              <ListItem key={item.toString() +  Math.random().toString()} disablePadding className="sidebar-list-than5">
+              <ListItem key={item.toString() +  uuid()} disablePadding className="sidebar-list-than5">
                 <ListItemButton>
                   <ListItemText  primary={`My Playlist #${item}`} />
                 </ListItemButton>

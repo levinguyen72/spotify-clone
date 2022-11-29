@@ -1,12 +1,8 @@
-import { getUserID } from './getUserId';
+
 import axios from "axios";
 import { getToken } from './authService';
-import { USER_ID, _fakeToken } from "../configs";
-import { useState } from 'react';
-
-
-
-const CREATE_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/users/${USER_ID}/playlists`
+import {  _fakeToken } from "../configs";
+import { CREATE_PLAYLIST_ENDPOINT } from './Endpoint/endPoint';
 
 export const createPlaylist = async (countPl?: any) => {
  

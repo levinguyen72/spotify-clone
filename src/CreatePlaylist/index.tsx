@@ -1,3 +1,16 @@
+
+import MenuIcon from "@mui/icons-material/Menu";
+import ClearIcon from "@mui/icons-material/Clear";
+import React, { useEffect } from "react";
+import "./index.css";
+
+import CreatePlaylistSong from "../components/createPlaylistSong";
+import { createForItem } from "../services/createSongPlaylist";
+import { useDispatch, useSelector } from "react-redux";
+import { getPlaylist } from "../services/getPlaylist";
+import ItemAdded from "../components/ItemAdded";
+import { RootState } from "../redux/store";
+
 import {
   Toolbar,
   Box,
@@ -9,19 +22,7 @@ import {
   Tooltip,
   Avatar,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import ClearIcon from "@mui/icons-material/Clear";
-import React, { useEffect } from "react";
-import "./index.css";
-
-import { searchForItem } from "../services/searchForItem";
-import CreatePlaylistSong from "../components/createPlaylistSong";
-import SearchSong from "../components/SearchSong";
-import { createForItem } from "../services/createSongPlaylist";
-import { useDispatch, useSelector } from "react-redux";
-import { getPlaylist } from "../services/getPlaylist";
-import ItemAdded from "../components/ItemAdded";
-import { RootState } from "../redux/store";
+import uuid from "react-uuid";
 
 type Props = {};
 const pages = ["<<", ">>"];
@@ -59,9 +60,9 @@ export const CreatePlaylist = (props: Props) => {
   };
   const dispatch = useDispatch();
 
-  const [searchValue, setSearchValue] = React.useState<any>();
+  const [searchValue, setSearchValue] = React.useState<any>("");
   const [isAddItem, setIsAddItem] = React.useState<boolean>(false);
-  const [currentList, setCurrentList] = React.useState<any>();
+  const [currentList, setCurrentList] = React.useState<any>({});
   const inputValue = React.useRef<any>();
   const setValue = () => {
     createForItem(inputValue.current.value).then((res) => {
@@ -120,10 +121,10 @@ export const CreatePlaylist = (props: Props) => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {pages?.map((page) => (
                 <div>
                   <MenuItem
-                    key={"page" + Math.random().toString()}
+                    key={"page" + uuid()}
                     onClick={handleCloseNavMenu}
                   >
                     <Typography textAlign="center" fontSize={30} color="red">
@@ -136,9 +137,9 @@ export const CreatePlaylist = (props: Props) => {
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {pages?.map((page) => (
               <Button
-                key={"page" + Math.random().toString()}
+                key={"page" + uuid()}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
@@ -169,9 +170,9 @@ export const CreatePlaylist = (props: Props) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {settings?.map((setting) => (
                 <MenuItem
-                  key={"setting" + Math.random().toString()}
+                  key={"setting" + uuid()}
                   onClick={handleCloseUserMenu}
                 >
                   <Typography textAlign="center">{setting}</Typography>
@@ -215,11 +216,11 @@ export const CreatePlaylist = (props: Props) => {
         </div>
       </div>
 
-      {/*<===================== added songs =================> */}
+      {/*added songs =================> */}
       <div>
         {renderCurrentListTrack}
       </div>
-      {/*<==================== added song ================> */}
+   
 
       {/* Body */}
       <div className="createPlBody">
@@ -249,7 +250,7 @@ export const CreatePlaylist = (props: Props) => {
         <section className="createResult mt-6">
           {/* song */}
           <div className="grid grid-rows-10 gap-4">
-            {searchValue?.tracks?.items.map((item: any) => (
+            {searchValue?.tracks?.items?.map((item: any) => (
               <CreatePlaylistSong item={item} key={Math.random()} />
             ))}
           </div>

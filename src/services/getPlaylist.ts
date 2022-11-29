@@ -1,9 +1,8 @@
 import axios from 'axios';
 
 import { getToken } from './authService';
-import { PLAYLIST_ID, _fakeToken } from '../configs';
-
-const GET_PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}`
+import {  _fakeToken } from '../configs';
+import { GET_PLAYLIST_ENDPOINT } from './Endpoint/endPoint';
 
 export const getPlaylist = async () => {
 
@@ -18,8 +17,7 @@ export const getPlaylist = async () => {
             }, 
             params: {
                 market: "ES",
-              
-               
+            
             }
         }
     )
