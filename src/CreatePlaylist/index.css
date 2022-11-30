@@ -1,0 +1,220 @@
+.createPlaylistContainer{
+    margin-left: 240px;
+    right: 0 !important;
+    color: white;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+    margin-top: -40px;
+}
+.createPlHeader{
+    width: 100%;
+    height: 360px !important;
+    background-color: #434343;
+    padding: 20px;
+  
+}
+.createPlHeader__Left{
+    background-color: #282828;
+    width: 232px;
+    height: 232px;
+    margin: 0 20px ;
+  
+}
+.createPlHeader__Left-img {
+    color: white !important;
+    justify-content: center !important;
+    align-items: center !important;
+   margin-left: 38%;
+   margin-top: 38%;
+   color: white !important;
+  
+} 
+.createPlHeader__Container{
+    margin-top: -40px;
+}
+.createPlHeader__Right > h4{
+    font-size: 0.75rem;
+    margin-top: 4px;
+    text-transform: uppercase;
+    align-items: center;
+
+}
+.createPlHeader__Right > h1{
+    font-weight: 900;
+    font-size: 5rem;
+
+}
+.createPlHeader__Right > h2{
+    align-items: center;
+    margin-top: 8px;
+}
+  .body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .body__info {
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+  }
+  
+  .body__shuffle {
+    font-size: 80px !important;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .body__icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .body__icons > .MuiSvgIcon-root {
+    margin-right: 20px;
+  }
+  
+  .body__shuffle:hover {
+    transition: 100ms transform ease-in;
+    transform: scale(1.08);
+  }
+  
+  .body__background {
+    position: absolute;
+    top: 13vh;
+    right: 0;
+    opacity: 0.4;
+    height: 80%;
+    width: 80%;
+    background-color: black;
+ 
+  }
+  
+  .body__songs {
+    z-index: 1;
+    margin: 20px -30px;
+  }
+  
+  .body__info > img {
+    height: 20vw;
+    margin: 0 20px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+  }
+  
+  .body__infoText {
+    flex: 1;
+  }
+  
+  .body__infoText > h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .body__infoText > p {
+    font-size: 14px;
+  }
+  
+  .header{
+    padding-top: 30px;
+    margin-bottom: 40px;
+    position: fixed;
+    top: 0;
+  }
+ 
+  
+  .header__left {
+    flex: 0.7;
+    display: flex;
+    background-color: gray;
+    padding: 10px;
+    border-radius: 30px;
+    color: gray;
+    align-items: center !important;
+  }
+  .createPlOption{
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 10px;
+ 
+    padding: 10px;
+    justify-items: center;
+  }
+
+.createPlBodyTitle > h1{
+  font-size: 1.5rem;
+  font-weight: 750;
+}
+
+.searchInputContainer input{
+  width: 360px;
+  height: 40px;
+   padding: 12px;
+  font-size: 14px;
+  color: black;
+  background-color: #434343;
+  margin-top: 20px;
+  color: white !important;
+  border: 8px;
+  border-color: transparent;
+}
+.clearArea{
+  margin-left: 60%;
+
+}
+.clearIcon{
+ font-size: 50;
+  color: white;
+}
+.createPlBody{
+  height: 144px;
+  padding: 24px 32px;
+  margin-top: 24px;
+ margin-bottom: 100px;
+ }
+ .createPlBodyTitle > h1{
+  display: block;
+ }
+ .createPlBodySearch{
+  display: block;
+ }
+
+.createPlOption__number{
+  right: 0;
+}
+.createPlOption__title{
+  grid-column: 2 / 6;
+  margin-left: -20px;
+  justify-self: flex-start !important;
+}
+.createPlOption__album{
+  grid-column: 7/ 11;
+}
+.createPlOption__date-add{
+ grid-column: 11 / 13;
+}
+.createPlOption__duration{
+  color: #b3b3b3;
+}
+.createPlOption__duration > svg {
+  background-color: #b3b3b3 !important;
+}
+
+.createPlOption__img{
+  display: flex;
+  flex-grow: 1;
+  margin: 0 8px;
+}
+.createPlOption__name{
+  display: flex;
+  flex-grow: 3;
+  overflow: hidden;
+}
+
+.createPlOption__name > h2{
+  flex: 1;
+  font-weight: 400;
+  color: white;
+}
+.createPlOption__name  > h4{
+  display: block;
+  flex: 1;
+}

@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { getDefaultMiddleware } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 import authReducer from "../redux/slices/auth";
+
 
 const store = configureStore({
   reducer: {

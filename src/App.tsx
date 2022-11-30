@@ -1,21 +1,60 @@
 import Main from "./components/main";
-import SideBar from "./components/sidebar";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Body from "./components/Body";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Search from "./components/Search";
+import { getToken } from "./services/authService";
+import { CreatePlaylist } from "./CreatePlaylist";
+import uuid from 'react-uuid';
 
 function MyApp({ Component, pageProps }: any) {
-  console.log('app')
+  const token = getToken().token;
+
   return (
     <Provider store={store}>
-      <div className="w-full h-full">
-        <h1>spotify</h1>
-        <div className="w-full h-main flex">
-          <SideBar />
-          <Main>
-            <Component {...pageProps} />
-          </Main>
-        </div>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          key={"/" + uuid()}
+          element={
+            <Main>
+              <Body />
+            </Main>
+          }
+        />
+
+        <Route
+          path="/home"
+          key={"/home" + uuid()}
+          element={
+            <Main>
+              <Home />
+            </Main>
+          }
+        />
+
+        <Route
+          path="/search"
+          key={"/search" + uuid()}
+          element={
+            <Main>
+              <Search />
+            </Main>
+          }
+        />
+
+        <Route
+          path="/CreatePlaylist"
+          key={"/CreatePlaylist" + uuid()}
+          element={
+            <Main>
+              <CreatePlaylist />
+            </Main>
+          }
+        />
+      </Routes>
     </Provider>
   );
 }

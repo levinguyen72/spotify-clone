@@ -3,6 +3,7 @@ import {
   AUTH_URL,
   CLIENT_SECRET,
   CLIENT_ID,
+  REFRESH_URL,
   URI,
 } from "../configs";
 
@@ -38,8 +39,6 @@ import {
         const expire_in = subs[2]?.split("=")[1] || 0;
         return { token, type, expire_in };
     }
+    
 
-    // export const setToken = (access_token: string) => {
-    //     this.access_token = access_token;
-    // }
-
+    

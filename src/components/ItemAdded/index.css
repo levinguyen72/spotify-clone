@@ -1,0 +1,65 @@
+.createPlOption{
+    height: 54px !important;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 10px;
+    padding: 10px;
+    justify-items: center;
+  }
+  .createPlOption:hover{
+    opacity: 0.85;
+  }
+.createPlOption__number-child{
+    margin-top: 10px;
+    align-items: center;
+    font-size: 16px;
+    color: #b3b3b3;
+  }
+  .createPlOption__title{
+    grid-column: 2 / 6;
+    display: flex;
+    justify-self: flex-start !important;
+  }
+  .createPlOption__album{
+    width: 320px !important;
+    height: 22.4px !important;
+    font-size: 14px;
+    color: #b3b3b3;
+    grid-column: 7/ 11;
+    text-overflow: ellipsis;
+  }
+  .createPlOption__date-add{
+   grid-column: 11 / 13;
+   color: #b3b3b3;
+  }
+  .createPlOption__duration{
+    color: #b3b3b3;
+  }
+  .createPlOption__img{
+    display: flex;
+    flex-grow: 1;
+  
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  .createPlOption_box{
+    display: grid;
+    grid-template-rows: 2;
+  }
+  .createPlOption__name{
+    
+    
+    color: #f1f1f1;
+    font-weight: 16px;
+    height: 24px;
+  }
+  .createPlOption__artists{
+    color: #b3b3b3;
+    font-size: 14px;
+    height: 24px;
+  }
+  .createPlOption__duration-delBtn{
+    background-color: red;
+  }

@@ -1,28 +1,36 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { auth_url, getToken, getUriRefresh } from '../../services/authService';
+//@ts-nocheck
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getToken } from "../../services/authService";
+
+import Login from "../Login";
+import Root from "../root";
+import "./index.css";
 
 interface IMainProps {
+  children?: JSX.Element | JSX.Element[];
 }
 
-const Main: React.FunctionComponent<IMainProps> = (props) => {
+const Main: React.FunctionComponent<IMainProps> = ({
+  children,
+}: IMainProps) => {
   const dispatch = useDispatch();
-  //kiểm tra xem có access tokem chưa
+  //kiểm tra xem có access token chưa
   const token = useSelector((state) => state.auth.access_token);
 
+  const [isAuth, setIsAuth] = React.useState();
   React.useEffect(() => {
-      if (window.location.href.includes('access_token')) {
-        // nếu có access token thì lưu lại vào session
-      } else {
-        // không thì redirect về trang login
-        window.location.href = auth_url
-      }
-    // }
-  }, [token]);
+    if (window.location.href.includes("access_token")) {
+      setIsAuth(true);
+      const _token = dispatch(getToken()).token;
 
-  return (
-  <div>main</div>
-  );
-}
+      window.sessionStorage.setItem("token", _token);
+    } else {
+      setIsAuth(false);
+    }
+  }, [isAuth]);
+
+  return <>{isAuth ? <Root children={children} /> : <Login />}</>;
+};
 
 export default Main;

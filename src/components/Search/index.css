@@ -1,0 +1,50 @@
+.searchContainer{
+    
+    padding: 20px;
+    right: 0 !important;
+    width: 85% !important;
+    margin-left: 15%;
+    height: 716px !important;
+    overflow-y: overlay;
+    flex: 0.8;
+    
+}
+.searchInputContainer{
+    display: flex;
+    align-items: center;
+    
+    
+}
+.searchIcon{
+   display: none;
+}
+.searchInput{
+    margin-left: 220px;
+    width: 360px;
+    height: 40px;
+    height: 40px;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 20px;
+    /* border-color: transparent; */
+    margin-top: -10px;
+    color: black;
+}
+.searchResult > h1{
+    color: green;
+    
+}
+.searchResult{
+    padding-left: 20px;
+    /* display:  flex; */
+   
+}
+
+.searchResultArtist{
+    flex: 1;
+    justify-content: center;
+}
+.searchArtist{
+    display: flex;
+    grid-template-columns: auto auto auto auto;
+}
