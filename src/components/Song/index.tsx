@@ -1,9 +1,8 @@
 import "./index.css";
-
 import { useDispatch } from "react-redux";
-import { setItem, setPlaying } from "../../redux/slices/auth";
-import { startTrack } from "../../services/startTrack";
+import { setItem } from "../../redux/slices/auth";
 import { startResumePlayback } from "../../services/startResumePlayback";
+import ButtonItem from "../buttonItem";
 
 // import playMusic function api
 
@@ -38,18 +37,7 @@ function Song({ item, itemIndex }: Props) {
           onClick={PlaySongID}
           className="w-12 h-12 bg-primary absolute right-2 bottom-2 transition-opacity rounded-full flex items-center shadow-2xl justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100"
         >
-          <svg
-            role="img"
-            height="24"
-            width="24"
-            viewBox="0 0 24 24"
-            className="Svg-sc-1bi12j5-0 hDgDGI"
-          >
-            <path
-              d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"
-              fill="black"
-            ></path>
-          </svg>
+          <ButtonItem />
         </button>
       </div>
       <span className="font-semibold text-white text-[16px] whitespace-nowrap">

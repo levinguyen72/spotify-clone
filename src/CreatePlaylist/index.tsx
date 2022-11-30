@@ -1,15 +1,14 @@
 
+import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import ClearIcon from "@mui/icons-material/Clear";
-import React, { useEffect } from "react";
-import "./index.css";
-
 import CreatePlaylistSong from "../components/createPlaylistSong";
 import { createForItem } from "../services/createSongPlaylist";
 import { useDispatch, useSelector } from "react-redux";
 import { getPlaylist } from "../services/getPlaylist";
 import ItemAdded from "../components/ItemAdded";
 import { RootState } from "../redux/store";
+import "./index.css";
 
 import {
   Toolbar,
@@ -23,6 +22,8 @@ import {
   Avatar,
 } from "@mui/material";
 import uuid from "react-uuid";
+import PenLogoIcon from "../components/PenLogoIcon";
+import DurationIcon from "../components/durationIcon";
 
 type Props = {};
 const pages = ["<<", ">>"];
@@ -184,16 +185,8 @@ export const CreatePlaylist = (props: Props) => {
         {/*  */}
         <div className="createPlHeader__Container flex flex-1 ">
           <div className="createPlHeader__Left">
-            <svg
-              role="img"
-              height="48"
-              width="48"
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              className="Svg-ytk21e-0 eqtHWV createPlHeader__Left-img"
-            >
-              <path d="M17.318 1.975a3.329 3.329 0 114.707 4.707L8.451 20.256c-.49.49-1.082.867-1.735 1.103L2.34 22.94a1 1 0 01-1.28-1.28l1.581-4.376a4.726 4.726 0 011.103-1.735L17.318 1.975zm3.293 1.414a1.329 1.329 0 00-1.88 0L5.159 16.963c-.283.283-.5.624-.636 1l-.857 2.372 2.371-.857a2.726 2.726 0 001.001-.636L20.611 5.268a1.329 1.329 0 000-1.879z"></path>
-            </svg>
+            {/* penLogo */}
+           <PenLogoIcon />
           </div>
           <div className="createPlHeader__Right">
             <h4>Playlist</h4>
@@ -209,10 +202,8 @@ export const CreatePlaylist = (props: Props) => {
         <div className="createPlOption__album">Album</div>
         <div className="createPlOption__date-add">Date add</div>
         <div className="createPlOption__duration">
-          <svg role="img" height="16" width="16" viewBox="0 0 16 16">
-            <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z"></path>
-            <path d="M8 3.25a.75.75 0 01.75.75v3.25H11a.75.75 0 010 1.5H7.25V4A.75.75 0 018 3.25z"></path>
-          </svg>
+          {/* duration svg */}
+          <DurationIcon />
         </div>
       </div>
 
@@ -220,8 +211,6 @@ export const CreatePlaylist = (props: Props) => {
       <div>
         {renderCurrentListTrack}
       </div>
-   
-
       {/* Body */}
       <div className="createPlBody">
         {/* body title */}
@@ -244,8 +233,6 @@ export const CreatePlaylist = (props: Props) => {
             </div>
           </div>
         </div>
-
-       
         {/*result  */}
         <section className="createResult mt-6">
           {/* song */}
