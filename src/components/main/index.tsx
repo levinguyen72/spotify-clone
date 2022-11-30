@@ -1,7 +1,7 @@
 //@ts-nocheck
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {  getToken} from "../../services/authService";
+import { getToken } from "../../services/authService";
 
 import Login from "../Login";
 import Root from "../root";
