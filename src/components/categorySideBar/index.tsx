@@ -18,6 +18,7 @@ import uuid from "react-uuid";
 import { useDispatch } from "react-redux";
 import { createPlaylist } from "../../services/createPlaylist";
 import "./index.css";
+import { getPlaylistCoverImage } from "../../services/getPlaylistCoverImage";
 
 type Props = {};
 
@@ -26,6 +27,7 @@ const CategorySideBar = (props: Props) => {
   const [plListArr, setPlListArr] = React.useState<number[]>([1, 2, 3]);
   const dispatch = useDispatch();
   const createNewPlayList = () => {
+  
     setCountPl(countPl + 1);
     plListArr.push(countPl);
     createPlaylist(countPl);

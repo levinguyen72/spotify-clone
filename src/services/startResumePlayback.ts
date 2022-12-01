@@ -1,5 +1,5 @@
 import axios  from 'axios';
-import {  DEVICE_ID3, _fakeToken } from '../configs';
+import { DEVICE_ID, _fakeToken } from '../configs';
 import { START_RESUME_PLAYBACK_ENDPOINT } from './Endpoint/endPoint';
 
 export const startResumePlayback = async (itemUri: string) => {
@@ -22,7 +22,7 @@ export const startResumePlayback = async (itemUri: string) => {
                 },
                 params: {
      
-                    device_id: DEVICE_ID3
+                    device_id: DEVICE_ID
                 }
             }
         )

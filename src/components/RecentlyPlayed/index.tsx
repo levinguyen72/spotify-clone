@@ -1,18 +1,23 @@
 import  { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import uuid from "react-uuid";
+import { setDeviceId } from "../../redux/slices/auth";
+import { getDeviceID } from "../../services/getIdDevices";
 import { getRecentlyPlayed } from "../../services/getRecentlyPlayed";
 
 import Song from "../Song";
 
 type songs = { items?: any };
 
+
 const RecentlyPlayed = () => {
   // use state to set song
   const [songs, setSongs] = useState<any>({});
-
+  const dispatch = useDispatch()
   // get api is promise => use useEffect
   useEffect(() => {
     const getSongs = async () => {
+      dispatch(setDeviceId({getDeviceID}))
       const recentlyPlayed = await getRecentlyPlayed();
       setSongs(recentlyPlayed);
     };
