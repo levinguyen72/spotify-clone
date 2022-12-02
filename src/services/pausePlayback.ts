@@ -1,9 +1,11 @@
+import { getDeviceID } from './getIdDevices';
 import axios  from 'axios';
 import { getToken } from './authService';
-import { DEVICE_ID, _fakeToken } from '../configs';
+import {  _fakeToken } from '../configs';
 import { PAUSE_PLAYBACK_ENDPOINT } from './Endpoint/endPoint';
 
 export const pausePlayback = async () => {
+    const DEVICE_ID = await getDeviceID()
     
     const _token = getToken().token
     
@@ -20,6 +22,8 @@ export const pausePlayback = async () => {
                 },
            
             }
-        )
+    )
+    
+    
 
 }
