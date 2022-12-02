@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import uuid from "react-uuid";
-import { setDeviceId } from "../../redux/slices/auth";
-import { getDeviceID } from "../../services/getIdDevices";
+
+import { getNewReleases } from "../../services/getNewReleases";
 import { getRecentlyPlayed } from "../../services/getRecentlyPlayed";
+import NewRLSong from "../NewRLSong";
 
 import Song from "../Song";
+import "./index.css";
 
 type songs = { items?: any };
 
 const RecentlyPlayed = () => {
-  // use state to set song
   const [songs, setSongs] = useState<any>({});
- 
-  const dispatch = useDispatch();
+  const [newRL, setNewRL] = useState<any>({});
+
   // get api is promise => use useEffect
   useEffect(() => {
     const getSongs = async () => {
-      // const deviceId = await getDeviceID()
-      // dispatch(setDeviceId({ getDeviceID }));
-      
-  
       const recentlyPlayed = await getRecentlyPlayed();
+      const newReleases = await getNewReleases();
+      setNewRL(newReleases);
+      console.log(newReleases);
       setSongs(recentlyPlayed);
     };
     getSongs();
@@ -31,16 +30,38 @@ const RecentlyPlayed = () => {
   if (!songs) return null;
 
   return (
-    <div className="grid grid-cols-5 gap-x-6 mt-10">
-      {/* render playlist here */}
-      {songs.items?.map((item: any, index: string) => (
-        <Song
-          key={"RecentlyPlayed " + uuid() + item?.track?.id.toString()}
-          item={item}
-          itemIndex={index}
-        />
-      ))}
-    </div>
+    <>
+      {/* recently played */}
+      <div className="mt-10">
+        <h1 className="song__title">Recently played</h1>
+        <div className="grid grid-cols-5 gap-x-6 mt-10">
+          {/* render playlist here */}
+
+          {songs.items?.map((item: any, index: string) => (
+            <Song
+              key={"RecentlyPlayed " + uuid() + item?.track?.id.toString()}
+              item={item}
+              itemIndex={index}
+            />
+          ))}
+        </div>
+      </div>
+      {/* // new release */}
+      <div className="mt-10">
+        <h1 className="song__title">New Releases</h1>
+        <div className="grid grid-cols-5 gap-x-6 mt-10">
+          {/* render playlist here */}
+
+          {newRL?.albums?.items?.map((item: any, index: string) => (
+            <NewRLSong
+              key={"New Releases " + uuid() + item?.track?.id.toString()}
+              item={item}
+              itemIndex={index}
+            />
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 

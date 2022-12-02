@@ -18,7 +18,7 @@ export const getRecentlyPlayed = async () => {
                 Authorization: `Bearer ${_fakeToken}`
             },
             params: {
-                limit: 50,
+                limit: 10,
                 after: 1484811043508
             }
         }
