@@ -1,5 +1,4 @@
-import { useDispatch } from "react-redux";
-import { setItem } from "../../redux/slices/auth";
+
 import { startResumePlayback } from "../../services/startResumePlayback";
 import ButtonItem from "../buttonItem";
 
@@ -10,13 +9,11 @@ type Props = {
   itemIndex: string;
 };
 
-function NewRLSong({ item, itemIndex }: Props) {
-  
-  const dispatch = useDispatch();
+function ReCmtSong({ item, itemIndex }: Props) {
+
   const PlaySongID = () => {
-      
-    startResumePlayback(item?.uri);
-    console.log("NewRLSong       " + item?.uri)
+      startResumePlayback(item?.album?.uri);
+      console.log("ReCmtSong      " + item?.album?.uri)
     // dispatch(setItem({ item }));
   };
 
@@ -29,7 +26,7 @@ function NewRLSong({ item, itemIndex }: Props) {
       <div className="relative">
         <img
           className="w-auto h-auto inset-0 object-cover mb-4"
-          src={item?.images[0]?.url || ""}
+          src={item?.album?.images[0]?.url || ""}
           alt="track cover"
           height="40px"
           width="40px"
@@ -46,9 +43,9 @@ function NewRLSong({ item, itemIndex }: Props) {
         {item?.name.slice(0, 10)}
       </span>{" "}
       <br />
-      <span className="mt-1 text-[14px] text-link">{item?.artists?.map((e:any) => e.name).slice(0, 10)}</span>
+      <span className="mt-1 text-[14px] text-link">{item?.album?.artists?.map((e:any) => e.name).slice(0, 10)}</span>
     </a>
   );
 }
 
-export default NewRLSong;
+export default ReCmtSong;

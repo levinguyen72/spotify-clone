@@ -1,10 +1,8 @@
 import * as React from "react";
 import uuid from "react-uuid";
-
 import { searchForItem } from "../../services/searchForItem";
 import SearchAlbum from "../SearchAlbum";
 import SearchArtist from "../SearchArtist";
-import SearchPlaylist from "../SearchPlaylist";
 import SearchSong from "../SearchSong";
 import TopResultResearch from "../TopResultSearch";
 import "./index.css";
@@ -20,12 +18,10 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
     });
   };
 
-
   return (
     <section className="searchContainer">
       {/* input */}
       <div className="searchInputContainer">
-        
         <input
           type="text"
           onChange={setValue}
@@ -41,18 +37,17 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         <div className=" grid grid-cols-2 gap-4">
           {/* top result */}
           <div className="my-4">
-            <h1 className="text-2xl font-bold my-4">Top result</h1>
+            <h1 className="text-2xl font-bold my-4">
+              Top result
+            </h1>
             <TopResultResearch key={uuid()} item={searchValue} />
           </div>
           {/* song */}
           <div className="grid grid-rows-4 gap-4">
             <h1 className="text-2xl font-bold">Songs</h1>
-            {searchValue?.tracks?.items.map((item: any) => (
+            {searchValue?.tracks?.items?.map((item: any) => (
               <>
-                <SearchSong
-                  key={uuid() + item.id.toString()}
-                  item={item}
-                />
+                <SearchSong key={uuid() + item.id.toString()} item={item} />
               </>
             ))}
           </div>
@@ -62,11 +57,8 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         <div className="mt-4">
           <h1 className="text-2xl font-bold">Artists</h1>
           <div className="grid grid-cols-4 gap-4 searchArtist">
-            {searchValue?.artists?.items.map((item: any) => (
-              <SearchArtist
-                key={uuid() + item.id.toString()}
-                item={item}
-              />
+            {searchValue?.artists?.items?.map((item: any) => (
+              <SearchArtist key={uuid() + item.id.toString()} item={item} />
             ))}
           </div>
         </div>
@@ -75,11 +67,8 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         <div className="mt-4">
           <h1 className="text-2xl font-bold">Albums</h1>
           <div className="grid grid-cols-4 gap-4 searchArtist">
-            {searchValue?.tracks?.items.map((item: any) => (
-              <SearchAlbum
-                key={uuid() + item.id.toString()}
-                item={item}
-              />
+            {searchValue?.tracks?.items?.map((item: any) => (
+              <SearchAlbum key={uuid() + item.id.toString()} item={item} />
             ))}
           </div>
         </div>
@@ -87,11 +76,8 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         <div className="mt-4">
           <h1 className="text-2xl font-bold">Artists</h1>
           <div className="grid grid-cols-4 gap-4 searchArtist">
-            {searchValue?.artists?.items.map((item: any) => (
-              <SearchArtist
-                key={uuid() + item.id.toString()}
-                item={item}
-              />
+            {searchValue?.artists?.items?.map((item: any) => (
+              <SearchArtist key={uuid() + item.id.toString()} item={item} />
             ))}
           </div>
         </div>
@@ -99,11 +85,8 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         <div className="mt-4">
           <h1 className="text-2xl font-bold">Albums</h1>
           <div className="grid grid-cols-4 gap-4 searchArtist">
-            {searchValue?.tracks?.items.map((item: any) => (
-              <SearchAlbum
-                key={uuid() + item.id.toString()}
-                item={item}
-              />
+            {searchValue?.tracks?.items?.map((item: any) => (
+              <SearchAlbum key={uuid() + item.id.toString()} item={item} />
             ))}
           </div>
         </div>
