@@ -16,7 +16,7 @@ function NewRLSong({ item, itemIndex }: Props) {
   const PlaySongID = () => {
       
     startResumePlayback(item?.uri);
-    console.log("NewRLSong       " + item?.uri)
+
     // dispatch(setItem({ item }));
   };
 

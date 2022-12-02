@@ -1,3 +1,7 @@
 .searchResultSong{
     width: 35rem !important;
+
+}
+.searchResultSong:hover{
+    color: red;
 }

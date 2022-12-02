@@ -13,7 +13,7 @@ function ReCmtSong({ item, itemIndex }: Props) {
 
   const PlaySongID = () => {
       startResumePlayback(item?.album?.uri);
-      console.log("ReCmtSong      " + item?.album?.uri)
+  
     // dispatch(setItem({ item }));
   };
 

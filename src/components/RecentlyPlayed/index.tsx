@@ -30,10 +30,6 @@ const RecentlyPlayed = () => {
       setSongs(recentlyPlayed);
      
     
-      console.log("newReleases ============")
-      console.log(newReleases)
-      console.log("reCommendations++=========")
-      console.log(reCommendations)
     };
     getSongs();
   }, []);

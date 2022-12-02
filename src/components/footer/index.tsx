@@ -9,8 +9,7 @@ import {
 import { BsFillSkipStartFill, BsFillSkipEndFill } from "react-icons/bs";
 import { AiFillPauseCircle, AiFillPlayCircle } from "react-icons/ai";
 import { Progress } from "@material-tailwind/react";
-import { useSelector, useDispatch } from "react-redux";
-import { setPlaying } from "../../redux/slices/auth";
+import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { pausePlayback } from "../../services/pausePlayback";
 import { skipToNext } from "../../services/skipToNext";
@@ -19,15 +18,14 @@ import { useState } from "react";
 import { skipToPrevious } from "../../services/skipToPrevious";
 import { setRepeatMode } from "../../services/setRepeatMode";
 
-import SpotifyApi from "spotify-web-api-js";
-import { startTrack } from "../../services/startTrack";
+
+
 interface IFooter {}
 
 const Footer: React.FunctionComponent<IFooter> = ({}) => {
-  const spotify = new SpotifyApi();
   const itemIsPlaying = useSelector((state: RootState) => state.auth.item);
 
-  const dispatch = useDispatch();
+  
 
   const setPause = () => {
     pausePlayback();
@@ -40,7 +38,6 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     skipToPrevious();
   };
   const setPlay = () => {
-
     startResumePlayback(itemIsPlaying.track.album.uri);
     setIsPlaying(true);
   };

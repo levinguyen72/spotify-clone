@@ -18,7 +18,7 @@ import uuid from "react-uuid";
 import { useDispatch } from "react-redux";
 import { createPlaylist } from "../../services/createPlaylist";
 import "./index.css";
-import { getPlaylistCoverImage } from "../../services/getPlaylistCoverImage";
+
 
 type Props = {};
 

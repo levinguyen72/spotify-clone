@@ -7,7 +7,7 @@ import { REPEAT_ENDPOINT } from './Endpoint/endPoint';
 export const setRepeatMode = async () => {
     const DEVICE_ID =  await getDeviceID()
     const _token = getToken().token
-     const setRepeatMode = await axios.put(
+    await axios.put(
         REPEAT_ENDPOINT,      
         DEVICE_ID,
         {     
