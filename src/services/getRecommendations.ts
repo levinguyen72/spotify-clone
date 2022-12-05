@@ -15,7 +15,7 @@ export const getRecommendations = async () => {
                 Authorization: `Bearer ${_fakeToken}`
             },
             params: {
-                limit: 10,
+                limit: 5,
                 market: "VN",
                 seed_artists: "4NHQUGzhtTLFvgF5SZesLK",
                 seed_genres: "country%2Cpop",

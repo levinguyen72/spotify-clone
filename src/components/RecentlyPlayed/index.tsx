@@ -1,34 +1,41 @@
 import { useEffect, useState } from "react";
 import uuid from "react-uuid";
-import { getToken } from "../../services/authService";
-
 import { getNewReleases } from "../../services/getNewReleases";
 import { getRecentlyPlayed } from "../../services/getRecentlyPlayed";
 import { getRecommendations } from "../../services/getRecommendations";
-import { getTokenHM } from "../../services/getTokenHM";
+import { getSeveralShows } from "../../services/getSeveralShows";
+import { getUserTopItems } from "../../services/getUserTopItem";
 import NewRLSong from "../NewRLSong";
 import ReCmtSong from "../ReCmtSong";
 
 import Song from "../Song";
+import TopSong from "../TopSong";
 import "./index.css";
 
 type songs = { items?: any };
 
 const RecentlyPlayed = () => {
+  const [urTopSong, setUrTopSong] = useState<any>({})
   const [songs, setSongs] = useState<any>({});
   const [newRL, setNewRL] = useState<any>({});
-  const [reCmt, setReCmt] = useState<any>({})
+  const [reCmt, setReCmt] = useState<any>({});
   // get api is promise => use useEffect
   useEffect(() => {
     const getSongs = async () => {
+      const topSong = await getUserTopItems()
       const recentlyPlayed = await getRecentlyPlayed();
       const newReleases = await getNewReleases();
       const reCommendations = await getRecommendations()
-
+      // const severalShow = await getSeveralShows()
+    
+      setUrTopSong(topSong)
       setReCmt(reCommendations)
       setNewRL(newReleases);
       setSongs(recentlyPlayed);
      
+      console.log("AAAAAAAAAAAAAAAAAA")
+      // console.log(severalShow)
+
     
     };
     getSongs();
@@ -39,6 +46,22 @@ const RecentlyPlayed = () => {
 
   return (
     <>
+      {/* Your top mixed */}
+      <div className="mt-10">
+        <h1 className="song__title">Your top mixed</h1>
+        <div className="grid grid-cols-5 gap-x-6 mt-10">
+          {/* render playlist here */}
+
+          {urTopSong.items?.map((item: any, index: string) => (
+            <TopSong
+              key={"Your top mixed" + uuid() + item?.track?.id.toString()}
+              item={item}
+              itemIndex={index}
+            />
+          ))}
+        </div>
+      </div>
+
       {/* recently played */}
       <div className="mt-10">
         <h1 className="song__title">Recently played</h1>
