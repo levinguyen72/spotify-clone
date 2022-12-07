@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppBar, Container, Toolbar } from "@mui/material";
+import { AppBar, Container, makeStyles, Toolbar } from "@mui/material";
 import RecentlyPlayed from "../RecentlyPlayed";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -12,7 +12,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import "./index.css";
 import uuid from 'react-uuid';
-const pages = ["<<", ">>"];
+const pages = ["<", ">"];
 const settings = [
   "Account",
   "Profile",
@@ -22,6 +22,8 @@ const settings = [
   "Setting",
   "Log out",
 ];
+
+
 
 function Home() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -45,7 +47,7 @@ function Home() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+ 
   return (
     <AppBar position="static" className="body">
       <Container maxWidth="xl">
@@ -80,8 +82,8 @@ function Home() {
               }}
             >
               {pages?.map((page) => (
-                <MenuItem key={"pages" + uuid()} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" fontSize={30} color="red">
+                <MenuItem key={"pages" + uuid()} onClick={handleCloseNavMenu} >
+                  <Typography textAlign="center" fontSize={30} style={{ color: "black" }} className="pagesButton" >
                     <div className="header-btn">{page}</div>
                   </Typography>
                 </MenuItem>

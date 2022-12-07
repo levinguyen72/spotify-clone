@@ -10,8 +10,8 @@
    flex: 0.8;
    
    color: white;
-   background: linear-gradient(transparent, rgba(0, 0, 0, 1));
-   background-color: rgb(17, 127, 37) !important;
+   /* background: linear-gradient(rgb(1, 41, 94), rgba(0, 0, 0, 1)); */
+   background-color: rgb(20, 19, 19) !important;
    margin-top: -40px;
  }
  
@@ -84,8 +84,13 @@
  .header{
    padding-top: 30px;
    margin-bottom: 40px;
+   margin-left: -60px !important;
+   margin-right: -60px !important;
+   padding-left: 46px !important;
+   padding-right: 56px !important;
    position: fixed;
-   top: 0;
+   background-color: rgb(56, 120, 184) !important;
+  background: linear-gradient(rgb(48, 112, 197), rgb(7, 6, 6));
  }
 
  
@@ -98,4 +103,9 @@
    color: gray;
    align-items: center !important;
 
+ }
+
+ .pagesButton{
+    color: red !important;
+    background-color: red !important;
  }
