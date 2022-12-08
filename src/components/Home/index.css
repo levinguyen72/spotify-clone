@@ -109,3 +109,15 @@
     color: red !important;
     background-color: red !important;
  }
+.userName{
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 28px;
+  max-width: 110px;
+  overflow: hidden;
+  pointer-events: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #ffff;
+  padding-left: 10px;
+}

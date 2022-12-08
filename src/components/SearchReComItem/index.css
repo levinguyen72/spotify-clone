@@ -1,0 +1,27 @@
+.searchReComItem{
+    width: 214px !important;
+    height: 214px !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    margin-top: 20px 0 !important;
+    
+
+
+}
+
+.SearchReComItemImg{
+    width: 100px !important;
+    height: 100px !important;
+    transform: rotate(25deg) translate(18%,-2%);
+    margin-left: 106px;
+    margin-top: 68px;
+
+}
+.SearchReComItemTitle{
+    margin-top: -8px !important;
+    margin-block: 0px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: var(--font-family,CircularSpTitle,CircularSpTitle-Tall,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+    color: inherit;
+}

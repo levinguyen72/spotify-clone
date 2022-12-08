@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import "./index.css";
-import uuid from 'react-uuid';
+import uuid from "react-uuid";
 const pages = ["<", ">"];
 const settings = [
   "Account",
@@ -22,8 +22,6 @@ const settings = [
   "Setting",
   "Log out",
 ];
-
-
 
 function Home() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -47,7 +45,7 @@ function Home() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
- 
+
   return (
     <AppBar position="static" className="body">
       <Container maxWidth="xl">
@@ -82,8 +80,13 @@ function Home() {
               }}
             >
               {pages?.map((page) => (
-                <MenuItem key={"pages" + uuid()} onClick={handleCloseNavMenu} >
-                  <Typography textAlign="center" fontSize={30} style={{ color: "black" }} className="pagesButton" >
+                <MenuItem key={"pages" + uuid()} onClick={handleCloseNavMenu}>
+                  <Typography
+                    textAlign="center"
+                    fontSize={30}
+                    style={{ color: "black" }}
+                    className="pagesButton"
+                  >
                     <div className="header-btn">{page}</div>
                   </Typography>
                 </MenuItem>
@@ -107,6 +110,7 @@ function Home() {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar src="/static/images/avatar/2.jpg" />
+                <h2 className="userName">Louis Ng</h2>
               </IconButton>
             </Tooltip>
             <Menu
@@ -126,7 +130,10 @@ function Home() {
               onClose={handleCloseUserMenu}
             >
               {settings?.map((setting) => (
-                <MenuItem key={"setting" + uuid()} onClick={handleCloseUserMenu}>
+                <MenuItem
+                  key={"setting" + uuid()}
+                  onClick={handleCloseUserMenu}
+                >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

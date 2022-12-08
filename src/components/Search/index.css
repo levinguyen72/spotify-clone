@@ -13,22 +13,29 @@
     display: flex;
     align-items: center;
     
+}
+.searchInputContainer input{
+    margin-top: -10px !important;
     
+}
+.searchInputContainer > input{
+    color: #282828 !important;
+
 }
 .searchIcon{
    display: none;
 }
 .searchInput{
-    margin-left: 220px;
+    margin-left: 114px;
     width: 360px;
     height: 40px;
     height: 40px;
     padding: 12px;
     font-size: 14px;
     border-radius: 20px;
-    /* border-color: transparent; */
     margin-top: -10px;
-    color: black;
+    color: black !important;
+    background-color: #fff !important;
 }
 .searchResult > h1{
     color: green;
@@ -36,7 +43,7 @@
 }
 .searchResult{
     padding-left: 20px;
-    /* display:  flex; */
+
    
 }
 
