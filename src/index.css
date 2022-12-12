@@ -496,11 +496,16 @@ html, body, #root {
 .mb-4 {
   margin-bottom: 1rem;
 }
+.mb-8{
+  margin-bottom: 2rem;
+}
 
 .mt-1 {
   margin-top: 0.25rem;
 }
-
+.mt-10{
+  margin-top: 2.5rem;
+}
 .mt-20 {
   margin-top: 5rem;
 }

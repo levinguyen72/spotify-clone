@@ -1,0 +1,20 @@
+.libraryPlaylistItem{
+    width: 214px !important;
+    height: 292px !important;
+}
+.libraryPlaylistItem-img{
+    width: 182px !important;
+    height: 182px !important;
+    background-color:#333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.libraryPlaylistItem-title > span{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    
+}
+.libraryPlaylistItem-title{
+    height: 110px !important;
+}

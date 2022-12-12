@@ -4,6 +4,8 @@
     color: white;
     background: linear-gradient(transparent, rgba(0, 0, 0, 1));
     margin-top: -40px;
+    /* padding-top: 20px; */
+    
 }
 .createPlHeader{
     width: 100%;
@@ -30,6 +32,7 @@
 } 
 .createPlHeader__Container{
     margin-top: -40px;
+    padding-top: 4px;
 }
 .createPlHeader__Right > h4{
     font-size: 0.75rem;
@@ -148,11 +151,12 @@
   width: 360px;
   height: 40px;
    padding: 12px;
+   margin-top: 20px!important;
   font-size: 14px;
   color: black;
   background-color: #434343;
   margin-top: 20px;
-  /* color: white !important; */
+  color: #c0c0c0 !important;
   border: 8px;
   border-color: transparent;
 }

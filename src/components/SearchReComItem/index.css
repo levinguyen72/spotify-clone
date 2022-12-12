@@ -4,11 +4,10 @@
     border-radius: 8px !important;
     overflow: hidden;
     margin-top: 20px 0 !important;
-    
-
-
 }
-
+.searchReComItem:hover{
+    opacity: 0.6;
+}
 .SearchReComItemImg{
     width: 100px !important;
     height: 100px !important;
