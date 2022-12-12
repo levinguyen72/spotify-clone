@@ -1,13 +1,8 @@
 import * as React from "react";
-import uuid from "react-uuid";
 import { getSeveralBrowseCategories } from "../../services/getSeveralBrowseCategories";
 import { searchForItem } from "../../services/searchForItem";
-import SearchAlbum from "../SearchAlbum";
-import SearchArtist from "../SearchArtist";
 import { SearchOutPut } from "../SearchOutPut";
 import SearchRecom from "../SearchRecom";
-import SearchSong from "../SearchSong";
-import TopResultResearch from "../TopResultSearch";
 import "./index.css";
 
 interface ISearch {}
@@ -26,6 +21,8 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
     getSeveralBrowseCategories().then((res) => setReComSearch(res));
   }, []);
 
+
+
   return (
     <section className="searchContainer">
       {/* input */}
@@ -39,14 +36,16 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         />
       </div>
       {searchValue ? (
-        <SearchOutPut searchValue={searchValue} />
+                /*SEARCH OUTPUT  */
+        <SearchOutPut searchValue={searchValue}/>
       ) : (
+              /* SEARCH RECOMMEND */
         <SearchRecom reComSearch={reComSearch} />
       )}
 
-      {/*SEARCH OUTPUT  */}
+      
 
-      {/* SEARCH RECOMMEND */}
+  
     </section>
   );
 };

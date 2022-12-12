@@ -17,7 +17,8 @@ type TAuthState = {
   playlist_id: string,
   render_state: number,
   device_id: string,
- 
+
+
 }
 
 const initialState: TAuthState = {
@@ -28,7 +29,9 @@ const initialState: TAuthState = {
   item: null,
   playlist_id: "",
   render_state: 0,
-  device_id: ""
+  device_id: "",
+
+
 };
 
 interface ObjResponse {
@@ -89,7 +92,8 @@ const authSlice = createSlice({
     },
     setDeviceId: (state, action) => {
       state.device_id = action.payload.device_id
-    }
+    },
+   
   },
   extraReducers: (builder) => {
     builder.addCase(fetchRefreshToken.fulfilled, (state, action) => {
@@ -98,7 +102,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { setToken, setPlaying, setItem, setPlayListId, setRenderState, setDeviceId } = authSlice.actions;
+export const {setToken, setPlaying, setItem, setPlayListId, setRenderState, setDeviceId } = authSlice.actions;
 
 export default authSlice.reducer;
 
