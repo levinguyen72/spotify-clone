@@ -8,7 +8,6 @@ import Search from "./components/Search";
 import { getToken } from "./services/authService";
 import { CreatePlaylist } from "./CreatePlaylist";
 import uuid from 'react-uuid';
-import Library from "./components/Library";
 
 function MyApp({ Component, pageProps }: any) {
   const token = getToken().token;
@@ -42,16 +41,6 @@ function MyApp({ Component, pageProps }: any) {
           element={
             <Main>
               <Search />
-            </Main>
-          }
-        />
-
-        <Route
-          path="/library"
-          key={"library" + uuid()}
-          element={
-            <Main>
-              <Library />
             </Main>
           }
         />

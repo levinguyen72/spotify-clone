@@ -1,10 +1,8 @@
-import { getDeviceID } from './getIdDevices';
 import axios  from 'axios';
-import { _fakeToken } from '../configs';
+import {  DEVICE_ID3, _fakeToken } from '../configs';
 import { START_RESUME_PLAYBACK_ENDPOINT } from './Endpoint/endPoint';
 
 export const startResumePlayback = async (itemUri: string) => {
-        const DEVICE_ID = await getDeviceID()
   
         await axios
             .put(
@@ -24,7 +22,7 @@ export const startResumePlayback = async (itemUri: string) => {
                 },
                 params: {
      
-                    device_id: DEVICE_ID
+                    device_id: DEVICE_ID3
                 }
             }
         )

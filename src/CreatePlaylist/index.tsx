@@ -1,3 +1,4 @@
+
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -23,7 +24,6 @@ import {
 import uuid from "react-uuid";
 import PenLogoIcon from "../components/PenLogoIcon";
 import DurationIcon from "../components/durationIcon";
-import { getPlaylistCoverImage } from "../services/getPlaylistCoverImage";
 
 type Props = {};
 const pages = ["<<", ">>"];
@@ -72,15 +72,12 @@ export const CreatePlaylist = (props: Props) => {
     setIsAddItem(false);
   };
 
-  const renderState = useSelector(
-    (state: RootState) => state.auth.render_state
-  );
-  const [coverImage, setCoverImage] = React.useState<any>({});
+  const renderState = useSelector((state: RootState) => state.auth.render_state)
+  
   React.useEffect(() => {
     getPlaylist().then((res: any) => setCurrentList(res));
-    getPlaylistCoverImage().then((res1: any) => setCoverImage(res1));
   }, [renderState]);
-
+ 
   const renderCurrentListTrack = React.useMemo(() => {
     return currentList?.tracks?.items?.map((item: any, index: number) => (
       <ItemAdded
@@ -90,7 +87,6 @@ export const CreatePlaylist = (props: Props) => {
       />
     ));
   }, [currentList?.tracks?.items, renderState]);
-
   return (
     <div className="createPlaylistContainer">
       {/* header */}
@@ -128,7 +124,10 @@ export const CreatePlaylist = (props: Props) => {
             >
               {pages?.map((page) => (
                 <div>
-                  <MenuItem key={"page" + uuid()} onClick={handleCloseNavMenu}>
+                  <MenuItem
+                    key={"page" + uuid()}
+                    onClick={handleCloseNavMenu}
+                  >
                     <Typography textAlign="center" fontSize={30} color="red">
                       <div className="header-btn">{page}</div>
                     </Typography>
@@ -186,15 +185,8 @@ export const CreatePlaylist = (props: Props) => {
         {/*  */}
         <div className="createPlHeader__Container flex flex-1 ">
           <div className="createPlHeader__Left">
-            {/* cover image*/}
-
-            {
-              <img
-                src={coverImage[0]?.url}
-                height={coverImage[0]?.height}
-                width={coverImage[0]?.width}
-              />
-            }
+            {/* penLogo */}
+           <PenLogoIcon />
           </div>
           <div className="createPlHeader__Right">
             <h4>Playlist</h4>
@@ -216,7 +208,9 @@ export const CreatePlaylist = (props: Props) => {
       </div>
 
       {/*added songs =================> */}
-      <div>{renderCurrentListTrack}</div>
+      <div>
+        {renderCurrentListTrack}
+      </div>
       {/* Body */}
       <div className="createPlBody">
         {/* body title */}

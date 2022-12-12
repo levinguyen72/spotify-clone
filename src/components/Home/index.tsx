@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppBar, Container, makeStyles, Toolbar } from "@mui/material";
+import { AppBar, Container, Toolbar } from "@mui/material";
 import RecentlyPlayed from "../RecentlyPlayed";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -11,8 +11,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import "./index.css";
-import uuid from "react-uuid";
-const pages = ["<", ">"];
+import uuid from 'react-uuid';
+const pages = ["<<", ">>"];
 const settings = [
   "Account",
   "Profile",
@@ -81,12 +81,7 @@ function Home() {
             >
               {pages?.map((page) => (
                 <MenuItem key={"pages" + uuid()} onClick={handleCloseNavMenu}>
-                  <Typography
-                    textAlign="center"
-                    fontSize={30}
-                    style={{ color: "black" }}
-                    className="pagesButton"
-                  >
+                  <Typography textAlign="center" fontSize={30} color="red">
                     <div className="header-btn">{page}</div>
                   </Typography>
                 </MenuItem>
@@ -110,7 +105,6 @@ function Home() {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar src="/static/images/avatar/2.jpg" />
-                <h2 className="userName">Louis Ng</h2>
               </IconButton>
             </Tooltip>
             <Menu
@@ -130,10 +124,7 @@ function Home() {
               onClose={handleCloseUserMenu}
             >
               {settings?.map((setting) => (
-                <MenuItem
-                  key={"setting" + uuid()}
-                  onClick={handleCloseUserMenu}
-                >
+                <MenuItem key={"setting" + uuid()} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

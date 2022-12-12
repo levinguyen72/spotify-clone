@@ -47,7 +47,7 @@ const CreatePlaylistSong = ({ item }: Props) => {
             {item?.name}
           </span>{" "}
           <span className=" text-[14px] whitespace-nowrap text-gray-400 flex">
-            {item?.artists[0]?.name}
+            {item?.artists[0].name}
           </span>
         </div>
         <br />
