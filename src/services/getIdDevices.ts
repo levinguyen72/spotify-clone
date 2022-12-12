@@ -20,6 +20,7 @@ export const getDeviceID = async () => {
             },
         }
     )
+    
     return data.devices[0].id
 
 }

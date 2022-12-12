@@ -1,9 +1,17 @@
+import { useDispatch } from "react-redux";
+import { setItem } from "../../redux/slices/auth";
+import { startResumePlayback } from "../../services/startResumePlayback";
 import "./index.css";
 type Props = { item: any };
 
 const SearchSong = ({ item }: Props) => {
+  const dispatch = useDispatch();
+  const PlaySongID = () => {
+    startResumePlayback(item.album.uri);
+    dispatch(setItem({ item }));
+  };
   return (
-    <div className="searchResultSong leftResultSong">
+    <div className="searchResultSong leftResultSong" onClick={PlaySongID}>
       <a
         aria-current="page"
         className="rounded p-4 text-gray-400 group active flex hover:bg-footer"

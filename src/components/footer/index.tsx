@@ -9,8 +9,7 @@ import {
 import { BsFillSkipStartFill, BsFillSkipEndFill } from "react-icons/bs";
 import { AiFillPauseCircle, AiFillPlayCircle } from "react-icons/ai";
 import { Progress } from "@material-tailwind/react";
-import { useSelector, useDispatch } from "react-redux";
-import { setPlaying } from "../../redux/slices/auth";
+import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { pausePlayback } from "../../services/pausePlayback";
 import { skipToNext } from "../../services/skipToNext";
@@ -18,16 +17,16 @@ import { startResumePlayback } from "../../services/startResumePlayback";
 import { useState } from "react";
 import { skipToPrevious } from "../../services/skipToPrevious";
 import { setRepeatMode } from "../../services/setRepeatMode";
+import { getCurrentlyPlayingTrack } from "../../services/getCurrentlyPlayingTrack";
 
-import SpotifyApi from "spotify-web-api-js";
-import { startTrack } from "../../services/startTrack";
+
+
 interface IFooter {}
 
-const Footer: React.FunctionComponent<IFooter> = ({}) => {
-  const spotify = new SpotifyApi();
+const Footer: React.FunctionComponent<IFooter> = ({ }) => {
   const itemIsPlaying = useSelector((state: RootState) => state.auth.item);
-
-  const dispatch = useDispatch();
+ 
+  
 
   const setPause = () => {
     pausePlayback();
@@ -40,7 +39,6 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     skipToPrevious();
   };
   const setPlay = () => {
-
     startResumePlayback(itemIsPlaying.track.album.uri);
     setIsPlaying(true);
   };
@@ -74,6 +72,32 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
           </div>
         )}
       </div>
+
+    {/* // <div className="footer">
+    // <div className="footer__left">
+    //   {curTrack ? (
+    //     <div className="flex">
+    //       <img
+    //         className="footer__left-logo "
+    //         src={curTrack?.item?.album?.images[2]?.url}
+    //         alt={curTrack?.item?.name}
+    //       />
+    //       <div className="footer__songInfo">
+    //         <h5 className="footer_songArtist">
+    //           <a>{curTrack?.item?.artists[0]?.name}</a>
+    //         </h5>
+    //         <h5 className="footer_songName">
+    //           <a>{curTrack?.item?.name}</a>
+    //         </h5>
+    //       </div>
+    //     </div>
+    //   ) : (
+    //     <div className="footer__songInfo">
+    //       <h4>No song is playing</h4>
+    //     </div>
+    //   )}
+    // </div> */}
+
 
       <div className="footer__center ">
         <div className="footer__button-control">
