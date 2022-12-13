@@ -11,17 +11,17 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
   const [searchValue, setSearchValue] = React.useState<any>();
   const inputValue = React.useRef<any>();
   const setValue = () => {
-    searchForItem(inputValue.current.value).then((res) => {
-      setSearchValue(res);
-    });
+    setTimeout(() => {
+      searchForItem(inputValue.current.value).then((res) => {
+        setSearchValue(res);
+      });
+    }, 6000);
   };
   // recommend
   const [reComSearch, setReComSearch] = React.useState<any>({});
   React.useEffect(() => {
     getSeveralBrowseCategories().then((res) => setReComSearch(res));
   }, []);
-
-
 
   return (
     <section className="searchContainer">
@@ -36,16 +36,12 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
         />
       </div>
       {searchValue ? (
-                /*SEARCH OUTPUT  */
-        <SearchOutPut searchValue={searchValue}/>
+        /*SEARCH OUTPUT  */
+        <SearchOutPut searchValue={searchValue} />
       ) : (
-              /* SEARCH RECOMMEND */
+        /* SEARCH RECOMMEND */
         <SearchRecom reComSearch={reComSearch} />
       )}
-
-      
-
-  
     </section>
   );
 };
