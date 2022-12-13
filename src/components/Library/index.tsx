@@ -12,8 +12,6 @@ const Library = (props: Props) => {
     getUserPlaylists().then(res => getUserPl(res))
   }, [])
 
-  console.log("MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-  console.log(userPl)
   return (
     <div className="library__container">
       <div className="library__header-content">Playlists</div>
