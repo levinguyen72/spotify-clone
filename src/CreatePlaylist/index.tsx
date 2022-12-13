@@ -66,9 +66,11 @@ export const CreatePlaylist = (props: Props) => {
   const [currentList, setCurrentList] = React.useState<any>({});
   const inputValue = React.useRef<any>();
   const setValue = () => {
-    createForItem(inputValue.current.value).then((res) => {
-      setSearchValue(res);
-    });
+    setTimeout(() => {
+      createForItem(inputValue.current.value).then((res) => {
+        setSearchValue(res);
+      });
+    }, 6000);
     setIsAddItem(false);
   };
 

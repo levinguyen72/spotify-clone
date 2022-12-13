@@ -1,7 +1,5 @@
 import React from "react";
-import uuid from "react-uuid";
 import { getUserPlaylists } from "../../services/getUserPlaylists";
-import ButtonItem from "../buttonItem";
 import LibraryPlaylistItem from "../LibraryPlaylistItem";
 import "./index.css";
 type Props = {};
@@ -17,9 +15,6 @@ const Library = (props: Props) => {
       <div className="library__header-content">Playlists</div>
 
       <div className="grid grid-cols-5 gap-x-6 mt-10 mb-8">
-        {/* {userPl?.limit?.map((item: any) => (
-          <LibraryPlaylistItem key={uuid() } item={item} />
-      ))} */}
         <LibraryPlaylistItem />
         <LibraryPlaylistItem />
         <LibraryPlaylistItem />

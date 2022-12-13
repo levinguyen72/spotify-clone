@@ -10,13 +10,13 @@ const Root: React.FunctionComponent<IMainProps> = ({
   children,
 }: IMainProps) => {
   return (
-    <div>
+    <>
       <Sidebar />
 
       <h1>{children}</h1>
 
       <Footer />
-    </div>
+    </>
   );
 };
 
