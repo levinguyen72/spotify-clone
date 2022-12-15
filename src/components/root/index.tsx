@@ -4,6 +4,7 @@ import Sidebar from "../sidebar";
 
 interface IMainProps {
   children?: JSX.Element | JSX.Element[];
+  // children?: any;
 }
 
 const Root: React.FunctionComponent<IMainProps> = ({
