@@ -41,8 +41,12 @@
   
 .footer__button{
     font-size: 30px;
-    padding: 0 10px;
+    padding: 8px;
+    margin: 0 8px;
 
+}
+.footer__button path{
+    fill: #ffff;
 }
 .footer__button-control{
     display: flex;
@@ -52,9 +56,14 @@
 .playback-position{
     font-size: 20px;
 }
-.button_play{
+#button-play > path {
+    fill: #0000 !important;
+    z-index: 2;
+}
+.button-play{
     font-size: 38px !important;
-    color: red !important;
+    background-color: #ffff;
+    border-radius: 50%;
 }
 .progress-bar{
     width: 50% !important;

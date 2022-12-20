@@ -9,6 +9,17 @@ const scopes: Array<string> = [
   "playlist-read-collaborative",
   "user-library-read",
   "user-read-private",
+
+  
+  // "user-top-read",
+  // "user-read-playback-position",
+  // "user-library-read",
+  // "playlist-modify-private",
+  // "playlist-read-public",
+  // "ugc-image-upload",
+  // "user-read-playback-state",
+  // "user-read-currently-playing",
+  // "user-read-recently-played",
 ];
 
 export default scopes;

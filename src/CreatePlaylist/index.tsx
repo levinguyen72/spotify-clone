@@ -70,7 +70,7 @@ export const CreatePlaylist = (props: Props) => {
       createForItem(inputValue.current.value).then((res) => {
         setSearchValue(res);
       });
-    }, 6000);
+    }, 3000);
     setIsAddItem(false);
   };
 

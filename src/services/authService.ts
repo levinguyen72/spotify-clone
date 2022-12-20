@@ -7,7 +7,7 @@ import {
   URI,
 } from "../configs";
 
-
+// access url
     export const auth_url = AUTH_URL +
         "?client_id=" +
         CLIENT_ID +

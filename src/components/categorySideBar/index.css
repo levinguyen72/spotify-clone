@@ -2,9 +2,8 @@
     display: flex;
     flex-direction: column;
     height: 680px !important;
-   
     background-color: #040404;
-    color: white;
+    color:#ffffffb3;
     min-width: 232px;
     padding: 0 10px;
     top: 0;
@@ -17,39 +16,74 @@
     
 }
 .sidebar-list{
-    color: white;
+    color: #ffffffb3;
     text-decoration: none !important; 
    
 }
 .sidebar-list-than5{
-    color: white;
+    color: #ffffffb3;
     text-decoration: none !important; 
     max-height: 28px !important;
 }
-.sidebar-list__logo{
-    color: white
+.sidebar-list__logo {
+    color: #ffffffb3
 }
 .sidebar-list:hover, .sidebar-list-than5:hover{
-    color: #dbdbdb;
+    color: #fff;
 }
 .sidebar-list__logo:hover{
-    color: #dbdbdb;
+    color: #fff;
 }
 .sidebar-list__download{
-    color: white;
+    color: #ffffffb3;
     bottom: 0 !important;
     margin-top: 70px;
 }
+.sidebar-list__download:hover{
+    color: #fff;
+}
 .sidebar_divider{
     height: 1px;
-    background-color: #ddd;
+    background-color: #ffff;
     width: 100%;
     z-index: 2 !important;
     margin: 20px 0 !important;
 }
 .sidebar-container{
-  
     top: 0;
     height: 0;
 }
 
+.home-icon-1{
+    display: block;
+    color: #fff !important;
+
+}
+.sidebar-list__logo path {
+    fill: #ffffffb3;
+}
+.sidebar-list__logo :hover path{
+    fill: #fff !important;
+}
+.sidebar-list :hover path{
+    fill: #fff !important;
+}
+.createPlIcon{
+    background-color: #ffffffb3;
+    padding: 6px;
+    border-radius: 4px;
+}
+.createPlIcon path{
+    fill: #040404;
+}
+.lovedSongIcon path{
+    fill: #ffffffb3;
+}
+.lovedSongIcon{
+    padding: 6px;
+    background-color:#4c2eaf;
+    border-radius: 4px;
+    opacity: .7;
+
+    transition: opacity .2s linear;
+}
