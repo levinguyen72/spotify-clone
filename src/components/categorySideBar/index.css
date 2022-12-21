@@ -12,12 +12,13 @@
 .sidebar__logo{
     height: 70px;
     padding: 10px;
-    margin-right: auto;
+    margin: 0 16px !important;
     
 }
 .sidebar-list{
     color: #ffffffb3;
     text-decoration: none !important; 
+    margin-left: -10px !important;
    
 }
 .sidebar-list-than5{
@@ -26,13 +27,15 @@
     max-height: 28px !important;
 }
 .sidebar-list__logo {
-    color: #ffffffb3
+    color: #ffffffb3;
+ 
 }
 .sidebar-list:hover, .sidebar-list-than5:hover{
     color: #fff;
 }
 .sidebar-list__logo:hover{
     color: #fff;
+    
 }
 .sidebar-list__download{
     color: #ffffffb3;
@@ -86,4 +89,13 @@
     opacity: .7;
 
     transition: opacity .2s linear;
+}
+.css-tlelie-MuiListItemText-root{
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-top: 4px;
+    /* margin-bottom: 0px; */
+    margin-left: -10px;
 }

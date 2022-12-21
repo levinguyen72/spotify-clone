@@ -1,5 +1,4 @@
-import React from "react";
-import ButtonItem from "../buttonItem";
+
 import "./index.css";
 type Props = {};
 

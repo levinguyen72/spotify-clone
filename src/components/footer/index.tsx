@@ -1,13 +1,5 @@
 import * as React from "react";
 import "./index.css";
-import {
-  MdShuffle,
-  MdRepeat,
-  MdPlaylistAddCheck,
-  MdVolumeDown,
-} from "react-icons/md";
-import { BsFillSkipStartFill, BsFillSkipEndFill } from "react-icons/bs";
-import { AiFillPauseCircle, AiFillPlayCircle } from "react-icons/ai";
 import { Progress } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -42,11 +34,19 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     setRepeatMode();
   };
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentPlayingSong, setCurrentPlayingSong] = useState<any>(null)
 
+  React.useEffect(() => {
+    getCurrentlyPlayingTrack().then(res => setCurrentPlayingSong(res))
+
+  }, [])
+
+  console.log("AAAAAAAAAAAAAA")
+  console.log(currentPlayingSong)
   return (
     <div className="footer">
       <div className="footer__left">
-        {itemIsPlaying ? (
+        {/* {itemIsPlaying ? (
           <div className="flex">
             <img
               className="footer__left-logo "
@@ -59,6 +59,27 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
               </h5>
               <h5 className="footer_songName">
                 <a>{itemIsPlaying?.track.name}</a>
+              </h5>
+            </div>
+          </div>
+        ) : (
+          <div className="footer__songInfo">
+            <h4>No song is playing</h4>
+          </div>
+        )} */}
+        {currentPlayingSong ? (
+          <div className="flex">
+            <img
+              className="footer__left-logo "
+              src={currentPlayingSong?.item?.album?.images[2].url}
+              alt={currentPlayingSong?.item?.album?.name}
+            />
+            <div className="footer__songInfo">
+              <h5 className="footer_songArtist">
+                <a>{currentPlayingSong?.item?.artists[0]?.name}</a>
+              </h5>
+              <h5 className="footer_songName">
+                <a>{currentPlayingSong?.item?.name}</a>
               </h5>
             </div>
           </div>
@@ -101,7 +122,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
           </div>
           {isPlaying ? (
             <div
-              className="footer__button button-play"
+              className="footer__button-pl button-play"
               id="button-play"
               onClick={setPause}
             >
@@ -119,7 +140,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
             </div>
           ) : (
             <div
-              className="footer__button button-play"
+              className="footer__button-pl button-play"
               id="button-play"
               onClick={setPlay}
             >
@@ -168,7 +189,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
 
       <div className="footer__right">
         {/* lyrics */}
-        <div className="footer__button">
+        <div className="footer__button-r">
           <svg
             role="img"
             height="16"
@@ -182,7 +203,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
           </svg>
         </div>
         {/* queue */}
-        <div className="footer__button">
+        <div className="footer__button-r">
           <svg
             role="img"
             height="16"
@@ -196,7 +217,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
           </svg>
         </div>
         {/* connect to device */}
-        <div className="footer__button">
+        <div className="footer__button-r">
           <svg
             role="presentation"
             height="16"
@@ -211,7 +232,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
           </svg>
         </div>
         {/* mute */}
-        <div className="footer__button">
+        <div className="footer__button-r">
           <svg
             role="presentation"
             height="16"
@@ -226,8 +247,13 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
             <path d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 6.087a4.502 4.502 0 000-8.474v1.65a2.999 2.999 0 010 5.175v1.649z"></path>
           </svg>
         </div>
-
-        <Progress value={60} color="red" className="progress-bar" />
+        {/* volume-bar*/}
+        <div className="volume__bar">
+          <div className="volume__bar-container">
+            <input type="range" min="0" max="1" step="0.1" value="0.6127" />
+            <div className="volume__bar-progress"></div>
+          </div>
+        </div>
       </div>
     </div>
   );
