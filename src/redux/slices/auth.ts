@@ -41,22 +41,7 @@ interface ObjResponse {
   expires_in: number;
   refresh_token: string;
 }
-interface RecentlyPlayedParameterObject {
-  limit?: number;
-  after?: number;
-  before?: number;
-}
 
-interface PlayParameterObject {
-  device_id?: string;
-  context_uri?: string;
-  uris?: string[];
-  offset?: {
-    position?: number;
-    uri?: string;
-  };
-  position_ms?: number;
-}
 
 
 
@@ -76,7 +61,7 @@ const authSlice = createSlice({
   reducers: {
     setToken: (state, action?) => {
       state.access_token = action.payload.access_token;
-      state.expires_in = +action.payload.expire_in;
+      // state.expires_in = +action.payload.expire_in;
     },
     setPlaying: (state, action) => {
       state.playing = action.payload.playing
@@ -93,6 +78,7 @@ const authSlice = createSlice({
     setDeviceId: (state, action) => {
       state.device_id = action.payload.device_id
     },
+    
    
   },
   extraReducers: (builder) => {

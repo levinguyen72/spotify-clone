@@ -11,12 +11,12 @@ import uuid from 'react-uuid';
 import Library from "./components/Library";
 
 function MyApp({ Component, pageProps }: any) {
-  const token = getToken().token;
+  
 
   return (
     <Provider store={store}>
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           key={"/" + uuid()}
           element={
@@ -24,11 +24,22 @@ function MyApp({ Component, pageProps }: any) {
               <Body />
             </Main>
           }
-        />
-
+        /> */}
         <Route
           path="/home"
           key={"/home" + uuid()}
+          element={
+            <Main>
+              <Home />
+            </Main>
+          }
+        >
+
+        </Route>
+
+        <Route
+          path="/"
+          key={"/" + uuid()}
           element={
             <Main>
               <Home />

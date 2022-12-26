@@ -1,6 +1,5 @@
 import * as React from "react";
 import "./index.css";
-import { Progress } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { pausePlayback } from "../../services/pausePlayback";
@@ -41,8 +40,6 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
 
   }, [])
 
-  console.log("AAAAAAAAAAAAAA")
-  console.log(currentPlayingSong)
   return (
     <div className="footer">
       <div className="footer__left">

@@ -10,6 +10,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import "./index.css";
 import uuid from "react-uuid";
+import { getToken } from "../../services/authService";
 const pages = ["<", ">"];
 const settings = [
   "Account",
@@ -43,6 +44,7 @@ function Home() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+ 
 
   return (
     <AppBar position="static" className="body">

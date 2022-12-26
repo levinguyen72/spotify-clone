@@ -1,8 +1,10 @@
-
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import "./index.css";
+import { getToken } from "../../services/authService";
+import { useDispatch } from "react-redux";
+import { setToken } from "../../redux/slices/auth";
 
 const pages = ["<", ">"];
 
@@ -15,8 +17,12 @@ const settings = [
   "Setting",
   "Log out",
 ];
+const token = getToken().token;
 
 function ResponsiveAppBar() {
+  console.log("123AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  console.log(token);
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
