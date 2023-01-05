@@ -39,7 +39,7 @@ export default function ResponsiveDrawer(props: Props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }} className="sidebar-container">
+    <Box sx={{ display: "flex" }} className="sidebar-container" style={{backgroundColor:"none"}}>
       <CssBaseline />
       {/* content sidebar */}
       <AppBar
@@ -55,9 +55,11 @@ export default function ResponsiveDrawer(props: Props) {
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
+        style={{backgroundColor: "none"}}
       >
         <Drawer
           className="drawer-h"
+          style={{backgroundColor: "none"}}
           container={container}
           variant="temporary"
           open={mobileOpen}

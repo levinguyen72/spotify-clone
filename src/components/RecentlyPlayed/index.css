@@ -1,9 +1,10 @@
 .song__title{
     margin-bottom: 14px;
     margin-top: 14px;
-    font-size: 1.3rem;
+    font-size: 1.5rem !important;
     font-weight: 700;
     color: #f1f1f1;
+    font-family: Poppins;
 }
 
 .topListenItem{
@@ -27,12 +28,12 @@
 }
 .topListenItem__title{
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 16px;
+    width: 220px;
+    padding-left: 16px;
 }
 .topListenItem__title h2{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     color: #f1f1f1;
     
@@ -40,8 +41,13 @@
 .topListenItem__button{
     display: flex;
     width: 80px;
-  
 }
 .topListenItem__button > button {
-    background-color: red !important;
+   justify-content: end;
+   align-self: center;
+   display: none;
+}
+
+.topListenItem:hover .topListenItem__button > button{
+    display: block;
 }

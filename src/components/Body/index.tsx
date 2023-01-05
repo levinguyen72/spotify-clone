@@ -20,8 +20,6 @@ const settings = [
 const token = getToken().token;
 
 function ResponsiveAppBar() {
-  console.log("123AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-  console.log(token);
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null

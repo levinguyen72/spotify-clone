@@ -16,7 +16,7 @@ const Search: React.FunctionComponent<ISearch> = ({}) => {
       searchForItem(inputValue.current.value).then((res) => {
         setSearchValue(res);
       });   
-    }, 3000);
+    }, 2200);
   };
   // recommend
   const [reComSearch, setReComSearch] = React.useState<any>({});

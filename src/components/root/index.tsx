@@ -13,7 +13,7 @@ const Root: React.FunctionComponent<IMainProps> = ({
     <>
       <Sidebar />
 
-      <h1>{children}</h1>
+      <h1 >{children}</h1>
 
       <Footer />
     </>

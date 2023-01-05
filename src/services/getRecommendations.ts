@@ -1,11 +1,11 @@
 import axios from "axios";
-// import { _fakeToken } from "../configs";
+import { _fakeToken } from "../configs";
 import { GET_RECOMMENDATIONS_ENDPOINT } from "./Endpoint/endPoint";
-import { getTokenHM } from "./getTokenHM";
+
 
 
 export const getRecommendations = async () => {
-    const _fakeToken = await getTokenHM()
+
     const { data } = await axios.get(
         GET_RECOMMENDATIONS_ENDPOINT,
         {

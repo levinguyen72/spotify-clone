@@ -27,8 +27,7 @@ const CategorySideBar = (props: Props) => {
   };
   const [onChoose, setOnChoose] = React.useState<boolean>(false);
   const handleOnClick = () => {
-    setOnChoose(state => !state);
-  
+    setOnChoose((state) => !state);
   };
   return (
     <>
@@ -38,7 +37,7 @@ const CategorySideBar = (props: Props) => {
         <NavLink to="/home" onClick={handleOnClick}>
           <ListItem key="home" disablePadding className="sidebar-list">
             <ListItemButton>
-              <ListItemIcon>
+              <ListItemIcon >
                 <div className="sidebar-list__logo">
                   {onChoose ? (
                     <svg
@@ -67,7 +66,9 @@ const CategorySideBar = (props: Props) => {
                   )}
                 </div>
               </ListItemIcon>
-              <ListItemText primary="Home" />
+              <div>
+                <h2 className="listItemName">Home</h2>
+              </div>
             </ListItemButton>
           </ListItem>
         </NavLink>
@@ -105,7 +106,9 @@ const CategorySideBar = (props: Props) => {
                   )}
                 </div>
               </ListItemIcon>
-              <ListItemText primary="Search" />
+              <div>
+                <h2 className="listItemName">Search</h2>
+              </div>
             </ListItemButton>
           </ListItem>
         </NavLink>
@@ -142,7 +145,9 @@ const CategorySideBar = (props: Props) => {
                   )}
                 </div>
               </ListItemIcon>
-              <ListItemText primary="Your library" />
+              <div>
+                <h2 className="listItemName">Library</h2>
+              </div>
             </ListItemButton>
           </ListItem>
         </NavLink>
@@ -175,7 +180,9 @@ const CategorySideBar = (props: Props) => {
                   </div>
                 </div>
               </ListItemIcon>
-              <ListItemText primary="Create Playlist" />
+              <div>
+                <h2 className="listItemName">Create playlist</h2>
+              </div>
             </ListItemButton>
           </ListItem>
         </NavLink>
@@ -201,7 +208,9 @@ const CategorySideBar = (props: Props) => {
                   </div>
                 </div>
               </ListItemIcon>
-              <ListItemText primary="Liked Songs" />
+              <div>
+                <h2 className="listItemName">Liked songs</h2>
+              </div>
             </ListItemButton>
           </ListItem>
         </NavLink>
@@ -214,11 +223,12 @@ const CategorySideBar = (props: Props) => {
               <ListItem
                 key={item.toString() + uuid()}
                 disablePadding
-                className="sidebar-list"
+              className="sidebar-list"
+              style={{height: "32px"}}
               >
-                <ListItemButton>
-                  <ListItemText primary={`My Playlist #${item}`} />
-                </ListItemButton>
+              <h2 className="listPlaylistItem">
+              {`My Playlist #${item}`}
+              </h2>
               </ListItem>
             ))
           : plListArr?.map((item: number) => (
@@ -227,14 +237,14 @@ const CategorySideBar = (props: Props) => {
                 disablePadding
                 className="sidebar-list-than5"
               >
-                <ListItemButton>
-                  <ListItemText primary={`My Playlist #${item}`} />
-                </ListItemButton>
+                <h2 className="listPlaylistItem">
+              {`My Playlist #${item}`}
+              </h2>
               </ListItem>
             ))}
 
         <ListItem disablePadding className="sidebar-list__download">
-          <ListItemButton>
+          <ListItemButton className="installBtn">
             <ListItemIcon>
               <div className="sidebar-list__logo">
                 <svg
@@ -251,7 +261,10 @@ const CategorySideBar = (props: Props) => {
                 </svg>
               </div>
             </ListItemIcon>
-            <ListItemText primary="Install App" />
+           
+            <div>
+                <h2 className="listItemInstall">Install App</h2>
+            </div>
           </ListItemButton>
         </ListItem>
       </List>

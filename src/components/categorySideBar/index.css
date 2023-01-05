@@ -9,16 +9,44 @@
     top: 0;
    
 }
+.listPlaylistItem{
+   
+    margin-left: 12px !important;
+    font-family: Poppins !important;
+    font-size: 13px !important;
+    padding-left: 16px !important;
+}
+.ListItemIcon{
+   
+    width: 40px !important;
+}
+.listItemName{
+    font-family: Poppins !important;
+    font-weight: 590 !important;
+    font-size: 12px !important;
+    margin-left: -6px !important;
+}
+.listItemInstall{
+    font-size: 14px;
+    margin-left: -4px;
+    font-weight: bold !important;
+}
+.installBtn{
+    margin-left: -10px !important;
+    margin-bottom: -300px !important;
+    
+}
 .sidebar__logo{
-    height: 70px;
-    padding: 10px;
-    margin: 0 16px !important;
+    height: 60px;
+    width: 140px;
+    margin: 9px;
     
 }
 .sidebar-list{
     color: #ffffffb3;
     text-decoration: none !important; 
     margin-left: -10px !important;
+    font-family: Poppins;
    
 }
 .sidebar-list-than5{
@@ -28,6 +56,9 @@
 }
 .sidebar-list__logo {
     color: #ffffffb3;
+    margin-left: 10px;
+    margin-right: -10px;
+
  
 }
 .sidebar-list:hover, .sidebar-list-than5:hover{

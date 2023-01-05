@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import uuid from "react-uuid";
 import { getNewReleases } from "../../services/getNewReleases";
+import { getPlaylist } from "../../services/getPlaylist";
 import { getRecentlyPlayed } from "../../services/getRecentlyPlayed";
 import { getRecommendations } from "../../services/getRecommendations";
 import { getSeArtists } from "../../services/getSeArtists";
@@ -24,6 +25,7 @@ const RecentlyPlayed = () => {
   const [reCmt, setReCmt] = useState<any>({});
   const [seShows, setSeShows] = useState<any>({});
   const [seArtists, setSeArtists] = useState<any>({});
+
   // get api is promise => use useEffect
   useEffect(() => {
     const getSongs = async () => {
@@ -33,6 +35,8 @@ const RecentlyPlayed = () => {
       const reCommendations = await getRecommendations();
       const severalShow = await getSeveralShows();
       const severalArtist = await getSeArtists();
+     
+
       setUrTopSong(topSong);
       setReCmt(reCommendations);
       setNewRL(newReleases);
@@ -45,12 +49,15 @@ const RecentlyPlayed = () => {
 
   // Songs
   if (!songs) return null;
-
+  console.log("000000")
+  getPlaylist().then(res => console.log(res))
+  
+  
   return (
     <>
       {/* Good morning */}
       <div className="mt-10">
-        <h1 className="song__title">GOOD MORNING</h1>
+        <h1 className="song__title">Good morning</h1>
         <div className="grid grid-cols-3 gap-x-6 gap-y-6 mt-10">
           {seArtists?.artists?.map((item: any, index: string) => (
             <TopListenItem

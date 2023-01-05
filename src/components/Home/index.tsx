@@ -23,6 +23,10 @@ const settings = [
 ];
 
 function Home() {
+  console.log("AAAAAAAAAAAAAaaaaaa")
+  const _accessToken = getToken().token;
+  console.log(_accessToken)
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );

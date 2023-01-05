@@ -1,30 +1,21 @@
 import Main from "./components/main";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import Body from "./components/Body";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Search from "./components/Search";
 import { getToken } from "./services/authService";
 import { CreatePlaylist } from "./CreatePlaylist";
-import uuid from 'react-uuid';
+import uuid from "react-uuid";
 import Library from "./components/Library";
 
 function MyApp({ Component, pageProps }: any) {
-  
-
+  console.log(1111111111111, getToken().token);
   return (
     <Provider store={store}>
       <Routes>
-        {/* <Route
-          path="/"
-          key={"/" + uuid()}
-          element={
-            <Main>
-              <Body />
-            </Main>
-          }
-        /> */}
+       
+     
         <Route
           path="/home"
           key={"/home" + uuid()}
@@ -33,9 +24,7 @@ function MyApp({ Component, pageProps }: any) {
               <Home />
             </Main>
           }
-        >
-
-        </Route>
+        ></Route>
 
         <Route
           path="/"

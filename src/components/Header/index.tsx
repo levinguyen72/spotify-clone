@@ -15,7 +15,7 @@ const Header = (props: Props) => {
       </div>
       <div className="header__right">
         <img alt="avatar" />
-        <h4>Louis Ng</h4>
+        <h4>LouisNg</h4>
       </div>
     </div>
   );

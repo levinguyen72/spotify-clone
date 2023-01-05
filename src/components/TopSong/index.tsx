@@ -1,7 +1,5 @@
 
 import { useDispatch } from "react-redux";
-import { setItem } from "../../redux/slices/auth";
-import { startResumePlayback } from "../../services/startResumePlayback";
 import ButtonItem from "../buttonItem";
 
 // import playMusic function api
@@ -40,11 +38,11 @@ function TopSong({ item, itemIndex }: Props) {
           <ButtonItem />
         </button>
       </div>
-      <span className="font-semibold text-white text-[16px] whitespace-nowrap">
+      <span className="font-Poppins font-semibold text-white text-[16px] whitespace-nowrap">
         {item?.name}
       </span>{" "}
       <br />
-      <span className="mt-1 text-[14px] text-link">{item?.genres[0].charAt(0).toUpperCase() + item?.genres[0].slice(1)}</span>
+      <span className="font-Poppins mt-1 text-[14px] text-link">{item?.genres[0].charAt(0).toUpperCase() + item?.genres[0].slice(1)}</span>
     </a>
   );
 }

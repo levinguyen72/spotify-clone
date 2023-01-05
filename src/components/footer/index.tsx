@@ -33,12 +33,11 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
     setRepeatMode();
   };
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentPlayingSong, setCurrentPlayingSong] = useState<any>(null)
+  const [currentPlayingSong, setCurrentPlayingSong] = useState<any>(null);
 
   React.useEffect(() => {
-    getCurrentlyPlayingTrack().then(res => setCurrentPlayingSong(res))
-
-  }, [])
+    getCurrentlyPlayingTrack().then((res) => setCurrentPlayingSong(res));
+  }, []);
 
   return (
     <div className="footer">
@@ -72,17 +71,17 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
               alt={currentPlayingSong?.item?.album?.name}
             />
             <div className="footer__songInfo">
-              <h5 className="footer_songArtist">
-                <a>{currentPlayingSong?.item?.artists[0]?.name}</a>
-              </h5>
               <h5 className="footer_songName">
                 <a>{currentPlayingSong?.item?.name}</a>
+              </h5>
+              <h5 className="footer_songArtist">
+                <a>{currentPlayingSong?.item?.artists[0]?.name} </a>
               </h5>
             </div>
           </div>
         ) : (
           <div className="footer__songInfo">
-            <h4>No song is playing</h4>
+            {/* <h4>No song is playing</h4> */}
           </div>
         )}
       </div>
@@ -99,7 +98,6 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
               data-encore-id="icon"
               className="Svg-sc-ytk21e-0 uPxdw"
             >
-              {/* suffle */}
               <path d="M13.151.922a.75.75 0 10-1.06 1.06L13.109 3H11.16a3.75 3.75 0 00-2.873 1.34l-6.173 7.356A2.25 2.25 0 01.39 12.5H0V14h.391a3.75 3.75 0 002.873-1.34l6.173-7.356a2.25 2.25 0 011.724-.804h1.947l-1.017 1.018a.75.75 0 001.06 1.06L15.98 3.75 13.15.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 00.39 3.5z"></path>
               <path d="M7.5 10.723l.98-1.167.957 1.14a2.25 2.25 0 001.724.804h1.947l-1.017-1.018a.75.75 0 111.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 11-1.06-1.06L13.109 13H11.16a3.75 3.75 0 01-2.873-1.34l-.787-.938z"></path>
             </svg>
@@ -181,6 +179,15 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
               <path d="M0 4.75A3.75 3.75 0 013.75 1h8.5A3.75 3.75 0 0116 4.75v5a3.75 3.75 0 01-3.75 3.75H9.81l1.018 1.018a.75.75 0 11-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 111.06 1.06L9.811 12h2.439a2.25 2.25 0 002.25-2.25v-5a2.25 2.25 0 00-2.25-2.25h-8.5A2.25 2.25 0 001.5 4.75v5A2.25 2.25 0 003.75 12H5v1.5H3.75A3.75 3.75 0 010 9.75v-5z"></path>
             </svg>
           </div>
+        </div>
+
+        <div className="duration__bar">
+          <div className="duration__time duration__time-left">2:10</div>
+          <div className="duration__bar-container">
+            <input type="range" min="0" max="1" step="0.1" value="0.6127" />
+            <div className="duration__bar-progress"></div>
+          </div>
+          <div className="duration__time duration__time-right">3:38</div>
         </div>
       </div>
 

@@ -11,7 +11,7 @@ module.exports = {
           itemSelected: "#141414",
           greyLighter: "#282828",
           backgroundLight: "rgba(40,40,40,0.4)",
-          sidebarBackground: "#000000",
+          sidebarBackground: "#ffff",
           footerBackground: "#181818",
         },
         container: {

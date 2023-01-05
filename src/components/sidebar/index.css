@@ -3,7 +3,7 @@
     flex-direction: column;
     height: 680px !important;
    
-    background-color: #040404;
+    background-color: #040404 !important;
     color: white;
     min-width: 232px;
     padding: 0 10px;

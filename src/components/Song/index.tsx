@@ -40,11 +40,12 @@ function Song({ item, itemIndex }: Props) {
           <ButtonItem />
         </button>
       </div>
+      
+      <span className="mt-1 text-[14px] text-link">{item?.track.name}</span>
+      <br />
       <span className="font-semibold text-white text-[16px] whitespace-nowrap">
         {item?.track.album.artists[0].name}
-      </span>{" "}
-      <br />
-      <span className="mt-1 text-[14px] text-link">{item?.track.name}</span>
+      </span>
     </a>
   );
 }
