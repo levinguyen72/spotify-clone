@@ -37,7 +37,7 @@ const Footer: React.FunctionComponent<IFooter> = ({}) => {
 
   React.useEffect(() => {
     getCurrentlyPlayingTrack().then((res) => setCurrentPlayingSong(res));
-  }, []);
+  }, [currentPlayingSong]);
 
   return (
     <div className="footer">

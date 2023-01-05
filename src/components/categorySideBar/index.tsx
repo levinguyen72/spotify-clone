@@ -188,7 +188,7 @@ const CategorySideBar = (props: Props) => {
         </NavLink>
 
         {/*  */}
-        <NavLink to="/likedSong">
+        <NavLink to="/#">
           <ListItem key="likedSong" disablePadding className="sidebar-list">
             <ListItemButton>
               <ListItemIcon>
