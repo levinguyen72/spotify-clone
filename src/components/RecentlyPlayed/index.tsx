@@ -52,12 +52,17 @@ const RecentlyPlayed = () => {
   console.log("000000")
   getPlaylist().then(res => console.log(res))
   
+  const message = () => {
+    const day = new Date()
+    const time = day.getHours()
+    return time < 12 ? "morning" : time < 18 ? "afternoon" : "evening";
+  }
   
   return (
     <>
       {/* Good morning */}
       <div className="mt-10">
-        <h1 className="song__title">Good morning</h1>
+        <h1 className="song__title">{`Good ${message()}`}</h1>
         <div className="grid grid-cols-3 gap-x-6 gap-y-6 mt-10">
           {seArtists?.artists?.map((item: any, index: string) => (
             <TopListenItem
